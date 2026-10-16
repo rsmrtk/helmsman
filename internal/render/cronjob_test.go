@@ -1,0 +1,22 @@
+// SPDX-License-Identifier: Apache-2.0
+// Copyright Authors of K9s
+
+package render_test
+
+import (
+	"testing"
+
+	"github.com/rsmrtk/helmsman/internal/model1"
+	"github.com/rsmrtk/helmsman/internal/render"
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
+)
+
+func TestCronJobRender(t *testing.T) {
+	c := render.CronJob{}
+	r := model1.NewRow(6)
+
+	require.NoError(t, c.Render(load(t, "cj"), "", &r))
+	assert.Equal(t, "default/hello", r.ID)
+	assert.Equal(t, model1.Fields{"default", "hello", "n/a", "*/1 * * * *", "false", "0"}, r.Fields[:6])
+}

@@ -1,0 +1,158 @@
+# -----------------------------------------------------------------------------
+# Rosé Pine Dawn
+# https://rosepinetheme.com/palette
+# -----------------------------------------------------------------------------
+
+# Palette...
+base: &base "#faf4ed"
+surface: &surface "#fffaf3"
+overlay: &overlay "#f2e9e1"
+muted: &muted "#9893a5"
+subtle: &subtle "#797593"
+text: &text "#464261"
+love: &love "#b4637a"
+gold: &gold "#ea9d34"
+rose: &rose "#d7827e"
+pine: &pine "#286983"
+foam: &foam "#56949f"
+iris: &iris "#907aa9"
+highlight_low: &highlight_low "#f4ede8"
+highlight_med: &highlight_med "#dfdad9"
+highlight_high: &highlight_high "#cecacd"
+
+# Skin...
+k9s:
+  # General K9s styles
+  body:
+    fgColor: *text
+    bgColor: *base
+    logoColor: *iris
+    logoColorMsg: *text
+    logoColorInfo: *pine
+    logoColorWarn: *gold
+    logoColorError: *love
+  # Command prompt styles
+  prompt:
+    fgColor: *text
+    bgColor: *surface
+    suggestColor: *muted
+    border:
+      command: *iris
+      default: *pine
+  # Help view styles.
+  help:
+    fgColor: *text
+    bgColor: *base
+    sectionColor: *pine
+    keyColor: *iris
+    numKeyColor: *rose
+  # ClusterInfoView styles.
+  info:
+    fgColor: *pine
+    sectionColor: *subtle
+    cpuColor: *foam
+    memColor: *iris
+    k9sRevColor: *rose
+  # Dialog styles.
+  dialog:
+    fgColor: *text
+    bgColor: *surface
+    buttonFgColor: *surface
+    buttonBgColor: *iris
+    buttonFocusFgColor: *surface
+    buttonFocusBgColor: *pine
+    labelFgColor: *love
+    fieldFgColor: *text
+  frame:
+    # Borders styles.
+    border:
+      fgColor: *highlight_high
+      focusColor: *iris
+    menu:
+      fgColor: *text
+      fgStyle: normal
+      keyColor: *iris
+      # Used for favorite namespaces
+      numKeyColor: *rose
+    # CrumbView attributes for history navigation.
+    crumbs:
+      fgColor: *surface
+      bgColor: *subtle
+      activeColor: *pine
+    # Resource status and update styles
+    status:
+      newColor: *foam
+      modifyColor: *iris
+      addColor: *pine
+      pendingColor: *gold
+      errorColor: *love
+      highlightColor: *rose
+      killColor: *muted
+      completedColor: *subtle
+    # Border title styles.
+    title:
+      fgColor: *subtle
+      bgColor: *base
+      highlightColor: *love
+      counterColor: *iris
+      filterColor: *pine
+  views:
+    # Charts skins...
+    charts:
+      bgColor: *base
+      dialBgColor: *base
+      chartBgColor: *base
+      focusFgColor: *surface
+      focusBgColor: *iris
+      defaultDialColors:
+        - *pine
+        - *love
+      defaultChartColors:
+        - *pine
+        - *love
+      resourceColors:
+        cpu:
+          - *foam
+          - *iris
+        mem:
+          - *rose
+          - *love
+    # TableView attributes.
+    table:
+      fgColor: *text
+      bgColor: *base
+      cursorFgColor: *text
+      cursorBgColor: *highlight_med
+      markColor: *iris
+      # Header row styles.
+      header:
+        fgColor: *subtle
+        bgColor: *base
+        sorterColor: *rose
+        selectedSortColumnColor: *pine
+    # Xray view attributes.
+    xray:
+      fgColor: *text
+      bgColor: *base
+      cursorColor: *highlight_med
+      cursorTextColor: *text
+      graphicColor: *iris
+    # Container picker styles.
+    picker:
+      mainColor: *text
+      focusColor: *iris
+      shortcutColor: *rose
+    # YAML info styles.
+    yaml:
+      keyColor: *pine
+      colonColor: *muted
+      valueColor: *text
+    # Logs styles.
+    logs:
+      fgColor: *text
+      bgColor: *base
+      indicator:
+        fgColor: *surface
+        bgColor: *iris
+        toggleOnColor: *pine
+        toggleOffColor: *muted

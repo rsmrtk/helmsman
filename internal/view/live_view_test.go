@@ -1,0 +1,28 @@
+// SPDX-License-Identifier: Apache-2.0
+// Copyright Authors of K9s
+
+package view
+
+import (
+	"context"
+	"testing"
+
+	"github.com/rsmrtk/helmsman/internal/config"
+	"github.com/rsmrtk/helmsman/internal/config/mock"
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
+)
+
+func TestLiveViewSetText(t *testing.T) {
+	s := `
+apiVersion: v1
+  data:
+    the secret name you want to quote to use tls.","title":"secretName","type":"string"}},"required":["http","class","classInSpec"],"type":"object"}
+`
+
+	v := NewLiveView(NewApp(mock.NewMockConfig(t)), "fred", nil)
+	require.NoError(t, v.Init(context.Background()))
+	v.text.SetText(colorizeYAML(config.Yaml{}, s))
+
+	assert.Equal(t, s, sanitizeEsc(v.text.GetText(true)))
+}

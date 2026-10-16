@@ -1,0 +1,147 @@
+apiVersion: v1
+kind: Namespace
+metadata: {name: demo}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata: {name: web-ok, namespace: demo}
+spec:
+  replicas: 3
+  selector: {matchLabels: {app: web-ok}}
+  template:
+    metadata: {labels: {app: web-ok}}
+    spec:
+      containers:
+      - name: c
+        image: busybox
+        command: [sh, -c, "while true; do :; done"]
+        resources: {requests: {cpu: 50m, memory: 32Mi}, limits: {cpu: 100m, memory: 64Mi}}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata: {name: api-not-ready, namespace: demo}
+spec:
+  replicas: 2
+  selector: {matchLabels: {app: api-not-ready}}
+  template:
+    metadata: {labels: {app: api-not-ready}}
+    spec:
+      containers:
+      - name: c
+        image: busybox
+        command: [sleep, "36000"]
+        readinessProbe: {exec: {command: [sh, -c, "exit 1"]}, periodSeconds: 5}
+        resources: {requests: {cpu: 10m, memory: 16Mi}}
+---
+apiVersion: v1
+kind: Pod
+metadata: {name: crash-loop, namespace: demo}
+spec: {containers: [{name: c, image: busybox, command: [sh, -c, "echo boom; exit 1"]}]}
+---
+apiVersion: v1
+kind: Pod
+metadata: {name: exit-error, namespace: demo}
+spec: {restartPolicy: Never, containers: [{name: c, image: busybox, command: [sh, -c, "exit 3"]}]}
+---
+apiVersion: v1
+kind: Pod
+metadata: {name: image-pull, namespace: demo}
+spec: {containers: [{name: c, image: "registry.invalid/nope:1"}]}
+---
+apiVersion: v1
+kind: Pod
+metadata: {name: image-invalid-name, namespace: demo}
+spec: {containers: [{name: c, image: "BAD IMAGE:::name"}]}
+---
+apiVersion: v1
+kind: Pod
+metadata: {name: pending-unschedulable, namespace: demo}
+spec: {nodeSelector: {no-such-label: "true"}, containers: [{name: c, image: busybox, command: [sleep, "3600"]}]}
+---
+apiVersion: v1
+kind: Pod
+metadata: {name: pending-too-big, namespace: demo}
+spec:
+  containers:
+  - name: c
+    image: busybox
+    command: [sleep, "3600"]
+    resources: {requests: {cpu: "64", memory: 512Gi}}
+---
+apiVersion: v1
+kind: Pod
+metadata: {name: container-creating, namespace: demo}
+spec:
+  containers:
+  - {name: c, image: busybox, command: [sleep, "3600"], volumeMounts: [{name: v, mountPath: /v}]}
+  volumes: [{name: v, configMap: {name: does-not-exist}}]
+---
+apiVersion: v1
+kind: Pod
+metadata: {name: config-error, namespace: demo}
+spec:
+  containers:
+  - name: c
+    image: busybox
+    command: [sleep, "3600"]
+    envFrom: [{secretRef: {name: missing-secret}}]
+---
+apiVersion: v1
+kind: Pod
+metadata: {name: init-waiting, namespace: demo}
+spec:
+  initContainers: [{name: i, image: busybox, command: [sleep, "36000"]}]
+  containers: [{name: c, image: busybox, command: [sleep, "3600"]}]
+---
+apiVersion: v1
+kind: Pod
+metadata: {name: init-crash, namespace: demo}
+spec:
+  initContainers: [{name: i, image: busybox, command: [sh, -c, "exit 1"]}]
+  containers: [{name: c, image: busybox, command: [sleep, "3600"]}]
+---
+apiVersion: v1
+kind: Pod
+metadata: {name: oom-killed, namespace: demo}
+spec:
+  restartPolicy: Never
+  containers:
+  - name: c
+    image: busybox
+    command: [sh, -c, "a=x; while true; do a=$a$a; done"]
+    resources: {limits: {memory: 12Mi}}
+---
+apiVersion: v1
+kind: Pod
+metadata: {name: terminating, namespace: demo, finalizers: ["demo/keep"]}
+spec: {containers: [{name: c, image: busybox, command: [sleep, "36000"]}]}
+---
+apiVersion: batch/v1
+kind: Job
+metadata: {name: job-done, namespace: demo}
+spec:
+  template:
+    spec: {restartPolicy: Never, containers: [{name: c, image: busybox, command: [sh, -c, "echo ok"]}]}
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata: {name: ticker, namespace: demo}
+spec:
+  schedule: "*/1 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec: {restartPolicy: Never, containers: [{name: c, image: busybox, command: [sh, -c, "date"]}]}
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata: {name: db, namespace: demo}
+spec:
+  serviceName: db
+  replicas: 2
+  selector: {matchLabels: {app: db}}
+  template:
+    metadata: {labels: {app: db}}
+    spec:
+      containers:
+      - {name: c, image: busybox, command: [sleep, "36000"], resources: {requests: {cpu: 20m, memory: 24Mi}, limits: {cpu: 100m, memory: 64Mi}}}

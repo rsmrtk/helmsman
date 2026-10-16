@@ -1,0 +1,122 @@
+# -----------------------------------------------------------------------------
+# helmsman-gold
+# -----------------------------------------------------------------------------
+
+# Skin...
+k9s:
+  body:
+    fgColor: "#b3a47c"
+    bgColor: black
+    logoColor: "#e8c46a"
+    logoColorMsg: white
+    logoColorInfo: green
+    logoColorWarn: mediumvioletred
+    logoColorError: red
+  prompt:
+    fgColor: "#b3a47c"
+    bgColor: black
+    suggestColor: "#d0a94a"
+    border:
+      command: "#e8c46a"
+      default: seagreen
+  help:
+    fgColor: "#b3a47c"
+    bgColor: black
+    sectionColor: green
+    keyColor: "#d0a94a"
+    numKeyColor: "#f3dc9c"
+  frame:
+    title:
+      fgColor: "#e8c46a"
+      bgColor: black
+      highlightColor: "#f3dc9c"
+      counterColor: papayawhip
+      filterColor: seagreen
+    border:
+      fgColor: "#d0a94a"
+      focusColor: "#f3dc9c"
+    menu:
+      fgColor: white
+      keyColor: "#d0a94a"
+      numKeyColor: "#f3dc9c"
+    crumbs:
+      fgColor: black
+      bgColor: "#e8c46a"
+      activeColor: "#e8c46a"
+    status:
+      newColor: "#f3dc9c"
+      modifyColor: greenyellow
+      addColor: "#d0a94a"
+      pendingColor: darkorange
+      errorColor: orangered
+      highlightColor: "#e8c46a"
+      killColor: mediumpurple
+      completedColor: lightslategray
+      # Per-status pod colours (built-in palette; override any of them here).
+      # pods:
+      #   CrashLoopBackOff: "#ff5370"
+  info:
+    sectionColor: white
+    fgColor: "#e8c46a"
+  views:
+    table:
+      fgColor: "#e8c46a"
+      bgColor: black
+      cursorFgColor: black
+      cursorBgColor: "#e8c46a"
+      markColor: palegreen
+      header:
+        fgColor: white
+        bgColor: black
+        sorterColor: "#e8c46a"
+        selectedSortColumnColor: "#f3dc9c"
+    xray:
+      fgColor: "#e8c46a"
+      bgColor: black
+      cursorColor: "#d0a94a"
+      cursorTextColor: black
+      graphicColor: "#b3a47c"
+    charts:
+      bgColor: black
+      dialBgColor: black
+      chartBgColor: black
+      focusFgColor: white
+      focusBgColor: "#e8c46a"
+      defaultDialColors:
+      - palegreen
+      - orangered
+      defaultChartColors:
+      - palegreen
+      - orangered
+      resourceColors:
+        cpu:
+        - "#d0a94a"
+        - darkslateblue
+        mem:
+        - yellow
+        - goldenrod
+    yaml:
+      keyColor: "#d0a94a"
+      valueColor: papayawhip
+      colonColor: white
+    picker:
+      mainColor: white
+      focusColor: "#e8c46a"
+      shortcutColor: "#e8c46a"
+    logs:
+      fgColor: "#f3dc9c"
+      bgColor: black
+      indicator:
+        fgColor: "#d0a94a"
+        bgColor: black
+        toggleOnColor: limegreen
+        toggleOffColor: gray
+  dialog:
+    fgColor: "#b3a47c"
+    bgColor: black
+    buttonFgColor: black
+    buttonBgColor: darkslateblue
+    buttonFocusFgColor: black
+    buttonFocusBgColor: "#d0a94a"
+    labelFgColor: white
+    fieldFgColor: white

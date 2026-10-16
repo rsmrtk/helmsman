@@ -1,0 +1,97 @@
+// SPDX-License-Identifier: Apache-2.0
+// Copyright Authors of K9s
+
+package render
+
+import (
+	"fmt"
+	"strconv"
+
+	"github.com/derailed/tview"
+	"github.com/rsmrtk/helmsman/internal/client"
+	"github.com/rsmrtk/helmsman/internal/model1"
+	appsv1 "k8s.io/api/apps/v1"
+	"k8s.io/apimachinery/pkg/apis/meta/v1/unstructured"
+	"k8s.io/apimachinery/pkg/runtime"
+)
+
+var defaultDSHeader = model1.Header{
+	model1.HeaderColumn{Name: colNamespace},
+	model1.HeaderColumn{Name: colName},
+	model1.HeaderColumn{Name: colVS, Attrs: model1.Attrs{VS: true}},
+	model1.HeaderColumn{Name: colDesired, Attrs: model1.Attrs{Align: tview.AlignRight}},
+	model1.HeaderColumn{Name: colCurrent, Attrs: model1.Attrs{Align: tview.AlignRight}},
+	model1.HeaderColumn{Name: colReady, Attrs: model1.Attrs{Align: tview.AlignRight}},
+	model1.HeaderColumn{Name: "UP-TO-DATE", Attrs: model1.Attrs{Align: tview.AlignRight}},
+	model1.HeaderColumn{Name: "AVAILABLE", Attrs: model1.Attrs{Align: tview.AlignRight}},
+	model1.HeaderColumn{Name: colLabels, Attrs: model1.Attrs{Wide: true}},
+	model1.HeaderColumn{Name: colValid, Attrs: model1.Attrs{Wide: true}},
+	model1.HeaderColumn{Name: colAge, Attrs: model1.Attrs{Time: true}},
+}
+
+// DaemonSet renders a K8s DaemonSet to screen.
+type DaemonSet struct {
+	Base
+}
+
+// ColorerFunc colors a resource row.
+func (DaemonSet) ColorerFunc() model1.ColorerFunc {
+	return readyColorer()
+}
+
+// Header returns a header row.
+func (d DaemonSet) Header(_ string) model1.Header {
+	return d.doHeader(defaultDSHeader)
+}
+
+// Render renders a K8s resource to screen.
+func (d DaemonSet) Render(o any, _ string, row *model1.Row) error {
+	raw, ok := o.(*unstructured.Unstructured)
+	if !ok {
+		return fmt.Errorf("expected Unstructured, but got %T", o)
+	}
+	if err := d.defaultRow(raw, row); err != nil {
+		return err
+	}
+	if d.specs.isEmpty() {
+		return nil
+	}
+	cols, err := d.specs.realize(raw, defaultDSHeader, row)
+	cols.hydrateRow(row)
+
+	return err
+}
+
+// defaultRow populates the row fields with Deployment data.
+func (d DaemonSet) defaultRow(raw *unstructured.Unstructured, r *model1.Row) error {
+	var ds appsv1.DaemonSet
+	err := runtime.DefaultUnstructuredConverter.FromUnstructured(raw.Object, &ds)
+	if err != nil {
+		return err
+	}
+
+	r.ID = client.MetaFQN(&ds.ObjectMeta)
+	r.Fields = model1.Fields{
+		ds.Namespace,
+		ds.Name,
+		computeVulScore(ds.Namespace, ds.Labels, &ds.Spec.Template.Spec),
+		strconv.Itoa(int(ds.Status.DesiredNumberScheduled)),
+		strconv.Itoa(int(ds.Status.CurrentNumberScheduled)),
+		strconv.Itoa(int(ds.Status.NumberReady)),
+		strconv.Itoa(int(ds.Status.UpdatedNumberScheduled)),
+		strconv.Itoa(int(ds.Status.NumberAvailable)),
+		mapToStr(ds.Labels),
+		AsStatus(d.diagnose(ds.Status.DesiredNumberScheduled, ds.Status.NumberReady)),
+		ToAge(ds.GetCreationTimestamp()),
+	}
+
+	return nil
+}
+
+// Happy returns true if resource is happy, false otherwise.
+func (DaemonSet) diagnose(d, r int32) error {
+	if d != r {
+		return fmt.Errorf("desiring %d replicas but %d ready", d, r)
+	}
+	return nil
+}

@@ -1,0 +1,97 @@
+// SPDX-License-Identifier: Apache-2.0
+// Copyright Authors of K9s
+
+package render
+
+import (
+	"fmt"
+	"strconv"
+
+	"github.com/derailed/tview"
+	"github.com/rsmrtk/helmsman/internal/client"
+	"github.com/rsmrtk/helmsman/internal/model1"
+	appsv1 "k8s.io/api/apps/v1"
+	"k8s.io/apimachinery/pkg/apis/meta/v1/unstructured"
+	"k8s.io/apimachinery/pkg/runtime"
+)
+
+var defaultDPHeader = model1.Header{
+	model1.HeaderColumn{Name: colNamespace},
+	model1.HeaderColumn{Name: colName},
+	model1.HeaderColumn{Name: colVS, Attrs: model1.Attrs{VS: true}},
+	model1.HeaderColumn{Name: colReady, Attrs: model1.Attrs{Align: tview.AlignRight}},
+	model1.HeaderColumn{Name: "UP-TO-DATE", Attrs: model1.Attrs{Align: tview.AlignRight}},
+	model1.HeaderColumn{Name: "AVAILABLE", Attrs: model1.Attrs{Align: tview.AlignRight}},
+	model1.HeaderColumn{Name: colLabels, Attrs: model1.Attrs{Wide: true}},
+	model1.HeaderColumn{Name: colValid, Attrs: model1.Attrs{Wide: true}},
+	model1.HeaderColumn{Name: colAge, Attrs: model1.Attrs{Time: true}},
+}
+
+// Deployment renders a K8s Deployment to screen.
+type Deployment struct {
+	Base
+}
+
+// ColorerFunc colors a resource row.
+func (Deployment) ColorerFunc() model1.ColorerFunc {
+	return readyColorer()
+}
+
+// Header returns a header row.
+func (d Deployment) Header(_ string) model1.Header {
+	return d.doHeader(defaultDPHeader)
+}
+
+// Render renders a K8s resource to screen.
+func (d Deployment) Render(o any, _ string, row *model1.Row) error {
+	raw, ok := o.(*unstructured.Unstructured)
+	if !ok {
+		return fmt.Errorf("expected Unstructured, but got %T", o)
+	}
+	if err := d.defaultRow(raw, row); err != nil {
+		return err
+	}
+	if d.specs.isEmpty() {
+		return nil
+	}
+	cols, err := d.specs.realize(raw, defaultDPHeader, row)
+	cols.hydrateRow(row)
+
+	return err
+}
+
+// defaultRow populates the row fields with Deployment data.
+func (d Deployment) defaultRow(raw *unstructured.Unstructured, r *model1.Row) error {
+	var dp appsv1.Deployment
+	err := runtime.DefaultUnstructuredConverter.FromUnstructured(raw.Object, &dp)
+	if err != nil {
+		return err
+	}
+
+	var desired int32
+	if dp.Spec.Replicas != nil {
+		desired = *dp.Spec.Replicas
+	}
+	r.ID = client.MetaFQN(&dp.ObjectMeta)
+	r.Fields = model1.Fields{
+		dp.Namespace,
+		dp.Name,
+		computeVulScore(dp.Namespace, dp.Labels, &dp.Spec.Template.Spec),
+		strconv.Itoa(int(dp.Status.AvailableReplicas)) + "/" + strconv.Itoa(int(desired)),
+		strconv.Itoa(int(dp.Status.UpdatedReplicas)),
+		strconv.Itoa(int(dp.Status.AvailableReplicas)),
+		mapToStr(dp.Labels),
+		AsStatus(d.diagnose(dp.Status.Replicas, dp.Status.AvailableReplicas)),
+		ToAge(dp.GetCreationTimestamp()),
+	}
+
+	return nil
+}
+
+func (Deployment) diagnose(desired, avail int32) error {
+	if desired != avail {
+		return fmt.Errorf("desiring %d replicas got %d available", desired, avail)
+	}
+
+	return nil
+}

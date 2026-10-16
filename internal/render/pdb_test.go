@@ -1,0 +1,22 @@
+// SPDX-License-Identifier: Apache-2.0
+// Copyright Authors of K9s
+
+package render_test
+
+import (
+	"testing"
+
+	"github.com/rsmrtk/helmsman/internal/model1"
+	"github.com/rsmrtk/helmsman/internal/render"
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
+)
+
+func TestPodDisruptionBudgetRender(t *testing.T) {
+	c := render.PodDisruptionBudget{}
+	r := model1.NewRow(9)
+
+	require.NoError(t, c.Render(load(t, "pdb"), "", &r))
+	assert.Equal(t, "default/fred", r.ID)
+	assert.Equal(t, model1.Fields{"default", "fred", "2", render.NAValue, "0", "0", "2", "0"}, r.Fields[:8])
+}

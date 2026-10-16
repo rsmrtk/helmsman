@@ -1,0 +1,12 @@
+helmsman
+Copyright 2026 rsmrtk
+
+This product is a modified derivative of k9s
+(https://github.com/derailed/k9s),
+Copyright 2019 Imhotep Software LLC <fernand@imhotep.io> and other contributors,
+licensed under the Apache License, Version 2.0.
+
+Files originating from k9s retain their original license headers. The full
+history of the original project, with every contributor, is at
+https://github.com/derailed/k9s; this repository starts from a snapshot of it
+that was modified and extended by rsmrtk.

@@ -1,0 +1,22 @@
+// SPDX-License-Identifier: Apache-2.0
+// Copyright Authors of K9s
+
+package render_test
+
+import (
+	"testing"
+
+	"github.com/rsmrtk/helmsman/internal/model1"
+	"github.com/rsmrtk/helmsman/internal/render"
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
+)
+
+func TestNetworkPolicyRender(t *testing.T) {
+	c := render.NetworkPolicy{}
+	r := model1.NewRow(9)
+
+	require.NoError(t, c.Render(load(t, "np"), "", &r))
+	assert.Equal(t, "default/fred", r.ID)
+	assert.Equal(t, model1.Fields{"default", "fred", "app=nginx", "ns:app=blee,po:app=fred", "TCP:6379", "172.17.0.0/16[172.17.1.0/24,172.17.3.0/24...]", "", "TCP:5978", "10.0.0.0/24"}, r.Fields[:9])
+}

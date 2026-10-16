@@ -1,0 +1,55 @@
+NAME            := helmsman
+VERSION         ?= v0.1.0
+PACKAGE         := github.com/rsmrtk/helmsman
+OUTPUT_BIN      ?= execs/${NAME}
+GO_FLAGS        ?=
+INSTALL_DIR     ?= $(HOME)/.local/bin
+GO_TAGS	        ?= netgo
+CGO_ENABLED     ?=0
+GIT_REV         ?= $(shell git rev-parse --short HEAD 2>/dev/null || echo unknown)
+
+IMG_NAME        := rsmrtk/helmsman
+IMAGE           := ${IMG_NAME}:${VERSION}
+BUILD_PLATFORMS ?= linux/amd64,linux/arm64
+
+SOURCE_DATE_EPOCH ?= $(shell date +%s)
+ifeq ($(shell uname), Darwin)
+DATE            ?= $(shell TZ=UTC /bin/date -j -f "%s" ${SOURCE_DATE_EPOCH} +"%Y-%m-%dT%H:%M:%SZ")
+else
+DATE            ?= $(shell date -u -d @${SOURCE_DATE_EPOCH} +"%Y-%m-%dT%H:%M:%SZ")
+endif
+
+default: help
+
+test:                    ## Run all tests
+	@go clean --testcache && go test ./...
+
+lint:                    ## Run golangci-lint
+	@command -v golangci-lint >/dev/null 2>&1 || go install github.com/golangci/golangci-lint/v2/cmd/golangci-lint@v2.13.2
+	@golangci-lint run
+
+cover:                   ## Run test coverage suite
+	@go test ./... --coverprofile=cov.out
+	@go tool cover --html=cov.out
+
+build:                   ## Builds the CLI
+	@CGO_ENABLED=${CGO_ENABLED} go build ${GO_FLAGS} \
+	-ldflags "-w -s -X ${PACKAGE}/cmd.version=${VERSION} -X ${PACKAGE}/cmd.commit=${GIT_REV} -X ${PACKAGE}/cmd.date=${DATE}" \
+	-a -tags=${GO_TAGS} -o ${OUTPUT_BIN} .
+
+kubectl-stable-version:  ## Get kubectl latest stable version
+	@curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt
+
+imgx:                    ## Build Docker Image
+	@docker buildx build --platform ${BUILD_PLATFORMS} --rm -t ${IMAGE} --load .
+
+pushx:                   ## Push Docker image to registry
+	@docker buildx build --platform ${BUILD_PLATFORMS} --rm -t ${IMAGE} --push .
+
+help:
+	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":[^:]*?## "}; {printf "\033[38;5;69m%-30s\033[38;5;38m %s\033[0m\n", $$1, $$2}'
+
+install:                 ## Build helmsman and put it in $(INSTALL_DIR) (default ~/.local/bin)
+	@mkdir -p $(INSTALL_DIR)
+	@CGO_ENABLED=${CGO_ENABLED} go build -ldflags "-w -s -X ${PACKAGE}/cmd.version=${VERSION} -X ${PACKAGE}/cmd.commit=${GIT_REV} -X ${PACKAGE}/cmd.date=${DATE}" -o $(INSTALL_DIR)/helmsman .
+	@echo "installed $(INSTALL_DIR)/helmsman"

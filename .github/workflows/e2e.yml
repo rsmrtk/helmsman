@@ -1,0 +1,38 @@
+name: E2E
+
+on:
+  workflow_dispatch:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  demo-cluster:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v7.0.1
+
+      - name: Install Go
+        uses: actions/setup-go@v7.0.0
+        with:
+          go-version-file: go.mod
+          cache-dependency-path: go.sum
+
+      - name: Create kind cluster
+        uses: helm/kind-action@v1
+        with:
+          cluster_name: hm-demo
+          node_image: kindest/node:v1.31.4
+
+      - name: Apply demo workloads
+        run: |
+          kubectl apply -f demo/workloads.yaml
+          # give the pods time to reach their states (crash loops, image pull failures, ...)
+          sleep 90
+          kubectl -n demo get pods
+
+      - name: Run e2e tests
+        run: go test -tags e2e ./e2e/...
+        env:
+          E2E_CONTEXT: kind-hm-demo
