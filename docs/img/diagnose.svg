@@ -5,364 +5,388 @@
 <g font-family="Menlo,Monaco,Consolas,'DejaVu Sans Mono',monospace" font-size="14" xml:space="preserve">
 <rect x="14.0" y="28.0" width="8.4" height="18.0" fill="#000000"/>
 <rect x="22.4" y="28.0" width="67.2" height="18.0" fill="#000000"/>
-<text x="22.4" y="42.0" fill="#92b3f4" textLength="67.2" lengthAdjust="spacingAndGlyphs">Context:</text>
+<text x="22.4 30.8 39.2 47.6 56.0 64.4 72.8 81.2" y="42.0" fill="#92b3f4">Context:</text>
 <rect x="89.6" y="28.0" width="8.4" height="18.0" fill="#000000"/>
 <rect x="98.0" y="28.0" width="134.4" height="18.0" fill="#000000"/>
-<text x="98.0" y="42.0" fill="#ffffff" font-weight="bold" textLength="134.4" lengthAdjust="spacingAndGlyphs">kind-hm-demo [R]</text>
+<text x="98.0 106.4 114.8 123.2 131.6 140.0 148.4 156.8 165.2 173.6 182.0 190.4 198.8 207.2 215.6 224.0" y="42.0" fill="#ffffff" font-weight="bold">kind-hm-demo [R]</text>
 <rect x="232.4" y="28.0" width="201.6" height="18.0" fill="#000000"/>
 <rect x="434.0" y="28.0" width="8.4" height="18.0" fill="#000000"/>
 <rect x="442.4" y="28.0" width="33.6" height="18.0" fill="#000000"/>
-<text x="442.4" y="42.0" fill="#7c9ee6" font-weight="bold" textLength="33.6" lengthAdjust="spacingAndGlyphs">&lt;c&gt; </text>
+<text x="442.4 450.8 459.2 467.6" y="42.0" fill="#7c9ee6" font-weight="bold">&lt;c&gt; </text>
 <rect x="476.0" y="28.0" width="42.0" height="18.0" fill="#000000"/>
-<text x="476.0" y="42.0" fill="#ffffff" textLength="42.0" lengthAdjust="spacingAndGlyphs">Copy </text>
+<text x="476.0 484.4 492.8 501.2 509.6" y="42.0" fill="#ffffff">Copy </text>
 <rect x="518.0" y="28.0" width="537.6" height="18.0" fill="#000000"/>
 <rect x="1055.6" y="28.0" width="16.8" height="18.0" fill="#000000"/>
-<text x="1055.6" y="42.0" fill="#92b3f4" font-weight="bold" textLength="16.8" lengthAdjust="spacingAndGlyphs">██</text>
+<text x="1055.6 1064.0" y="42.0" fill="#92b3f4" font-weight="bold">██</text>
 <rect x="1072.4" y="28.0" width="25.2" height="18.0" fill="#000000"/>
-<text x="1072.4" y="42.0" fill="#41506d" font-weight="bold" textLength="25.2" lengthAdjust="spacingAndGlyphs">╗  </text>
+<text x="1072.4 1080.8 1089.2" y="42.0" fill="#41506d" font-weight="bold">╗  </text>
 <rect x="1097.6" y="28.0" width="16.8" height="18.0" fill="#000000"/>
-<text x="1097.6" y="42.0" fill="#92b3f4" font-weight="bold" textLength="16.8" lengthAdjust="spacingAndGlyphs">██</text>
+<text x="1097.6 1106.0" y="42.0" fill="#92b3f4" font-weight="bold">██</text>
 <rect x="1114.4" y="28.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="1114.4" y="42.0" fill="#41506d" font-weight="bold" textLength="8.4" lengthAdjust="spacingAndGlyphs">╗</text>
+<text x="1114.4" y="42.0" fill="#41506d" font-weight="bold">╗</text>
 <rect x="1122.8" y="28.0" width="25.2" height="18.0" fill="#000000"/>
-<text x="1122.8" y="42.0" fill="#b2c9f7" font-weight="bold" textLength="25.2" lengthAdjust="spacingAndGlyphs">███</text>
+<text x="1122.8 1131.2 1139.6" y="42.0" fill="#b2c9f7" font-weight="bold">███</text>
 <rect x="1148.0" y="28.0" width="33.6" height="18.0" fill="#000000"/>
-<text x="1148.0" y="42.0" fill="#505a6f" font-weight="bold" textLength="33.6" lengthAdjust="spacingAndGlyphs">╗   </text>
+<text x="1148.0 1156.4 1164.8 1173.2" y="42.0" fill="#505a6f" font-weight="bold">╗   </text>
 <rect x="1181.6" y="28.0" width="25.2" height="18.0" fill="#000000"/>
-<text x="1181.6" y="42.0" fill="#b2c9f7" font-weight="bold" textLength="25.2" lengthAdjust="spacingAndGlyphs">███</text>
+<text x="1181.6 1190.0 1198.4" y="42.0" fill="#b2c9f7" font-weight="bold">███</text>
 <rect x="1206.8" y="28.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="1206.8" y="42.0" fill="#505a6f" font-weight="bold" textLength="8.4" lengthAdjust="spacingAndGlyphs">╗</text>
+<text x="1206.8" y="42.0" fill="#505a6f" font-weight="bold">╗</text>
 <rect x="1215.2" y="28.0" width="58.8" height="18.0" fill="#000000"/>
 <rect x="14.0" y="46.0" width="8.4" height="18.0" fill="#000000"/>
 <rect x="22.4" y="46.0" width="67.2" height="18.0" fill="#000000"/>
-<text x="22.4" y="60.0" fill="#92b3f4" textLength="67.2" lengthAdjust="spacingAndGlyphs">Cluster:</text>
+<text x="22.4 30.8 39.2 47.6 56.0 64.4 72.8 81.2" y="60.0" fill="#92b3f4">Cluster:</text>
 <rect x="89.6" y="46.0" width="8.4" height="18.0" fill="#000000"/>
 <rect x="98.0" y="46.0" width="100.8" height="18.0" fill="#000000"/>
-<text x="98.0" y="60.0" fill="#ffffff" font-weight="bold" textLength="100.8" lengthAdjust="spacingAndGlyphs">kind-hm-demo</text>
+<text x="98.0 106.4 114.8 123.2 131.6 140.0 148.4 156.8 165.2 173.6 182.0 190.4" y="60.0" fill="#ffffff" font-weight="bold">kind-hm-demo</text>
 <rect x="198.8" y="46.0" width="235.2" height="18.0" fill="#000000"/>
 <rect x="434.0" y="46.0" width="8.4" height="18.0" fill="#000000"/>
 <rect x="442.4" y="46.0" width="33.6" height="18.0" fill="#000000"/>
-<text x="442.4" y="60.0" fill="#7c9ee6" font-weight="bold" textLength="33.6" lengthAdjust="spacingAndGlyphs">&lt;f&gt; </text>
+<text x="442.4 450.8 459.2 467.6" y="60.0" fill="#7c9ee6" font-weight="bold">&lt;f&gt; </text>
 <rect x="476.0" y="46.0" width="151.2" height="18.0" fill="#000000"/>
-<text x="476.0" y="60.0" fill="#ffffff" textLength="151.2" lengthAdjust="spacingAndGlyphs">Toggle FullScreen </text>
+<text x="476.0 484.4 492.8 501.2 509.6 518.0 526.4 534.8 543.2 551.6 560.0 568.4 576.8 585.2 593.6 602.0 610.4 618.8" y="60.0" fill="#ffffff">Toggle FullScreen </text>
 <rect x="627.2" y="46.0" width="428.4" height="18.0" fill="#000000"/>
 <rect x="1055.6" y="46.0" width="16.8" height="18.0" fill="#000000"/>
-<text x="1055.6" y="60.0" fill="#92b3f4" font-weight="bold" textLength="16.8" lengthAdjust="spacingAndGlyphs">██</text>
+<text x="1055.6 1064.0" y="60.0" fill="#92b3f4" font-weight="bold">██</text>
 <rect x="1072.4" y="46.0" width="25.2" height="18.0" fill="#000000"/>
-<text x="1072.4" y="60.0" fill="#41506d" font-weight="bold" textLength="25.2" lengthAdjust="spacingAndGlyphs">║  </text>
+<text x="1072.4 1080.8 1089.2" y="60.0" fill="#41506d" font-weight="bold">║  </text>
 <rect x="1097.6" y="46.0" width="16.8" height="18.0" fill="#000000"/>
-<text x="1097.6" y="60.0" fill="#92b3f4" font-weight="bold" textLength="16.8" lengthAdjust="spacingAndGlyphs">██</text>
+<text x="1097.6 1106.0" y="60.0" fill="#92b3f4" font-weight="bold">██</text>
 <rect x="1114.4" y="46.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="1114.4" y="60.0" fill="#41506d" font-weight="bold" textLength="8.4" lengthAdjust="spacingAndGlyphs">║</text>
+<text x="1114.4" y="60.0" fill="#41506d" font-weight="bold">║</text>
 <rect x="1122.8" y="46.0" width="33.6" height="18.0" fill="#000000"/>
-<text x="1122.8" y="60.0" fill="#b2c9f7" font-weight="bold" textLength="33.6" lengthAdjust="spacingAndGlyphs">████</text>
+<text x="1122.8 1131.2 1139.6 1148.0" y="60.0" fill="#b2c9f7" font-weight="bold">████</text>
 <rect x="1156.4" y="46.0" width="16.8" height="18.0" fill="#000000"/>
-<text x="1156.4" y="60.0" fill="#505a6f" font-weight="bold" textLength="16.8" lengthAdjust="spacingAndGlyphs">╗ </text>
+<text x="1156.4 1164.8" y="60.0" fill="#505a6f" font-weight="bold">╗ </text>
 <rect x="1173.2" y="46.0" width="33.6" height="18.0" fill="#000000"/>
-<text x="1173.2" y="60.0" fill="#b2c9f7" font-weight="bold" textLength="33.6" lengthAdjust="spacingAndGlyphs">████</text>
+<text x="1173.2 1181.6 1190.0 1198.4" y="60.0" fill="#b2c9f7" font-weight="bold">████</text>
 <rect x="1206.8" y="46.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="1206.8" y="60.0" fill="#505a6f" font-weight="bold" textLength="8.4" lengthAdjust="spacingAndGlyphs">║</text>
+<text x="1206.8" y="60.0" fill="#505a6f" font-weight="bold">║</text>
 <rect x="1215.2" y="46.0" width="58.8" height="18.0" fill="#000000"/>
 <rect x="14.0" y="64.0" width="8.4" height="18.0" fill="#000000"/>
 <rect x="22.4" y="64.0" width="42.0" height="18.0" fill="#000000"/>
-<text x="22.4" y="78.0" fill="#92b3f4" textLength="42.0" lengthAdjust="spacingAndGlyphs">User:</text>
+<text x="22.4 30.8 39.2 47.6 56.0" y="78.0" fill="#92b3f4">User:</text>
 <rect x="64.4" y="64.0" width="25.2" height="18.0" fill="#000000"/>
 <rect x="89.6" y="64.0" width="8.4" height="18.0" fill="#000000"/>
 <rect x="98.0" y="64.0" width="100.8" height="18.0" fill="#000000"/>
-<text x="98.0" y="78.0" fill="#ffffff" font-weight="bold" textLength="100.8" lengthAdjust="spacingAndGlyphs">kind-hm-demo</text>
+<text x="98.0 106.4 114.8 123.2 131.6 140.0 148.4 156.8 165.2 173.6 182.0 190.4" y="78.0" fill="#ffffff" font-weight="bold">kind-hm-demo</text>
 <rect x="198.8" y="64.0" width="856.8" height="18.0" fill="#000000"/>
 <rect x="1055.6" y="64.0" width="58.8" height="18.0" fill="#000000"/>
-<text x="1055.6" y="78.0" fill="#92b3f4" font-weight="bold" textLength="58.8" lengthAdjust="spacingAndGlyphs">███████</text>
+<text x="1055.6 1064.0 1072.4 1080.8 1089.2 1097.6 1106.0" y="78.0" fill="#92b3f4" font-weight="bold">███████</text>
 <rect x="1114.4" y="64.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="1114.4" y="78.0" fill="#41506d" font-weight="bold" textLength="8.4" lengthAdjust="spacingAndGlyphs">║</text>
+<text x="1114.4" y="78.0" fill="#41506d" font-weight="bold">║</text>
 <rect x="1122.8" y="64.0" width="16.8" height="18.0" fill="#000000"/>
-<text x="1122.8" y="78.0" fill="#b2c9f7" font-weight="bold" textLength="16.8" lengthAdjust="spacingAndGlyphs">██</text>
+<text x="1122.8 1131.2" y="78.0" fill="#b2c9f7" font-weight="bold">██</text>
 <rect x="1139.6" y="64.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="1139.6" y="78.0" fill="#505a6f" font-weight="bold" textLength="8.4" lengthAdjust="spacingAndGlyphs">╔</text>
+<text x="1139.6" y="78.0" fill="#505a6f" font-weight="bold">╔</text>
 <rect x="1148.0" y="64.0" width="33.6" height="18.0" fill="#000000"/>
-<text x="1148.0" y="78.0" fill="#b2c9f7" font-weight="bold" textLength="33.6" lengthAdjust="spacingAndGlyphs">████</text>
+<text x="1148.0 1156.4 1164.8 1173.2" y="78.0" fill="#b2c9f7" font-weight="bold">████</text>
 <rect x="1181.6" y="64.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="1181.6" y="78.0" fill="#505a6f" font-weight="bold" textLength="8.4" lengthAdjust="spacingAndGlyphs">╔</text>
+<text x="1181.6" y="78.0" fill="#505a6f" font-weight="bold">╔</text>
 <rect x="1190.0" y="64.0" width="16.8" height="18.0" fill="#000000"/>
-<text x="1190.0" y="78.0" fill="#b2c9f7" font-weight="bold" textLength="16.8" lengthAdjust="spacingAndGlyphs">██</text>
+<text x="1190.0 1198.4" y="78.0" fill="#b2c9f7" font-weight="bold">██</text>
 <rect x="1206.8" y="64.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="1206.8" y="78.0" fill="#505a6f" font-weight="bold" textLength="8.4" lengthAdjust="spacingAndGlyphs">║</text>
+<text x="1206.8" y="78.0" fill="#505a6f" font-weight="bold">║</text>
 <rect x="1215.2" y="64.0" width="58.8" height="18.0" fill="#000000"/>
 <rect x="14.0" y="82.0" width="8.4" height="18.0" fill="#000000"/>
-<rect x="22.4" y="82.0" width="58.8" height="18.0" fill="#000000"/>
-<text x="22.4" y="96.0" fill="#92b3f4" textLength="58.8" lengthAdjust="spacingAndGlyphs">hm Rev:</text>
-<rect x="81.2" y="82.0" width="8.4" height="18.0" fill="#000000"/>
+<rect x="22.4" y="82.0" width="67.2" height="18.0" fill="#000000"/>
+<text x="22.4 30.8 39.2 47.6 56.0 64.4 72.8 81.2" y="96.0" fill="#92b3f4">Version:</text>
 <rect x="89.6" y="82.0" width="8.4" height="18.0" fill="#000000"/>
 <rect x="98.0" y="82.0" width="50.4" height="18.0" fill="#000000"/>
-<text x="98.0" y="96.0" fill="#ffffff" font-weight="bold" textLength="50.4" lengthAdjust="spacingAndGlyphs">v0.1.0</text>
+<text x="98.0 106.4 114.8 123.2 131.6 140.0" y="96.0" fill="#ffffff" font-weight="bold">v0.0.0</text>
 <rect x="148.4" y="82.0" width="907.2" height="18.0" fill="#000000"/>
 <rect x="1055.6" y="82.0" width="16.8" height="18.0" fill="#000000"/>
-<text x="1055.6" y="96.0" fill="#92b3f4" font-weight="bold" textLength="16.8" lengthAdjust="spacingAndGlyphs">██</text>
+<text x="1055.6 1064.0" y="96.0" fill="#92b3f4" font-weight="bold">██</text>
 <rect x="1072.4" y="82.0" width="25.2" height="18.0" fill="#000000"/>
-<text x="1072.4" y="96.0" fill="#41506d" font-weight="bold" textLength="25.2" lengthAdjust="spacingAndGlyphs">╔══</text>
+<text x="1072.4 1080.8 1089.2" y="96.0" fill="#41506d" font-weight="bold">╔══</text>
 <rect x="1097.6" y="82.0" width="16.8" height="18.0" fill="#000000"/>
-<text x="1097.6" y="96.0" fill="#92b3f4" font-weight="bold" textLength="16.8" lengthAdjust="spacingAndGlyphs">██</text>
+<text x="1097.6 1106.0" y="96.0" fill="#92b3f4" font-weight="bold">██</text>
 <rect x="1114.4" y="82.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="1114.4" y="96.0" fill="#41506d" font-weight="bold" textLength="8.4" lengthAdjust="spacingAndGlyphs">║</text>
+<text x="1114.4" y="96.0" fill="#41506d" font-weight="bold">║</text>
 <rect x="1122.8" y="82.0" width="16.8" height="18.0" fill="#000000"/>
-<text x="1122.8" y="96.0" fill="#b2c9f7" font-weight="bold" textLength="16.8" lengthAdjust="spacingAndGlyphs">██</text>
+<text x="1122.8 1131.2" y="96.0" fill="#b2c9f7" font-weight="bold">██</text>
 <rect x="1139.6" y="82.0" width="16.8" height="18.0" fill="#000000"/>
-<text x="1139.6" y="96.0" fill="#505a6f" font-weight="bold" textLength="16.8" lengthAdjust="spacingAndGlyphs">║╚</text>
+<text x="1139.6 1148.0" y="96.0" fill="#505a6f" font-weight="bold">║╚</text>
 <rect x="1156.4" y="82.0" width="16.8" height="18.0" fill="#000000"/>
-<text x="1156.4" y="96.0" fill="#b2c9f7" font-weight="bold" textLength="16.8" lengthAdjust="spacingAndGlyphs">██</text>
+<text x="1156.4 1164.8" y="96.0" fill="#b2c9f7" font-weight="bold">██</text>
 <rect x="1173.2" y="82.0" width="16.8" height="18.0" fill="#000000"/>
-<text x="1173.2" y="96.0" fill="#505a6f" font-weight="bold" textLength="16.8" lengthAdjust="spacingAndGlyphs">╔╝</text>
+<text x="1173.2 1181.6" y="96.0" fill="#505a6f" font-weight="bold">╔╝</text>
 <rect x="1190.0" y="82.0" width="16.8" height="18.0" fill="#000000"/>
-<text x="1190.0" y="96.0" fill="#b2c9f7" font-weight="bold" textLength="16.8" lengthAdjust="spacingAndGlyphs">██</text>
+<text x="1190.0 1198.4" y="96.0" fill="#b2c9f7" font-weight="bold">██</text>
 <rect x="1206.8" y="82.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="1206.8" y="96.0" fill="#505a6f" font-weight="bold" textLength="8.4" lengthAdjust="spacingAndGlyphs">║</text>
+<text x="1206.8" y="96.0" fill="#505a6f" font-weight="bold">║</text>
 <rect x="1215.2" y="82.0" width="58.8" height="18.0" fill="#000000"/>
 <rect x="14.0" y="100.0" width="8.4" height="18.0" fill="#000000"/>
 <rect x="22.4" y="100.0" width="67.2" height="18.0" fill="#000000"/>
-<text x="22.4" y="114.0" fill="#92b3f4" textLength="67.2" lengthAdjust="spacingAndGlyphs">K8s Rev:</text>
+<text x="22.4 30.8 39.2 47.6 56.0 64.4 72.8 81.2" y="114.0" fill="#92b3f4">K8s Rev:</text>
 <rect x="89.6" y="100.0" width="8.4" height="18.0" fill="#000000"/>
 <rect x="98.0" y="100.0" width="58.8" height="18.0" fill="#000000"/>
-<text x="98.0" y="114.0" fill="#ffffff" font-weight="bold" textLength="58.8" lengthAdjust="spacingAndGlyphs">v1.31.4</text>
+<text x="98.0 106.4 114.8 123.2 131.6 140.0 148.4" y="114.0" fill="#ffffff" font-weight="bold">v1.31.4</text>
 <rect x="156.8" y="100.0" width="898.8" height="18.0" fill="#000000"/>
 <rect x="1055.6" y="100.0" width="16.8" height="18.0" fill="#000000"/>
-<text x="1055.6" y="114.0" fill="#92b3f4" font-weight="bold" textLength="16.8" lengthAdjust="spacingAndGlyphs">██</text>
+<text x="1055.6 1064.0" y="114.0" fill="#92b3f4" font-weight="bold">██</text>
 <rect x="1072.4" y="100.0" width="25.2" height="18.0" fill="#000000"/>
-<text x="1072.4" y="114.0" fill="#41506d" font-weight="bold" textLength="25.2" lengthAdjust="spacingAndGlyphs">║  </text>
+<text x="1072.4 1080.8 1089.2" y="114.0" fill="#41506d" font-weight="bold">║  </text>
 <rect x="1097.6" y="100.0" width="16.8" height="18.0" fill="#000000"/>
-<text x="1097.6" y="114.0" fill="#92b3f4" font-weight="bold" textLength="16.8" lengthAdjust="spacingAndGlyphs">██</text>
+<text x="1097.6 1106.0" y="114.0" fill="#92b3f4" font-weight="bold">██</text>
 <rect x="1114.4" y="100.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="1114.4" y="114.0" fill="#41506d" font-weight="bold" textLength="8.4" lengthAdjust="spacingAndGlyphs">║</text>
+<text x="1114.4" y="114.0" fill="#41506d" font-weight="bold">║</text>
 <rect x="1122.8" y="100.0" width="16.8" height="18.0" fill="#000000"/>
-<text x="1122.8" y="114.0" fill="#b2c9f7" font-weight="bold" textLength="16.8" lengthAdjust="spacingAndGlyphs">██</text>
+<text x="1122.8 1131.2" y="114.0" fill="#b2c9f7" font-weight="bold">██</text>
 <rect x="1139.6" y="100.0" width="50.4" height="18.0" fill="#000000"/>
-<text x="1139.6" y="114.0" fill="#505a6f" font-weight="bold" textLength="50.4" lengthAdjust="spacingAndGlyphs">║ ╚═╝ </text>
+<text x="1139.6 1148.0 1156.4 1164.8 1173.2 1181.6" y="114.0" fill="#505a6f" font-weight="bold">║ ╚═╝ </text>
 <rect x="1190.0" y="100.0" width="16.8" height="18.0" fill="#000000"/>
-<text x="1190.0" y="114.0" fill="#b2c9f7" font-weight="bold" textLength="16.8" lengthAdjust="spacingAndGlyphs">██</text>
+<text x="1190.0 1198.4" y="114.0" fill="#b2c9f7" font-weight="bold">██</text>
 <rect x="1206.8" y="100.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="1206.8" y="114.0" fill="#505a6f" font-weight="bold" textLength="8.4" lengthAdjust="spacingAndGlyphs">║</text>
+<text x="1206.8" y="114.0" fill="#505a6f" font-weight="bold">║</text>
 <rect x="1215.2" y="100.0" width="58.8" height="18.0" fill="#000000"/>
 <rect x="14.0" y="118.0" width="8.4" height="18.0" fill="#000000"/>
 <rect x="22.4" y="118.0" width="33.6" height="18.0" fill="#000000"/>
-<text x="22.4" y="132.0" fill="#92b3f4" textLength="33.6" lengthAdjust="spacingAndGlyphs">CPU:</text>
+<text x="22.4 30.8 39.2 47.6" y="132.0" fill="#92b3f4">CPU:</text>
 <rect x="56.0" y="118.0" width="33.6" height="18.0" fill="#000000"/>
 <rect x="89.6" y="118.0" width="8.4" height="18.0" fill="#000000"/>
 <rect x="98.0" y="118.0" width="16.8" height="18.0" fill="#000000"/>
-<text x="98.0" y="132.0" fill="#ffffff" font-weight="bold" textLength="16.8" lengthAdjust="spacingAndGlyphs">3%</text>
+<text x="98.0 106.4" y="132.0" fill="#ffffff" font-weight="bold">3%</text>
 <rect x="114.8" y="118.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="114.8" y="132.0" fill="#ef2929" font-weight="bold" textLength="8.4" lengthAdjust="spacingAndGlyphs">↑</text>
+<text x="114.8" y="132.0" fill="#ef2929" font-weight="bold">↑</text>
 <rect x="123.2" y="118.0" width="932.4" height="18.0" fill="#000000"/>
 <rect x="1055.6" y="118.0" width="67.2" height="18.0" fill="#000000"/>
-<text x="1055.6" y="132.0" fill="#41506d" font-weight="bold" textLength="67.2" lengthAdjust="spacingAndGlyphs">╚═╝  ╚═╝</text>
+<text x="1055.6 1064.0 1072.4 1080.8 1089.2 1097.6 1106.0 1114.4" y="132.0" fill="#41506d" font-weight="bold">╚═╝  ╚═╝</text>
 <rect x="1122.8" y="118.0" width="92.4" height="18.0" fill="#000000"/>
-<text x="1122.8" y="132.0" fill="#505a6f" font-weight="bold" textLength="92.4" lengthAdjust="spacingAndGlyphs">╚═╝     ╚═╝</text>
+<text x="1122.8 1131.2 1139.6 1148.0 1156.4 1164.8 1173.2 1181.6 1190.0 1198.4 1206.8" y="132.0" fill="#505a6f" font-weight="bold">╚═╝     ╚═╝</text>
 <rect x="1215.2" y="118.0" width="58.8" height="18.0" fill="#000000"/>
 <rect x="14.0" y="136.0" width="8.4" height="18.0" fill="#000000"/>
 <rect x="22.4" y="136.0" width="33.6" height="18.0" fill="#000000"/>
-<text x="22.4" y="150.0" fill="#92b3f4" textLength="33.6" lengthAdjust="spacingAndGlyphs">MEM:</text>
+<text x="22.4 30.8 39.2 47.6" y="150.0" fill="#92b3f4">MEM:</text>
 <rect x="56.0" y="136.0" width="33.6" height="18.0" fill="#000000"/>
 <rect x="89.6" y="136.0" width="8.4" height="18.0" fill="#000000"/>
 <rect x="98.0" y="136.0" width="16.8" height="18.0" fill="#000000"/>
-<text x="98.0" y="150.0" fill="#ffffff" font-weight="bold" textLength="16.8" lengthAdjust="spacingAndGlyphs">4%</text>
+<text x="98.0 106.4" y="150.0" fill="#ffffff" font-weight="bold">7%</text>
 <rect x="114.8" y="136.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="114.8" y="150.0" fill="#ef2929" font-weight="bold" textLength="8.4" lengthAdjust="spacingAndGlyphs">↑</text>
+<text x="114.8" y="150.0" fill="#ef2929" font-weight="bold">↑</text>
 <rect x="123.2" y="136.0" width="1150.8" height="18.0" fill="#000000"/>
 <rect x="14.0" y="154.0" width="512.4" height="18.0" fill="#000000"/>
-<text x="14.0" y="168.0" fill="#ff5370" textLength="512.4" lengthAdjust="spacingAndGlyphs">┌────────────────────────────────────────────────────────────</text>
+<text x="14.0 22.4 30.8 39.2 47.6 56.0 64.4 72.8 81.2 89.6 98.0 106.4 114.8 123.2 131.6 140.0 148.4 156.8 165.2 173.6 182.0 190.4 198.8 207.2 215.6 224.0 232.4 240.8 249.2 257.6 266.0 274.4 282.8 291.2 299.6 308.0 316.4 324.8 333.2 341.6 350.0 358.4 366.8 375.2 383.6 392.0 400.4 408.8 417.2 425.6 434.0 442.4 450.8 459.2 467.6 476.0 484.4 492.8 501.2 509.6 518.0" y="168.0" fill="#ff5370">┌────────────────────────────────────────────────────────────</text>
 <rect x="526.4" y="154.0" width="84.0" height="18.0" fill="#000000"/>
-<text x="526.4" y="168.0" fill="#92b3f4" font-weight="bold" textLength="84.0" lengthAdjust="spacingAndGlyphs"> Diagnose(</text>
+<text x="526.4 534.8 543.2 551.6 560.0 568.4 576.8 585.2 593.6 602.0" y="168.0" fill="#92b3f4" font-weight="bold"> Diagnose(</text>
 <rect x="610.4" y="154.0" width="126.0" height="18.0" fill="#000000"/>
-<text x="610.4" y="168.0" fill="#b4cbf8" font-weight="bold" textLength="126.0" lengthAdjust="spacingAndGlyphs">demo/crash-loop</text>
+<text x="610.4 618.8 627.2 635.6 644.0 652.4 660.8 669.2 677.6 686.0 694.4 702.8 711.2 719.6 728.0" y="168.0" fill="#b4cbf8" font-weight="bold">demo/crash-loop</text>
 <rect x="736.4" y="154.0" width="16.8" height="18.0" fill="#000000"/>
-<text x="736.4" y="168.0" fill="#92b3f4" textLength="16.8" lengthAdjust="spacingAndGlyphs">) </text>
+<text x="736.4 744.8" y="168.0" fill="#92b3f4">) </text>
 <rect x="753.2" y="154.0" width="520.8" height="18.0" fill="#000000"/>
-<text x="753.2" y="168.0" fill="#ff5370" textLength="520.8" lengthAdjust="spacingAndGlyphs">─────────────────────────────────────────────────────────────┐</text>
+<text x="753.2 761.6 770.0 778.4 786.8 795.2 803.6 812.0 820.4 828.8 837.2 845.6 854.0 862.4 870.8 879.2 887.6 896.0 904.4 912.8 921.2 929.6 938.0 946.4 954.8 963.2 971.6 980.0 988.4 996.8 1005.2 1013.6 1022.0 1030.4 1038.8 1047.2 1055.6 1064.0 1072.4 1080.8 1089.2 1097.6 1106.0 1114.4 1122.8 1131.2 1139.6 1148.0 1156.4 1164.8 1173.2 1181.6 1190.0 1198.4 1206.8 1215.2 1223.6 1232.0 1240.4 1248.8 1257.2 1265.6" y="168.0" fill="#ff5370">─────────────────────────────────────────────────────────────┐</text>
 <rect x="14.0" y="172.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="14.0" y="186.0" fill="#ff5370" textLength="8.4" lengthAdjust="spacingAndGlyphs">│</text>
+<text x="14.0" y="186.0" fill="#ff5370">│</text>
 <rect x="22.4" y="172.0" width="8.4" height="18.0" fill="#000000"/>
 <rect x="30.8" y="172.0" width="126.0" height="18.0" fill="#000000"/>
-<text x="30.8" y="186.0" fill="#8a9bb8" font-weight="bold" textLength="126.0" lengthAdjust="spacingAndGlyphs">demo/crash-loop</text>
+<text x="30.8 39.2 47.6 56.0 64.4 72.8 81.2 89.6 98.0 106.4 114.8 123.2 131.6 140.0 148.4" y="186.0" fill="#8a9bb8" font-weight="bold">demo/crash-loop</text>
 <rect x="156.8" y="172.0" width="16.8" height="18.0" fill="#000000"/>
 <rect x="173.6" y="172.0" width="134.4" height="18.0" fill="#000000"/>
-<text x="173.6" y="186.0" fill="#ff5370" font-weight="bold" textLength="134.4" lengthAdjust="spacingAndGlyphs">CrashLoopBackOff</text>
+<text x="173.6 182.0 190.4 198.8 207.2 215.6 224.0 232.4 240.8 249.2 257.6 266.0 274.4 282.8 291.2 299.6" y="186.0" fill="#ff5370" font-weight="bold">CrashLoopBackOff</text>
 <rect x="308.0" y="172.0" width="957.6" height="18.0" fill="#000000"/>
 <rect x="1265.6" y="172.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="1265.6" y="186.0" fill="#ff5370" textLength="8.4" lengthAdjust="spacingAndGlyphs">│</text>
+<text x="1265.6" y="186.0" fill="#ff5370">│</text>
 <rect x="14.0" y="190.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="14.0" y="204.0" fill="#ff5370" textLength="8.4" lengthAdjust="spacingAndGlyphs">│</text>
+<text x="14.0" y="204.0" fill="#ff5370">│</text>
 <rect x="22.4" y="190.0" width="8.4" height="18.0" fill="#000000"/>
 <rect x="30.8" y="190.0" width="478.8" height="18.0" fill="#000000"/>
-<text x="30.8" y="204.0" fill="#8a9bb8" textLength="478.8" lengthAdjust="spacingAndGlyphs">node hm-demo-worker  ·  ip 10.244.1.18  ·  qos BestEffort</text>
+<text x="30.8 39.2 47.6 56.0 64.4 72.8 81.2 89.6 98.0 106.4 114.8 123.2 131.6 140.0 148.4 156.8 165.2 173.6 182.0 190.4 198.8 207.2 215.6 224.0 232.4 240.8 249.2 257.6 266.0 274.4 282.8 291.2 299.6 308.0 316.4 324.8 333.2 341.6 350.0 358.4 366.8 375.2 383.6 392.0 400.4 408.8 417.2 425.6 434.0 442.4 450.8 459.2 467.6 476.0 484.4 492.8 501.2" y="204.0" fill="#8a9bb8">node hm-demo-worker  ·  ip 10.244.1.18  ·  qos BestEffort</text>
 <rect x="509.6" y="190.0" width="756.0" height="18.0" fill="#000000"/>
 <rect x="1265.6" y="190.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="1265.6" y="204.0" fill="#ff5370" textLength="8.4" lengthAdjust="spacingAndGlyphs">│</text>
+<text x="1265.6" y="204.0" fill="#ff5370">│</text>
 <rect x="14.0" y="208.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="14.0" y="222.0" fill="#ff5370" textLength="8.4" lengthAdjust="spacingAndGlyphs">│</text>
+<text x="14.0" y="222.0" fill="#ff5370">│</text>
 <rect x="22.4" y="208.0" width="1243.2" height="18.0" fill="#000000"/>
 <rect x="1265.6" y="208.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="1265.6" y="222.0" fill="#ff5370" textLength="8.4" lengthAdjust="spacingAndGlyphs">│</text>
+<text x="1265.6" y="222.0" fill="#ff5370">│</text>
 <rect x="14.0" y="226.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="14.0" y="240.0" fill="#ff5370" textLength="8.4" lengthAdjust="spacingAndGlyphs">│</text>
+<text x="14.0" y="240.0" fill="#ff5370">│</text>
 <rect x="22.4" y="226.0" width="8.4" height="18.0" fill="#000000"/>
 <rect x="30.8" y="226.0" width="67.2" height="18.0" fill="#000000"/>
-<text x="30.8" y="240.0" fill="#8a9bb8" font-weight="bold" textLength="67.2" lengthAdjust="spacingAndGlyphs">Findings</text>
+<text x="30.8 39.2 47.6 56.0 64.4 72.8 81.2 89.6" y="240.0" fill="#8a9bb8" font-weight="bold">Findings</text>
 <rect x="98.0" y="226.0" width="1167.6" height="18.0" fill="#000000"/>
 <rect x="1265.6" y="226.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="1265.6" y="240.0" fill="#ff5370" textLength="8.4" lengthAdjust="spacingAndGlyphs">│</text>
+<text x="1265.6" y="240.0" fill="#ff5370">│</text>
 <rect x="14.0" y="244.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="14.0" y="258.0" fill="#ff5370" textLength="8.4" lengthAdjust="spacingAndGlyphs">│</text>
+<text x="14.0" y="258.0" fill="#ff5370">│</text>
 <rect x="22.4" y="244.0" width="8.4" height="18.0" fill="#000000"/>
 <rect x="30.8" y="244.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="30.8" y="258.0" fill="#ff5370" font-weight="bold" textLength="8.4" lengthAdjust="spacingAndGlyphs">●</text>
-<rect x="39.2" y="244.0" width="1201.2" height="18.0" fill="#000000"/>
-<text x="39.2" y="258.0" fill="#8a9bb8" textLength="1201.2" lengthAdjust="spacingAndGlyphs"> container &quot;c&quot; is waiting: back-off 5m0s restarting failed container=c pod=crash-loop_demo(95acbdd9-90a6-4e7e-99ce-465f1454173f). the container</text>
-<rect x="1240.4" y="244.0" width="25.2" height="18.0" fill="#000000"/>
+<text x="30.8" y="258.0" fill="#ff5370" font-weight="bold">●</text>
+<rect x="39.2" y="244.0" width="361.2" height="18.0" fill="#000000"/>
+<text x="39.2 47.6 56.0 64.4 72.8 81.2 89.6 98.0 106.4 114.8 123.2 131.6 140.0 148.4 156.8 165.2 173.6 182.0 190.4 198.8 207.2 215.6 224.0 232.4 240.8 249.2 257.6 266.0 274.4 282.8 291.2 299.6 308.0 316.4 324.8 333.2 341.6 350.0 358.4 366.8 375.2 383.6 392.0" y="258.0" fill="#8a9bb8"> container &quot;c&quot; is waiting: CrashLoopBackOff</text>
+<rect x="400.4" y="244.0" width="865.2" height="18.0" fill="#000000"/>
 <rect x="1265.6" y="244.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="1265.6" y="258.0" fill="#ff5370" textLength="8.4" lengthAdjust="spacingAndGlyphs">│</text>
+<text x="1265.6" y="258.0" fill="#ff5370">│</text>
 <rect x="14.0" y="262.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="14.0" y="276.0" fill="#ff5370" textLength="8.4" lengthAdjust="spacingAndGlyphs">│</text>
+<text x="14.0" y="276.0" fill="#ff5370">│</text>
 <rect x="22.4" y="262.0" width="8.4" height="18.0" fill="#000000"/>
-<rect x="30.8" y="262.0" width="663.6" height="18.0" fill="#000000"/>
-<text x="30.8" y="276.0" fill="#8a9bb8" textLength="663.6" lengthAdjust="spacingAndGlyphs"> keeps exiting: read the previous logs below and the exit code under Containers</text>
-<rect x="694.4" y="262.0" width="571.2" height="18.0" fill="#000000"/>
+<rect x="30.8" y="262.0" width="806.4" height="18.0" fill="#000000"/>
+<text x="30.8 39.2 47.6 56.0 64.4 72.8 81.2 89.6 98.0 106.4 114.8 123.2 131.6 140.0 148.4 156.8 165.2 173.6 182.0 190.4 198.8 207.2 215.6 224.0 232.4 240.8 249.2 257.6 266.0 274.4 282.8 291.2 299.6 308.0 316.4 324.8 333.2 341.6 350.0 358.4 366.8 375.2 383.6 392.0 400.4 408.8 417.2 425.6 434.0 442.4 450.8 459.2 467.6 476.0 484.4 492.8 501.2 509.6 518.0 526.4 534.8 543.2 551.6 560.0 568.4 576.8 585.2 593.6 602.0 610.4 618.8 627.2 635.6 644.0 652.4 660.8 669.2 677.6 686.0 694.4 702.8 711.2 719.6 728.0 736.4 744.8 753.2 761.6 770.0 778.4 786.8 795.2 803.6 812.0 820.4 828.8" y="276.0" fill="#8a9bb8">  → the container keeps exiting: read the previous logs below and the exit code under Containers</text>
+<rect x="837.2" y="262.0" width="428.4" height="18.0" fill="#000000"/>
 <rect x="1265.6" y="262.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="1265.6" y="276.0" fill="#ff5370" textLength="8.4" lengthAdjust="spacingAndGlyphs">│</text>
+<text x="1265.6" y="276.0" fill="#ff5370">│</text>
 <rect x="14.0" y="280.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="14.0" y="294.0" fill="#ff5370" textLength="8.4" lengthAdjust="spacingAndGlyphs">│</text>
+<text x="14.0" y="294.0" fill="#ff5370">│</text>
 <rect x="22.4" y="280.0" width="8.4" height="18.0" fill="#000000"/>
 <rect x="30.8" y="280.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="30.8" y="294.0" fill="#f07178" font-weight="bold" textLength="8.4" lengthAdjust="spacingAndGlyphs">●</text>
-<rect x="39.2" y="280.0" width="579.6" height="18.0" fill="#000000"/>
-<text x="39.2" y="294.0" fill="#8a9bb8" textLength="579.6" lengthAdjust="spacingAndGlyphs"> container &quot;c&quot; was last terminated: Error, exit code 1, 36 restart(s)</text>
-<rect x="618.8" y="280.0" width="646.8" height="18.0" fill="#000000"/>
+<text x="30.8" y="294.0" fill="#f07178" font-weight="bold">●</text>
+<rect x="39.2" y="280.0" width="588.0" height="18.0" fill="#000000"/>
+<text x="39.2 47.6 56.0 64.4 72.8 81.2 89.6 98.0 106.4 114.8 123.2 131.6 140.0 148.4 156.8 165.2 173.6 182.0 190.4 198.8 207.2 215.6 224.0 232.4 240.8 249.2 257.6 266.0 274.4 282.8 291.2 299.6 308.0 316.4 324.8 333.2 341.6 350.0 358.4 366.8 375.2 383.6 392.0 400.4 408.8 417.2 425.6 434.0 442.4 450.8 459.2 467.6 476.0 484.4 492.8 501.2 509.6 518.0 526.4 534.8 543.2 551.6 560.0 568.4 576.8 585.2 593.6 602.0 610.4 618.8" y="294.0" fill="#8a9bb8"> container &quot;c&quot; was last terminated: Error, exit code 1, 464 restart(s)</text>
+<rect x="627.2" y="280.0" width="638.4" height="18.0" fill="#000000"/>
 <rect x="1265.6" y="280.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="1265.6" y="294.0" fill="#ff5370" textLength="8.4" lengthAdjust="spacingAndGlyphs">│</text>
+<text x="1265.6" y="294.0" fill="#ff5370">│</text>
 <rect x="14.0" y="298.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="14.0" y="312.0" fill="#ff5370" textLength="8.4" lengthAdjust="spacingAndGlyphs">│</text>
+<text x="14.0" y="312.0" fill="#ff5370">│</text>
 <rect x="22.4" y="298.0" width="8.4" height="18.0" fill="#000000"/>
 <rect x="30.8" y="298.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="30.8" y="312.0" fill="#f2c14e" font-weight="bold" textLength="8.4" lengthAdjust="spacingAndGlyphs">●</text>
-<rect x="39.2" y="298.0" width="898.8" height="18.0" fill="#000000"/>
-<text x="39.2" y="312.0" fill="#8a9bb8" textLength="898.8" lengthAdjust="spacingAndGlyphs"> container &quot;c&quot; sets no requests or limits, so it is the first to be evicted and cannot be scheduled by size</text>
-<rect x="938.0" y="298.0" width="327.6" height="18.0" fill="#000000"/>
+<text x="30.8" y="312.0" fill="#ff9e64" font-weight="bold">●</text>
+<rect x="39.2" y="298.0" width="1201.2" height="18.0" fill="#000000"/>
+<text x="39.2 47.6 56.0 64.4 72.8 81.2 89.6 98.0 106.4 114.8 123.2 131.6 140.0 148.4 156.8 165.2 173.6 182.0 190.4 198.8 207.2 215.6 224.0 232.4 240.8 249.2 257.6 266.0 274.4 282.8 291.2 299.6 308.0 316.4 324.8 333.2 341.6 350.0 358.4 366.8 375.2 383.6 392.0 400.4 408.8 417.2 425.6 434.0 442.4 450.8 459.2 467.6 476.0 484.4 492.8 501.2 509.6 518.0 526.4 534.8 543.2 551.6 560.0 568.4 576.8 585.2 593.6 602.0 610.4 618.8 627.2 635.6 644.0 652.4 660.8 669.2 677.6 686.0 694.4 702.8 711.2 719.6 728.0 736.4 744.8 753.2 761.6 770.0 778.4 786.8 795.2 803.6 812.0 820.4 828.8 837.2 845.6 854.0 862.4 870.8 879.2 887.6 896.0 904.4 912.8 921.2 929.6 938.0 946.4 954.8 963.2 971.6 980.0 988.4 996.8 1005.2 1013.6 1022.0 1030.4 1038.8 1047.2 1055.6 1064.0 1072.4 1080.8 1089.2 1097.6 1106.0 1114.4 1122.8 1131.2 1139.6 1148.0 1156.4 1164.8 1173.2 1181.6 1190.0 1198.4 1206.8 1215.2 1223.6 1232.0" y="312.0" fill="#8a9bb8"> volume problem: MountVolume.SetUp failed for volume &quot;kube-api-access-wvwj9&quot; : failed to fetch token: Post &quot;https://hm-demo-control-plane:6443/</text>
+<rect x="1240.4" y="298.0" width="25.2" height="18.0" fill="#000000"/>
 <rect x="1265.6" y="298.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="1265.6" y="312.0" fill="#ff5370" textLength="8.4" lengthAdjust="spacingAndGlyphs">│</text>
+<text x="1265.6" y="312.0" fill="#ff5370">│</text>
 <rect x="14.0" y="316.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="14.0" y="330.0" fill="#ff5370" textLength="8.4" lengthAdjust="spacingAndGlyphs">│</text>
-<rect x="22.4" y="316.0" width="1243.2" height="18.0" fill="#000000"/>
+<text x="14.0" y="330.0" fill="#ff5370">│</text>
+<rect x="22.4" y="316.0" width="8.4" height="18.0" fill="#000000"/>
+<rect x="30.8" y="316.0" width="67.2" height="18.0" fill="#000000"/>
+<text x="30.8 39.2 47.6 56.0 64.4 72.8 81.2 89.6" y="330.0" fill="#8a9bb8">api/v1/…</text>
+<rect x="98.0" y="316.0" width="1167.6" height="18.0" fill="#000000"/>
 <rect x="1265.6" y="316.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="1265.6" y="330.0" fill="#ff5370" textLength="8.4" lengthAdjust="spacingAndGlyphs">│</text>
+<text x="1265.6" y="330.0" fill="#ff5370">│</text>
 <rect x="14.0" y="334.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="14.0" y="348.0" fill="#ff5370" textLength="8.4" lengthAdjust="spacingAndGlyphs">│</text>
+<text x="14.0" y="348.0" fill="#ff5370">│</text>
 <rect x="22.4" y="334.0" width="8.4" height="18.0" fill="#000000"/>
-<rect x="30.8" y="334.0" width="84.0" height="18.0" fill="#000000"/>
-<text x="30.8" y="348.0" fill="#8a9bb8" font-weight="bold" textLength="84.0" lengthAdjust="spacingAndGlyphs">Containers</text>
-<rect x="114.8" y="334.0" width="1150.8" height="18.0" fill="#000000"/>
+<rect x="30.8" y="334.0" width="8.4" height="18.0" fill="#000000"/>
+<text x="30.8" y="348.0" fill="#f2c14e" font-weight="bold">●</text>
+<rect x="39.2" y="334.0" width="898.8" height="18.0" fill="#000000"/>
+<text x="39.2 47.6 56.0 64.4 72.8 81.2 89.6 98.0 106.4 114.8 123.2 131.6 140.0 148.4 156.8 165.2 173.6 182.0 190.4 198.8 207.2 215.6 224.0 232.4 240.8 249.2 257.6 266.0 274.4 282.8 291.2 299.6 308.0 316.4 324.8 333.2 341.6 350.0 358.4 366.8 375.2 383.6 392.0 400.4 408.8 417.2 425.6 434.0 442.4 450.8 459.2 467.6 476.0 484.4 492.8 501.2 509.6 518.0 526.4 534.8 543.2 551.6 560.0 568.4 576.8 585.2 593.6 602.0 610.4 618.8 627.2 635.6 644.0 652.4 660.8 669.2 677.6 686.0 694.4 702.8 711.2 719.6 728.0 736.4 744.8 753.2 761.6 770.0 778.4 786.8 795.2 803.6 812.0 820.4 828.8 837.2 845.6 854.0 862.4 870.8 879.2 887.6 896.0 904.4 912.8 921.2 929.6" y="348.0" fill="#8a9bb8"> container &quot;c&quot; sets no requests or limits, so it is the first to be evicted and cannot be scheduled by size</text>
+<rect x="938.0" y="334.0" width="327.6" height="18.0" fill="#000000"/>
 <rect x="1265.6" y="334.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="1265.6" y="348.0" fill="#ff5370" textLength="8.4" lengthAdjust="spacingAndGlyphs">│</text>
+<text x="1265.6" y="348.0" fill="#ff5370">│</text>
 <rect x="14.0" y="352.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="14.0" y="366.0" fill="#ff5370" textLength="8.4" lengthAdjust="spacingAndGlyphs">│</text>
-<rect x="22.4" y="352.0" width="8.4" height="18.0" fill="#000000"/>
-<rect x="30.8" y="352.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="30.8" y="366.0" fill="#ff5370" font-weight="bold" textLength="8.4" lengthAdjust="spacingAndGlyphs">●</text>
-<rect x="39.2" y="352.0" width="924.0" height="18.0" fill="#000000"/>
-<text x="39.2" y="366.0" fill="#8a9bb8" textLength="924.0" lengthAdjust="spacingAndGlyphs"> c                  waiting: CrashLoopBackOff  ready=false restarts=36  image=docker.io/library/busybox:latest</text>
-<rect x="963.2" y="352.0" width="302.4" height="18.0" fill="#000000"/>
+<text x="14.0" y="366.0" fill="#ff5370">│</text>
+<rect x="22.4" y="352.0" width="1243.2" height="18.0" fill="#000000"/>
 <rect x="1265.6" y="352.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="1265.6" y="366.0" fill="#ff5370" textLength="8.4" lengthAdjust="spacingAndGlyphs">│</text>
+<text x="1265.6" y="366.0" fill="#ff5370">│</text>
 <rect x="14.0" y="370.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="14.0" y="384.0" fill="#ff5370" textLength="8.4" lengthAdjust="spacingAndGlyphs">│</text>
-<rect x="22.4" y="370.0" width="1243.2" height="18.0" fill="#000000"/>
+<text x="14.0" y="384.0" fill="#ff5370">│</text>
+<rect x="22.4" y="370.0" width="8.4" height="18.0" fill="#000000"/>
+<rect x="30.8" y="370.0" width="84.0" height="18.0" fill="#000000"/>
+<text x="30.8 39.2 47.6 56.0 64.4 72.8 81.2 89.6 98.0 106.4" y="384.0" fill="#8a9bb8" font-weight="bold">Containers</text>
+<rect x="114.8" y="370.0" width="1150.8" height="18.0" fill="#000000"/>
 <rect x="1265.6" y="370.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="1265.6" y="384.0" fill="#ff5370" textLength="8.4" lengthAdjust="spacingAndGlyphs">│</text>
+<text x="1265.6" y="384.0" fill="#ff5370">│</text>
 <rect x="14.0" y="388.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="14.0" y="402.0" fill="#ff5370" textLength="8.4" lengthAdjust="spacingAndGlyphs">│</text>
+<text x="14.0" y="402.0" fill="#ff5370">│</text>
 <rect x="22.4" y="388.0" width="8.4" height="18.0" fill="#000000"/>
-<rect x="30.8" y="388.0" width="50.4" height="18.0" fill="#000000"/>
-<text x="30.8" y="402.0" fill="#8a9bb8" font-weight="bold" textLength="50.4" lengthAdjust="spacingAndGlyphs">Events</text>
-<rect x="81.2" y="388.0" width="1184.4" height="18.0" fill="#000000"/>
+<rect x="30.8" y="388.0" width="8.4" height="18.0" fill="#000000"/>
+<text x="30.8" y="402.0" fill="#ff5370" font-weight="bold">●</text>
+<rect x="39.2" y="388.0" width="932.4" height="18.0" fill="#000000"/>
+<text x="39.2 47.6 56.0 64.4 72.8 81.2 89.6 98.0 106.4 114.8 123.2 131.6 140.0 148.4 156.8 165.2 173.6 182.0 190.4 198.8 207.2 215.6 224.0 232.4 240.8 249.2 257.6 266.0 274.4 282.8 291.2 299.6 308.0 316.4 324.8 333.2 341.6 350.0 358.4 366.8 375.2 383.6 392.0 400.4 408.8 417.2 425.6 434.0 442.4 450.8 459.2 467.6 476.0 484.4 492.8 501.2 509.6 518.0 526.4 534.8 543.2 551.6 560.0 568.4 576.8 585.2 593.6 602.0 610.4 618.8 627.2 635.6 644.0 652.4 660.8 669.2 677.6 686.0 694.4 702.8 711.2 719.6 728.0 736.4 744.8 753.2 761.6 770.0 778.4 786.8 795.2 803.6 812.0 820.4 828.8 837.2 845.6 854.0 862.4 870.8 879.2 887.6 896.0 904.4 912.8 921.2 929.6 938.0 946.4 954.8 963.2" y="402.0" fill="#8a9bb8"> c                  waiting: CrashLoopBackOff  ready=false restarts=464  image=docker.io/library/busybox:latest</text>
+<rect x="971.6" y="388.0" width="294.0" height="18.0" fill="#000000"/>
 <rect x="1265.6" y="388.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="1265.6" y="402.0" fill="#ff5370" textLength="8.4" lengthAdjust="spacingAndGlyphs">│</text>
+<text x="1265.6" y="402.0" fill="#ff5370">│</text>
 <rect x="14.0" y="406.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="14.0" y="420.0" fill="#ff5370" textLength="8.4" lengthAdjust="spacingAndGlyphs">│</text>
-<rect x="22.4" y="406.0" width="8.4" height="18.0" fill="#000000"/>
-<rect x="30.8" y="406.0" width="260.4" height="18.0" fill="#000000"/>
-<text x="30.8" y="420.0" fill="#ff5370" font-weight="bold" textLength="260.4" lengthAdjust="spacingAndGlyphs">Warning  BackOff               </text>
-<rect x="291.2" y="406.0" width="840.0" height="18.0" fill="#000000"/>
-<text x="291.2" y="420.0" fill="#8a9bb8" textLength="840.0" lengthAdjust="spacingAndGlyphs"> Back-off restarting failed container c in pod crash-loop_demo(95acbdd9-90a6-4e7e-99ce-465f1454173f)</text>
-<rect x="1131.2" y="406.0" width="134.4" height="18.0" fill="#000000"/>
+<text x="14.0" y="420.0" fill="#ff5370">│</text>
+<rect x="22.4" y="406.0" width="1243.2" height="18.0" fill="#000000"/>
 <rect x="1265.6" y="406.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="1265.6" y="420.0" fill="#ff5370" textLength="8.4" lengthAdjust="spacingAndGlyphs">│</text>
+<text x="1265.6" y="420.0" fill="#ff5370">│</text>
 <rect x="14.0" y="424.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="14.0" y="438.0" fill="#ff5370" textLength="8.4" lengthAdjust="spacingAndGlyphs">│</text>
-<rect x="22.4" y="424.0" width="1243.2" height="18.0" fill="#000000"/>
+<text x="14.0" y="438.0" fill="#ff5370">│</text>
+<rect x="22.4" y="424.0" width="8.4" height="18.0" fill="#000000"/>
+<rect x="30.8" y="424.0" width="50.4" height="18.0" fill="#000000"/>
+<text x="30.8 39.2 47.6 56.0 64.4 72.8" y="438.0" fill="#8a9bb8" font-weight="bold">Events</text>
+<rect x="81.2" y="424.0" width="1184.4" height="18.0" fill="#000000"/>
 <rect x="1265.6" y="424.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="1265.6" y="438.0" fill="#ff5370" textLength="8.4" lengthAdjust="spacingAndGlyphs">│</text>
+<text x="1265.6" y="438.0" fill="#ff5370">│</text>
 <rect x="14.0" y="442.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="14.0" y="456.0" fill="#ff5370" textLength="8.4" lengthAdjust="spacingAndGlyphs">│</text>
+<text x="14.0" y="456.0" fill="#ff5370">│</text>
 <rect x="22.4" y="442.0" width="8.4" height="18.0" fill="#000000"/>
-<rect x="30.8" y="442.0" width="134.4" height="18.0" fill="#000000"/>
-<text x="30.8" y="456.0" fill="#8a9bb8" font-weight="bold" textLength="134.4" lengthAdjust="spacingAndGlyphs">Previous logs: c</text>
-<rect x="165.2" y="442.0" width="134.4" height="18.0" fill="#000000"/>
-<text x="165.2" y="456.0" fill="#8a9bb8" textLength="134.4" lengthAdjust="spacingAndGlyphs"> (last 30 lines)</text>
-<rect x="299.6" y="442.0" width="966.0" height="18.0" fill="#000000"/>
+<rect x="30.8" y="442.0" width="75.6" height="18.0" fill="#000000"/>
+<text x="30.8 39.2 47.6 56.0 64.4 72.8 81.2 89.6 98.0" y="456.0" fill="#ff5370" font-weight="bold">● BackOff</text>
+<rect x="106.4" y="442.0" width="1159.2" height="18.0" fill="#000000"/>
 <rect x="1265.6" y="442.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="1265.6" y="456.0" fill="#ff5370" textLength="8.4" lengthAdjust="spacingAndGlyphs">│</text>
+<text x="1265.6" y="456.0" fill="#ff5370">│</text>
 <rect x="14.0" y="460.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="14.0" y="474.0" fill="#ff5370" textLength="8.4" lengthAdjust="spacingAndGlyphs">│</text>
+<text x="14.0" y="474.0" fill="#ff5370">│</text>
 <rect x="22.4" y="460.0" width="8.4" height="18.0" fill="#000000"/>
-<rect x="30.8" y="460.0" width="33.6" height="18.0" fill="#000000"/>
-<text x="30.8" y="474.0" fill="#8a9bb8" textLength="33.6" lengthAdjust="spacingAndGlyphs">boom</text>
-<rect x="64.4" y="460.0" width="1201.2" height="18.0" fill="#000000"/>
+<rect x="30.8" y="460.0" width="865.2" height="18.0" fill="#000000"/>
+<text x="30.8 39.2 47.6 56.0 64.4 72.8 81.2 89.6 98.0 106.4 114.8 123.2 131.6 140.0 148.4 156.8 165.2 173.6 182.0 190.4 198.8 207.2 215.6 224.0 232.4 240.8 249.2 257.6 266.0 274.4 282.8 291.2 299.6 308.0 316.4 324.8 333.2 341.6 350.0 358.4 366.8 375.2 383.6 392.0 400.4 408.8 417.2 425.6 434.0 442.4 450.8 459.2 467.6 476.0 484.4 492.8 501.2 509.6 518.0 526.4 534.8 543.2 551.6 560.0 568.4 576.8 585.2 593.6 602.0 610.4 618.8 627.2 635.6 644.0 652.4 660.8 669.2 677.6 686.0 694.4 702.8 711.2 719.6 728.0 736.4 744.8 753.2 761.6 770.0 778.4 786.8 795.2 803.6 812.0 820.4 828.8 837.2 845.6 854.0 862.4 870.8 879.2 887.6" y="474.0" fill="#8a9bb8">    Back-off restarting failed container c in pod crash-loop_demo(95acbdd9-90a6-4e7e-99ce-465f1454173f)</text>
+<rect x="896.0" y="460.0" width="369.6" height="18.0" fill="#000000"/>
 <rect x="1265.6" y="460.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="1265.6" y="474.0" fill="#ff5370" textLength="8.4" lengthAdjust="spacingAndGlyphs">│</text>
+<text x="1265.6" y="474.0" fill="#ff5370">│</text>
 <rect x="14.0" y="478.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="14.0" y="492.0" fill="#ff5370" textLength="8.4" lengthAdjust="spacingAndGlyphs">│</text>
-<rect x="22.4" y="478.0" width="1243.2" height="18.0" fill="#000000"/>
+<text x="14.0" y="492.0" fill="#ff5370">│</text>
+<rect x="22.4" y="478.0" width="8.4" height="18.0" fill="#000000"/>
+<rect x="30.8" y="478.0" width="109.2" height="18.0" fill="#000000"/>
+<text x="30.8 39.2 47.6 56.0 64.4 72.8 81.2 89.6 98.0 106.4 114.8 123.2 131.6" y="492.0" fill="#ff5370" font-weight="bold">● FailedMount</text>
+<rect x="140.0" y="478.0" width="1125.6" height="18.0" fill="#000000"/>
 <rect x="1265.6" y="478.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="1265.6" y="492.0" fill="#ff5370" textLength="8.4" lengthAdjust="spacingAndGlyphs">│</text>
+<text x="1265.6" y="492.0" fill="#ff5370">│</text>
 <rect x="14.0" y="496.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="14.0" y="510.0" fill="#ff5370" textLength="8.4" lengthAdjust="spacingAndGlyphs">│</text>
-<rect x="22.4" y="496.0" width="1243.2" height="18.0" fill="#000000"/>
+<text x="14.0" y="510.0" fill="#ff5370">│</text>
+<rect x="22.4" y="496.0" width="8.4" height="18.0" fill="#000000"/>
+<rect x="30.8" y="496.0" width="1226.4" height="18.0" fill="#000000"/>
+<text x="30.8 39.2 47.6 56.0 64.4 72.8 81.2 89.6 98.0 106.4 114.8 123.2 131.6 140.0 148.4 156.8 165.2 173.6 182.0 190.4 198.8 207.2 215.6 224.0 232.4 240.8 249.2 257.6 266.0 274.4 282.8 291.2 299.6 308.0 316.4 324.8 333.2 341.6 350.0 358.4 366.8 375.2 383.6 392.0 400.4 408.8 417.2 425.6 434.0 442.4 450.8 459.2 467.6 476.0 484.4 492.8 501.2 509.6 518.0 526.4 534.8 543.2 551.6 560.0 568.4 576.8 585.2 593.6 602.0 610.4 618.8 627.2 635.6 644.0 652.4 660.8 669.2 677.6 686.0 694.4 702.8 711.2 719.6 728.0 736.4 744.8 753.2 761.6 770.0 778.4 786.8 795.2 803.6 812.0 820.4 828.8 837.2 845.6 854.0 862.4 870.8 879.2 887.6 896.0 904.4 912.8 921.2 929.6 938.0 946.4 954.8 963.2 971.6 980.0 988.4 996.8 1005.2 1013.6 1022.0 1030.4 1038.8 1047.2 1055.6 1064.0 1072.4 1080.8 1089.2 1097.6 1106.0 1114.4 1122.8 1131.2 1139.6 1148.0 1156.4 1164.8 1173.2 1181.6 1190.0 1198.4 1206.8 1215.2 1223.6 1232.0 1240.4 1248.8" y="510.0" fill="#8a9bb8">    MountVolume.SetUp failed for volume &quot;kube-api-access-wvwj9&quot; : failed to fetch token: Post &quot;https://hm-demo-control-plane:6443/api/v1/namespace</text>
+<rect x="1257.2" y="496.0" width="8.4" height="18.0" fill="#000000"/>
 <rect x="1265.6" y="496.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="1265.6" y="510.0" fill="#ff5370" textLength="8.4" lengthAdjust="spacingAndGlyphs">│</text>
+<text x="1265.6" y="510.0" fill="#ff5370">│</text>
 <rect x="14.0" y="514.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="14.0" y="528.0" fill="#ff5370" textLength="8.4" lengthAdjust="spacingAndGlyphs">│</text>
-<rect x="22.4" y="514.0" width="1243.2" height="18.0" fill="#000000"/>
+<text x="14.0" y="528.0" fill="#ff5370">│</text>
+<rect x="22.4" y="514.0" width="8.4" height="18.0" fill="#000000"/>
+<rect x="30.8" y="514.0" width="67.2" height="18.0" fill="#000000"/>
+<text x="30.8 39.2 47.6 56.0 64.4 72.8 81.2 89.6" y="528.0" fill="#8a9bb8">s/demo/…</text>
+<rect x="98.0" y="514.0" width="1167.6" height="18.0" fill="#000000"/>
 <rect x="1265.6" y="514.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="1265.6" y="528.0" fill="#ff5370" textLength="8.4" lengthAdjust="spacingAndGlyphs">│</text>
+<text x="1265.6" y="528.0" fill="#ff5370">│</text>
 <rect x="14.0" y="532.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="14.0" y="546.0" fill="#ff5370" textLength="8.4" lengthAdjust="spacingAndGlyphs">│</text>
-<rect x="22.4" y="532.0" width="1243.2" height="18.0" fill="#000000"/>
+<text x="14.0" y="546.0" fill="#ff5370">│</text>
+<rect x="22.4" y="532.0" width="8.4" height="18.0" fill="#000000"/>
+<rect x="30.8" y="532.0" width="67.2" height="18.0" fill="#000000"/>
+<text x="30.8 39.2 47.6 56.0 64.4 72.8 81.2 89.6" y="546.0" fill="#ff5370" font-weight="bold">● Failed</text>
+<rect x="98.0" y="532.0" width="1167.6" height="18.0" fill="#000000"/>
 <rect x="1265.6" y="532.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="1265.6" y="546.0" fill="#ff5370" textLength="8.4" lengthAdjust="spacingAndGlyphs">│</text>
+<text x="1265.6" y="546.0" fill="#ff5370">│</text>
 <rect x="14.0" y="550.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="14.0" y="564.0" fill="#ff5370" textLength="8.4" lengthAdjust="spacingAndGlyphs">│</text>
-<rect x="22.4" y="550.0" width="1243.2" height="18.0" fill="#000000"/>
+<text x="14.0" y="564.0" fill="#ff5370">│</text>
+<rect x="22.4" y="550.0" width="8.4" height="18.0" fill="#000000"/>
+<rect x="30.8" y="550.0" width="302.4" height="18.0" fill="#000000"/>
+<text x="30.8 39.2 47.6 56.0 64.4 72.8 81.2 89.6 98.0 106.4 114.8 123.2 131.6 140.0 148.4 156.8 165.2 173.6 182.0 190.4 198.8 207.2 215.6 224.0 232.4 240.8 249.2 257.6 266.0 274.4 282.8 291.2 299.6 308.0 316.4 324.8" y="564.0" fill="#8a9bb8">    Error: context deadline exceeded</text>
+<rect x="333.2" y="550.0" width="932.4" height="18.0" fill="#000000"/>
 <rect x="1265.6" y="550.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="1265.6" y="564.0" fill="#ff5370" textLength="8.4" lengthAdjust="spacingAndGlyphs">│</text>
+<text x="1265.6" y="564.0" fill="#ff5370">│</text>
 <rect x="14.0" y="568.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="14.0" y="582.0" fill="#ff5370" textLength="8.4" lengthAdjust="spacingAndGlyphs">│</text>
-<rect x="22.4" y="568.0" width="1243.2" height="18.0" fill="#000000"/>
+<text x="14.0" y="582.0" fill="#ff5370">│</text>
+<rect x="22.4" y="568.0" width="8.4" height="18.0" fill="#000000"/>
+<rect x="30.8" y="568.0" width="75.6" height="18.0" fill="#000000"/>
+<text x="30.8 39.2 47.6 56.0 64.4 72.8 81.2 89.6 98.0" y="582.0" fill="#8a9bb8">○ Created</text>
+<rect x="106.4" y="568.0" width="1159.2" height="18.0" fill="#000000"/>
 <rect x="1265.6" y="568.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="1265.6" y="582.0" fill="#ff5370" textLength="8.4" lengthAdjust="spacingAndGlyphs">│</text>
+<text x="1265.6" y="582.0" fill="#ff5370">│</text>
 <rect x="14.0" y="586.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="14.0" y="600.0" fill="#ff5370" textLength="8.4" lengthAdjust="spacingAndGlyphs">│</text>
-<rect x="22.4" y="586.0" width="1243.2" height="18.0" fill="#000000"/>
+<text x="14.0" y="600.0" fill="#ff5370">│</text>
+<rect x="22.4" y="586.0" width="8.4" height="18.0" fill="#000000"/>
+<rect x="30.8" y="586.0" width="193.2" height="18.0" fill="#000000"/>
+<text x="30.8 39.2 47.6 56.0 64.4 72.8 81.2 89.6 98.0 106.4 114.8 123.2 131.6 140.0 148.4 156.8 165.2 173.6 182.0 190.4 198.8 207.2 215.6" y="600.0" fill="#8a9bb8">    Created container c</text>
+<rect x="224.0" y="586.0" width="1041.6" height="18.0" fill="#000000"/>
 <rect x="1265.6" y="586.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="1265.6" y="600.0" fill="#ff5370" textLength="8.4" lengthAdjust="spacingAndGlyphs">│</text>
+<text x="1265.6" y="600.0" fill="#ff5370">│</text>
 <rect x="14.0" y="604.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="14.0" y="618.0" fill="#ff5370" textLength="8.4" lengthAdjust="spacingAndGlyphs">│</text>
-<rect x="22.4" y="604.0" width="1243.2" height="18.0" fill="#000000"/>
+<text x="14.0" y="618.0" fill="#ff5370">│</text>
+<rect x="22.4" y="604.0" width="8.4" height="18.0" fill="#000000"/>
+<rect x="30.8" y="604.0" width="67.2" height="18.0" fill="#000000"/>
+<text x="30.8 39.2 47.6 56.0 64.4 72.8 81.2 89.6" y="618.0" fill="#8a9bb8">○ Pulled</text>
+<rect x="98.0" y="604.0" width="1167.6" height="18.0" fill="#000000"/>
 <rect x="1265.6" y="604.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="1265.6" y="618.0" fill="#ff5370" textLength="8.4" lengthAdjust="spacingAndGlyphs">│</text>
+<text x="1265.6" y="618.0" fill="#ff5370">│</text>
 <rect x="14.0" y="622.0" width="1260.0" height="18.0" fill="#000000"/>
-<text x="14.0" y="636.0" fill="#ff5370" textLength="1260.0" lengthAdjust="spacingAndGlyphs">└────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘</text>
+<text x="14.0 22.4 30.8 39.2 47.6 56.0 64.4 72.8 81.2 89.6 98.0 106.4 114.8 123.2 131.6 140.0 148.4 156.8 165.2 173.6 182.0 190.4 198.8 207.2 215.6 224.0 232.4 240.8 249.2 257.6 266.0 274.4 282.8 291.2 299.6 308.0 316.4 324.8 333.2 341.6 350.0 358.4 366.8 375.2 383.6 392.0 400.4 408.8 417.2 425.6 434.0 442.4 450.8 459.2 467.6 476.0 484.4 492.8 501.2 509.6 518.0 526.4 534.8 543.2 551.6 560.0 568.4 576.8 585.2 593.6 602.0 610.4 618.8 627.2 635.6 644.0 652.4 660.8 669.2 677.6 686.0 694.4 702.8 711.2 719.6 728.0 736.4 744.8 753.2 761.6 770.0 778.4 786.8 795.2 803.6 812.0 820.4 828.8 837.2 845.6 854.0 862.4 870.8 879.2 887.6 896.0 904.4 912.8 921.2 929.6 938.0 946.4 954.8 963.2 971.6 980.0 988.4 996.8 1005.2 1013.6 1022.0 1030.4 1038.8 1047.2 1055.6 1064.0 1072.4 1080.8 1089.2 1097.6 1106.0 1114.4 1122.8 1131.2 1139.6 1148.0 1156.4 1164.8 1173.2 1181.6 1190.0 1198.4 1206.8 1215.2 1223.6 1232.0 1240.4 1248.8 1257.2 1265.6" y="636.0" fill="#ff5370">└────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘</text>
 <rect x="14.0" y="640.0" width="8.4" height="18.0" fill="#000000"/>
 <rect x="22.4" y="640.0" width="58.8" height="18.0" fill="#92b3f4"/>
-<text x="22.4" y="654.0" fill="#000000" font-weight="bold" textLength="58.8" lengthAdjust="spacingAndGlyphs"> &lt;pod&gt; </text>
+<text x="22.4 30.8 39.2 47.6 56.0 64.4 72.8" y="654.0" fill="#000000" font-weight="bold"> &lt;pod&gt; </text>
 <rect x="81.2" y="640.0" width="8.4" height="18.0" fill="#000000"/>
 <rect x="89.6" y="640.0" width="100.8" height="18.0" fill="#92b3f4"/>
-<text x="89.6" y="654.0" fill="#000000" font-weight="bold" textLength="100.8" lengthAdjust="spacingAndGlyphs"> &lt;diagnose&gt; </text>
+<text x="89.6 98.0 106.4 114.8 123.2 131.6 140.0 148.4 156.8 165.2 173.6 182.0" y="654.0" fill="#000000" font-weight="bold"> &lt;diagnose&gt; </text>
 <rect x="190.4" y="640.0" width="8.4" height="18.0" fill="#000000"/>
 <rect x="198.8" y="640.0" width="1075.2" height="18.0" fill="#000000"/>
 </g></svg>

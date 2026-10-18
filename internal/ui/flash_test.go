@@ -4,9 +4,7 @@
 package ui_test
 
 import (
-	"context"
 	"testing"
-	"time"
 
 	"github.com/rsmrtk/helmsman/internal/config/mock"
 	"github.com/rsmrtk/helmsman/internal/model"
@@ -15,7 +13,6 @@ import (
 )
 
 func TestFlash(t *testing.T) {
-	const delay = 10 * time.Millisecond
 	uu := map[string]struct {
 		l    model.FlashLevel
 		i, e string
@@ -28,15 +25,13 @@ func TestFlash(t *testing.T) {
 	a := ui.NewApp(mock.NewMockConfig(t), "test")
 	f := ui.NewFlash(a)
 	f.SetTestMode(true)
-	ctx, cancel := context.WithCancel(context.Background())
-	defer cancel()
-	go f.Watch(ctx, a.Flash().Channel())
 
 	for k := range uu {
 		u := uu[k]
 		t.Run(k, func(t *testing.T) {
-			a.Flash().SetMessage(u.l, u.i)
-			time.Sleep(delay)
+			// test mode applies the message synchronously, so nothing reads the view
+			// from another goroutine while the watcher writes to it
+			f.SetMessage(model.LevelMessage{Level: u.l, Text: u.i})
 			assert.Equal(t, u.e, f.GetText(false))
 		})
 	}

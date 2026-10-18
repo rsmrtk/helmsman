@@ -5,8 +5,10 @@ package view
 
 import (
 	"testing"
+	"time"
 
 	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
 	v1 "k8s.io/api/core/v1"
 	"k8s.io/apimachinery/pkg/api/resource"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
@@ -79,4 +81,77 @@ func TestGPUUsage(t *testing.T) {
 	assert.Len(t, gp, 1)
 	assert.Equal(t, "ml/train", gp[0].Path)
 	assert.Contains(t, gpuText(nil, nil), "no GPU nodes")
+}
+
+func TestFingerprintHidesValues(t *testing.T) {
+	a, b := fingerprint("password", "ONE"), fingerprint("password", "TWO")
+	assert.NotEqual(t, a, b, "different values give different fingerprints")
+	assert.Equal(t, a, fingerprint("password", "ONE"))
+	assert.NotContains(t, a, "ONE")
+	assert.Len(t, a, 8)
+	assert.NotEqual(t, fingerprint("a", "bc"), fingerprint("ab", "c"), "key/value boundaries matter")
+}
+
+func TestCollectWarnings(t *testing.T) {
+	ev := func(typ, kind, name, reason string, count int32, at int64) v1.Event {
+		return v1.Event{
+			Type: typ, Reason: reason, Count: count, Message: reason + " msg",
+			InvolvedObject: v1.ObjectReference{Kind: kind, Name: name, Namespace: "demo"},
+			LastTimestamp:  metav1.NewTime(time.Unix(at, 0)),
+		}
+	}
+	ww := collectWarnings([]v1.Event{
+		ev("Normal", "Pod", "ok", "Started", 1, 10),
+		ev("Warning", "Pod", "crash", "BackOff", 5, 20),
+		ev("Warning", "Pod", "crash", "BackOff", 3, 30),
+		ev("Warning", "Pod", "web", "Unhealthy", 9, 5),
+		ev("Warning", "Node", "n1", "NodeNotReady", 0, 40),
+	})
+	require.Len(t, ww, 3, "Normal events are dropped and repeats merged")
+	assert.Equal(t, "demo/pod/web", ww[0].Object, "the most repeated warning comes first")
+	assert.Equal(t, int32(9), ww[0].Count)
+	assert.Equal(t, "BackOff", ww[1].Reason)
+	assert.Equal(t, int32(8), ww[1].Count, "repeats of the same object and reason are merged")
+	assert.Equal(t, int32(1), ww[2].Count, "a zero count still counts as one")
+
+	txt := warningsText(ww, time.Unix(100, 0))
+	assert.Contains(t, txt, "3 distinct warnings")
+	assert.Contains(t, warningsText(nil, time.Now()), "no warnings")
+	assert.Equal(t, "40s", since(time.Unix(60, 0), time.Unix(100, 0)))
+	assert.Equal(t, "3d", since(time.Unix(0, 0), time.Unix(3*86400, 0)))
+}
+
+func TestParseDrift(t *testing.T) {
+	app := map[string]any{
+		"metadata": map[string]any{"name": "web"},
+		"status": map[string]any{
+			"sync":           map[string]any{"status": "OutOfSync", "revision": "abcdef1234567890"},
+			"health":         map[string]any{"status": "Degraded"},
+			"operationState": map[string]any{"phase": "Failed"},
+			"resources": []any{
+				map[string]any{"kind": "Service", "name": "web", "namespace": "ns", "status": "Synced", "health": map[string]any{"status": "Healthy"}},
+				map[string]any{"kind": "Deployment", "name": "web", "namespace": "ns", "status": "OutOfSync", "health": map[string]any{"status": "Degraded", "message": "0/2 [ready]"}},
+				map[string]any{"kind": "ConfigMap", "name": "cfg", "namespace": "ns", "status": "OutOfSync"},
+			},
+			"conditions": []any{map[string]any{"type": "ComparisonError", "message": "bad manifest"}},
+		},
+	}
+	r := parseDrift(app)
+	assert.Equal(t, "web", r.Name)
+	require.Len(t, r.Items, 3)
+	assert.Equal(t, "ns/Deployment/web", r.Items[0].Ref, "degraded first")
+	assert.Equal(t, "ns/ConfigMap/cfg", r.Items[1].Ref, "then out of sync")
+	assert.Equal(t, "ns/Service/web", r.Items[2].Ref, "healthy last")
+
+	txt := driftText(r)
+	assert.Contains(t, txt, "2 of 3 resources need attention")
+	assert.Contains(t, txt, "abcdef12")
+	assert.Contains(t, txt, "ComparisonError: bad manifest")
+	assert.Contains(t, txt, "0/2 [[ready]", "tags in messages are escaped")
+
+	clean := parseDrift(map[string]any{"metadata": map[string]any{"name": "ok"}, "status": map[string]any{
+		"sync":      map[string]any{"status": "Synced"},
+		"resources": []any{map[string]any{"kind": "Service", "name": "s", "status": "Synced", "health": map[string]any{"status": "Healthy"}}},
+	}})
+	assert.Contains(t, driftText(clean), "no drift")
 }

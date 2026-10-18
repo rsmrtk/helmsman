@@ -65,7 +65,7 @@ func (c *ClusterInfo) hasMetrics() bool {
 }
 
 func (c *ClusterInfo) layout() {
-	for row, section := range []string{"Context", "Cluster", "User", "hm Rev", "K8s Rev", "CPU", "MEM"} {
+	for row, section := range []string{"Context", "Cluster", "User", "Version", "K8s Rev", "CPU", "MEM"} {
 		c.SetCell(row, 0, c.sectionCell(section))
 		c.SetCell(row, 1, c.infoCell(render.NAValue))
 	}

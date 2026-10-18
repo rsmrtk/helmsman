@@ -525,7 +525,7 @@ func (t *Table) buildRow(r int, re, ore model1.RowEvent, h model1.Header, pads M
 			continue
 		}
 
-		if !re.Deltas.IsBlank() && !h.IsTimeCol(c) {
+		if !re.Deltas.IsBlank() && !h.IsTimeCol(c) && h[c].Name != "CPU TREND" {
 			var old string
 			if c < len(ore.Deltas) {
 				old = ore.Deltas[c]
@@ -812,6 +812,9 @@ func (t *Table) statusSummary() string {
 		}
 		name, color := re.Row.Fields[idx], t.colorerFn(ns, h, &re)
 		// the same status can wear two colours (Running vs Running but not ready)
+		if nr, ok := model1.StatusColor("NoReady"); ok && color == nr && name == "Running" {
+			name = "Running (not ready)"
+		}
 		key := fmt.Sprintf("%s/%v", name, color)
 		e, ok := byName[key]
 		if !ok {

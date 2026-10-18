@@ -5,12 +5,15 @@ package view
 
 import (
 	"context"
+	"crypto/sha256"
+	"encoding/hex"
 	"fmt"
 	"sort"
 	"strings"
 
 	v1 "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
+	"k8s.io/client-go/kubernetes"
 )
 
 // workload is what :diff compares: a controller, its images and replica counts.
@@ -67,7 +70,98 @@ func fetchWorkloads(ctx context.Context, name, ns string) (map[string]workload, 
 		}
 	}
 
+	for _, add := range []func(context.Context, kubernetes.Interface, string, map[string]workload){addConfigs, addServices, addIngresses} {
+		add(ctx, cs, ns, out)
+	}
+
 	return out, nil
+}
+
+// fingerprint hashes values so Secrets and ConfigMaps can be compared without
+// ever putting a value on screen.
+func fingerprint(parts ...string) string {
+	h := sha256.New()
+	for _, p := range parts {
+		h.Write([]byte(p))
+		h.Write([]byte{0})
+	}
+
+	return hex.EncodeToString(h.Sum(nil))[:8]
+}
+
+func addConfigs(ctx context.Context, cs kubernetes.Interface, ns string, out map[string]workload) {
+	if cms, err := cs.CoreV1().ConfigMaps(ns).List(ctx, metav1.ListOptions{}); err == nil {
+		for _, c := range cms.Items {
+			if c.Name == "kube-root-ca.crt" {
+				continue
+			}
+			keys, vals := sortedKeys(c.Data), []string{}
+			for _, k := range keys {
+				vals = append(vals, k, c.Data[k])
+			}
+			k := fmt.Sprintf("cm/%s/%s", c.Namespace, c.Name)
+			out[k] = workload{Key: k, Images: []string{"keys=" + strings.Join(keys, ","), "content=" + fingerprint(vals...)}, Replicas: "-"}
+		}
+	}
+	if secs, err := cs.CoreV1().Secrets(ns).List(ctx, metav1.ListOptions{}); err == nil {
+		for _, s := range secs.Items {
+			if s.Type == v1.SecretTypeServiceAccountToken {
+				continue
+			}
+			keys, vals := []string{}, []string{}
+			for k := range s.Data {
+				keys = append(keys, k)
+			}
+			sort.Strings(keys)
+			for _, k := range keys {
+				vals = append(vals, k, string(s.Data[k]))
+			}
+			key := fmt.Sprintf("secret/%s/%s", s.Namespace, s.Name)
+			out[key] = workload{Key: key, Images: []string{"keys=" + strings.Join(keys, ","), "content=" + fingerprint(vals...)}, Replicas: "-"}
+		}
+	}
+}
+
+func sortedKeys(m map[string]string) []string {
+	keys := make([]string, 0, len(m))
+	for k := range m {
+		keys = append(keys, k)
+	}
+	sort.Strings(keys)
+
+	return keys
+}
+
+func addServices(ctx context.Context, cs kubernetes.Interface, ns string, out map[string]workload) {
+	svcs, err := cs.CoreV1().Services(ns).List(ctx, metav1.ListOptions{})
+	if err != nil {
+		return
+	}
+	for _, s := range svcs.Items {
+		var ports []string
+		for _, p := range s.Spec.Ports {
+			ports = append(ports, fmt.Sprintf("%d/%s", p.Port, p.Protocol))
+		}
+		sort.Strings(ports)
+		k := fmt.Sprintf("svc/%s/%s", s.Namespace, s.Name)
+		out[k] = workload{Key: k, Images: []string{"type=" + string(s.Spec.Type), "ports=" + strings.Join(ports, ",")}, Replicas: "-"}
+	}
+}
+
+func addIngresses(ctx context.Context, cs kubernetes.Interface, ns string, out map[string]workload) {
+	ings, err := cs.NetworkingV1().Ingresses(ns).List(ctx, metav1.ListOptions{})
+	if err != nil {
+		return
+	}
+	for _, i := range ings.Items {
+		var hosts []string
+		for _, r := range i.Spec.Rules {
+			hosts = append(hosts, r.Host)
+		}
+		sort.Strings(hosts)
+		k := fmt.Sprintf("ing/%s/%s", i.Namespace, i.Name)
+		out[k] = workload{Key: k, Images: []string{"hosts=" + strings.Join(hosts, ",")}, Replicas: "-"}
+	}
 }
 
 type diffRow struct {
@@ -75,6 +169,10 @@ type diffRow struct {
 }
 
 func imageList(w workload) string {
+	if w.Replicas == "-" {
+		return strings.Join(w.Images, "  ")
+	}
+
 	return strings.Join(w.Images, ",") + " (" + w.Replicas + ")"
 }
 

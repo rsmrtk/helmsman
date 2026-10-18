@@ -309,6 +309,10 @@ func (c *Command) specialCmd(p *cmd.Interpreter, pushCmd bool) bool {
 		c.app.diffCmd(p.Args())
 	case p.Cmd() == "gpu":
 		c.app.gpuCmd()
+	case p.Cmd() == "drift":
+		c.app.driftCmd(p.Args())
+	case p.Cmd() == "warnings" || p.Cmd() == "warn":
+		c.app.warningsCmd()
 	case p.Cmd() == "cloud":
 		c.app.cloudCmd(p.Args())
 	case p.IsDirCmd():

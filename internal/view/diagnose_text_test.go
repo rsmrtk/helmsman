@@ -62,3 +62,15 @@ func TestDiagnoseHealthyPod(t *testing.T) {
 	}
 	assert.Contains(t, diagnoseText(p, nil, nil), "nothing wrong found")
 }
+
+func TestFindingAdviceIsSeparate(t *testing.T) {
+	ff := findings(crashPod(), nil)
+	var waiting finding
+	for _, f := range ff {
+		if f.severity == "CrashLoopBackOff" {
+			waiting = f
+		}
+	}
+	assert.Contains(t, waiting.text, "waiting: CrashLoopBackOff")
+	assert.Contains(t, waiting.advice, "previous logs", "advice survives however long the message is")
+}

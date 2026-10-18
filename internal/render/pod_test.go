@@ -153,6 +153,7 @@ func TestPodColorer(t *testing.T) {
 }
 
 func TestPodRender(t *testing.T) {
+	render.ResetTrends()
 	pom := render.PodWithMetrics{
 		Raw: load(t, "po"),
 		MX:  makePodMX("nginx", "100m", "50Mi"),
@@ -164,8 +165,8 @@ func TestPodRender(t *testing.T) {
 	require.NoError(t, err)
 
 	assert.Equal(t, "default/nginx", r.ID)
-	e := model1.Fields{"default", "nginx", "n/a", "●", "1/1", "Running", "0", "<unknown>", "100", "100:0", "100", "-", "50", "70:170", "71", "29", "0:0", "172.17.0.6", "minikube", "default", "<none>"}
-	assert.Equal(t, e, r.Fields[:21])
+	e := model1.Fields{"default", "nginx", "n/a", "●", "1/1", "Running", "0", "<unknown>", "100", "100:0", "100", "-", "50", "70:170", "71", "29", "", "0:0", "172.17.0.6", "minikube", "default", "<none>"}
+	assert.Equal(t, e, r.Fields[:22])
 }
 
 func BenchmarkPodRender(b *testing.B) {
@@ -184,6 +185,7 @@ func BenchmarkPodRender(b *testing.B) {
 }
 
 func TestPodInitRender(t *testing.T) {
+	render.ResetTrends()
 	pom := render.PodWithMetrics{
 		Raw: load(t, "po_init"),
 		MX:  makePodMX("nginx", "10m", "10Mi"),
@@ -195,11 +197,12 @@ func TestPodInitRender(t *testing.T) {
 	require.NoError(t, err)
 
 	assert.Equal(t, "default/nginx", r.ID)
-	e := model1.Fields{"default", "nginx", "n/a", "●", "1/1", "Init:0/1", "0", "<unknown>", "10", "100:0", "10", "-", "10", "70:170", "14", "5", "0:0", "172.17.0.6", "minikube", "default", "<none>"}
-	assert.Equal(t, e, r.Fields[:21])
+	e := model1.Fields{"default", "nginx", "n/a", "●", "1/1", "Init:0/1", "0", "<unknown>", "10", "100:0", "10", "-", "10", "70:170", "14", "5", "", "0:0", "172.17.0.6", "minikube", "default", "<none>"}
+	assert.Equal(t, e, r.Fields[:22])
 }
 
 func TestPodSidecarRender(t *testing.T) {
+	render.ResetTrends()
 	pom := render.PodWithMetrics{
 		Raw: load(t, "po_sidecar"),
 		MX:  makePodMX("sleep", "100m", "40Mi"),
@@ -211,8 +214,8 @@ func TestPodSidecarRender(t *testing.T) {
 	require.NoError(t, err)
 
 	assert.Equal(t, "default/sleep", r.ID)
-	e := model1.Fields{"default", "sleep", "n/a", "●", "2/2", "Running", "0", "<unknown>", "100", "50:250", "200", "40", "40", "50:80", "80", "50", "0:0", "10.244.0.8", "kind-control-plane", "default", "<none>"}
-	assert.Equal(t, e, r.Fields[:21])
+	e := model1.Fields{"default", "sleep", "n/a", "●", "2/2", "Running", "0", "<unknown>", "100", "50:250", "200", "40", "40", "50:80", "80", "50", "", "0:0", "10.244.0.8", "kind-control-plane", "default", "<none>"}
+	assert.Equal(t, e, r.Fields[:22])
 }
 
 func TestCheckPodStatus(t *testing.T) {

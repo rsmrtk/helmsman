@@ -19,331 +19,333 @@
 <rect x="14.0" y="262.0" width="1260.0" height="18.0" fill="#000000"/>
 <rect x="14.0" y="280.0" width="327.6" height="18.0" fill="#000000"/>
 <rect x="341.6" y="280.0" width="16.8" height="18.0" fill="#000000"/>
-<text x="341.6" y="294.0" fill="#92b3f4" font-weight="bold" textLength="16.8" lengthAdjust="spacingAndGlyphs">██</text>
+<text x="341.6 350.0" y="294.0" fill="#92b3f4" font-weight="bold">██</text>
 <rect x="358.4" y="280.0" width="25.2" height="18.0" fill="#000000"/>
-<text x="358.4" y="294.0" fill="#41506d" font-weight="bold" textLength="25.2" lengthAdjust="spacingAndGlyphs">╗  </text>
+<text x="358.4 366.8 375.2" y="294.0" fill="#41506d" font-weight="bold">╗  </text>
 <rect x="383.6" y="280.0" width="16.8" height="18.0" fill="#000000"/>
-<text x="383.6" y="294.0" fill="#92b3f4" font-weight="bold" textLength="16.8" lengthAdjust="spacingAndGlyphs">██</text>
+<text x="383.6 392.0" y="294.0" fill="#92b3f4" font-weight="bold">██</text>
 <rect x="400.4" y="280.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="400.4" y="294.0" fill="#41506d" font-weight="bold" textLength="8.4" lengthAdjust="spacingAndGlyphs">╗</text>
+<text x="400.4" y="294.0" fill="#41506d" font-weight="bold">╗</text>
 <rect x="408.8" y="280.0" width="58.8" height="18.0" fill="#000000"/>
-<text x="408.8" y="294.0" fill="#92b3f4" font-weight="bold" textLength="58.8" lengthAdjust="spacingAndGlyphs">███████</text>
+<text x="408.8 417.2 425.6 434.0 442.4 450.8 459.2" y="294.0" fill="#92b3f4" font-weight="bold">███████</text>
 <rect x="467.6" y="280.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="467.6" y="294.0" fill="#41506d" font-weight="bold" textLength="8.4" lengthAdjust="spacingAndGlyphs">╗</text>
+<text x="467.6" y="294.0" fill="#41506d" font-weight="bold">╗</text>
 <rect x="476.0" y="280.0" width="16.8" height="18.0" fill="#000000"/>
-<text x="476.0" y="294.0" fill="#92b3f4" font-weight="bold" textLength="16.8" lengthAdjust="spacingAndGlyphs">██</text>
+<text x="476.0 484.4" y="294.0" fill="#92b3f4" font-weight="bold">██</text>
 <rect x="492.8" y="280.0" width="50.4" height="18.0" fill="#000000"/>
-<text x="492.8" y="294.0" fill="#41506d" font-weight="bold" textLength="50.4" lengthAdjust="spacingAndGlyphs">╗     </text>
+<text x="492.8 501.2 509.6 518.0 526.4 534.8" y="294.0" fill="#41506d" font-weight="bold">╗     </text>
 <rect x="543.2" y="280.0" width="25.2" height="18.0" fill="#000000"/>
-<text x="543.2" y="294.0" fill="#92b3f4" font-weight="bold" textLength="25.2" lengthAdjust="spacingAndGlyphs">███</text>
+<text x="543.2 551.6 560.0" y="294.0" fill="#92b3f4" font-weight="bold">███</text>
 <rect x="568.4" y="280.0" width="33.6" height="18.0" fill="#000000"/>
-<text x="568.4" y="294.0" fill="#41506d" font-weight="bold" textLength="33.6" lengthAdjust="spacingAndGlyphs">╗   </text>
+<text x="568.4 576.8 585.2 593.6" y="294.0" fill="#41506d" font-weight="bold">╗   </text>
 <rect x="602.0" y="280.0" width="25.2" height="18.0" fill="#000000"/>
-<text x="602.0" y="294.0" fill="#92b3f4" font-weight="bold" textLength="25.2" lengthAdjust="spacingAndGlyphs">███</text>
+<text x="602.0 610.4 618.8" y="294.0" fill="#92b3f4" font-weight="bold">███</text>
 <rect x="627.2" y="280.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="627.2" y="294.0" fill="#41506d" font-weight="bold" textLength="8.4" lengthAdjust="spacingAndGlyphs">╗</text>
+<text x="627.2" y="294.0" fill="#41506d" font-weight="bold">╗</text>
 <rect x="635.6" y="280.0" width="58.8" height="18.0" fill="#000000"/>
-<text x="635.6" y="294.0" fill="#92b3f4" font-weight="bold" textLength="58.8" lengthAdjust="spacingAndGlyphs">███████</text>
+<text x="635.6 644.0 652.4 660.8 669.2 677.6 686.0" y="294.0" fill="#92b3f4" font-weight="bold">███████</text>
 <rect x="694.4" y="280.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="694.4" y="294.0" fill="#41506d" font-weight="bold" textLength="8.4" lengthAdjust="spacingAndGlyphs">╗</text>
+<text x="694.4" y="294.0" fill="#41506d" font-weight="bold">╗</text>
 <rect x="702.8" y="280.0" width="25.2" height="18.0" fill="#000000"/>
-<text x="702.8" y="294.0" fill="#92b3f4" font-weight="bold" textLength="25.2" lengthAdjust="spacingAndGlyphs">███</text>
+<text x="702.8 711.2 719.6" y="294.0" fill="#92b3f4" font-weight="bold">███</text>
 <rect x="728.0" y="280.0" width="33.6" height="18.0" fill="#000000"/>
-<text x="728.0" y="294.0" fill="#41506d" font-weight="bold" textLength="33.6" lengthAdjust="spacingAndGlyphs">╗   </text>
+<text x="728.0 736.4 744.8 753.2" y="294.0" fill="#41506d" font-weight="bold">╗   </text>
 <rect x="761.6" y="280.0" width="25.2" height="18.0" fill="#000000"/>
-<text x="761.6" y="294.0" fill="#92b3f4" font-weight="bold" textLength="25.2" lengthAdjust="spacingAndGlyphs">███</text>
+<text x="761.6 770.0 778.4" y="294.0" fill="#92b3f4" font-weight="bold">███</text>
 <rect x="786.8" y="280.0" width="16.8" height="18.0" fill="#000000"/>
-<text x="786.8" y="294.0" fill="#41506d" font-weight="bold" textLength="16.8" lengthAdjust="spacingAndGlyphs">╗ </text>
-<rect x="803.6" y="280.0" width="16.8" height="18.0" fill="#000000"/>
-<text x="803.6" y="294.0" fill="#92b3f4" font-weight="bold" textLength="16.8" lengthAdjust="spacingAndGlyphs">██</text>
+<text x="786.8 795.2" y="294.0" fill="#41506d" font-weight="bold">╗ </text>
+<rect x="803.6" y="280.0" width="8.4" height="18.0" fill="#000000"/>
+<text x="803.6" y="294.0" fill="#92b3f4" font-weight="bold">█</text>
+<rect x="812.0" y="280.0" width="8.4" height="18.0" fill="#000000"/>
+<text x="812.0" y="294.0" fill="#99b8f5" font-weight="bold">█</text>
 <rect x="820.4" y="280.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="820.4" y="294.0" fill="#9ab9f5" font-weight="bold" textLength="8.4" lengthAdjust="spacingAndGlyphs">█</text>
+<text x="820.4" y="294.0" fill="#a1bef6" font-weight="bold">█</text>
 <rect x="828.8" y="280.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="828.8" y="294.0" fill="#a3bff6" font-weight="bold" textLength="8.4" lengthAdjust="spacingAndGlyphs">█</text>
+<text x="828.8" y="294.0" fill="#aac4f7" font-weight="bold">█</text>
 <rect x="837.2" y="280.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="837.2" y="294.0" fill="#abc5f7" font-weight="bold" textLength="8.4" lengthAdjust="spacingAndGlyphs">█</text>
+<text x="837.2" y="294.0" fill="#b2c9f8" font-weight="bold">█</text>
 <rect x="845.6" y="280.0" width="16.8" height="18.0" fill="#000000"/>
-<text x="845.6" y="294.0" fill="#505a6f" font-weight="bold" textLength="16.8" lengthAdjust="spacingAndGlyphs">╗ </text>
+<text x="845.6 854.0" y="294.0" fill="#535d6f" font-weight="bold">╗ </text>
 <rect x="862.4" y="280.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="862.4" y="294.0" fill="#c3d6f9" font-weight="bold" textLength="8.4" lengthAdjust="spacingAndGlyphs">█</text>
+<text x="862.4" y="294.0" fill="#cadbfa" font-weight="bold">█</text>
 <rect x="870.8" y="280.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="870.8" y="294.0" fill="#cbdbfa" font-weight="bold" textLength="8.4" lengthAdjust="spacingAndGlyphs">█</text>
+<text x="870.8" y="294.0" fill="#d2e0fb" font-weight="bold">█</text>
 <rect x="879.2" y="280.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="879.2" y="294.0" fill="#d3e1fb" font-weight="bold" textLength="8.4" lengthAdjust="spacingAndGlyphs">█</text>
+<text x="879.2" y="294.0" fill="#dae6fc" font-weight="bold">█</text>
 <rect x="887.6" y="280.0" width="58.8" height="18.0" fill="#000000"/>
-<text x="887.6" y="294.0" fill="#626771" font-weight="bold" textLength="58.8" lengthAdjust="spacingAndGlyphs">╗      </text>
+<text x="887.6 896.0 904.4 912.8 921.2 929.6 938.0" y="294.0" fill="#656a71" font-weight="bold">╗      </text>
 <rect x="946.4" y="280.0" width="327.6" height="18.0" fill="#000000"/>
 <rect x="14.0" y="298.0" width="327.6" height="18.0" fill="#000000"/>
 <rect x="341.6" y="298.0" width="16.8" height="18.0" fill="#000000"/>
-<text x="341.6" y="312.0" fill="#92b3f4" font-weight="bold" textLength="16.8" lengthAdjust="spacingAndGlyphs">██</text>
+<text x="341.6 350.0" y="312.0" fill="#92b3f4" font-weight="bold">██</text>
 <rect x="358.4" y="298.0" width="25.2" height="18.0" fill="#000000"/>
-<text x="358.4" y="312.0" fill="#41506d" font-weight="bold" textLength="25.2" lengthAdjust="spacingAndGlyphs">║  </text>
+<text x="358.4 366.8 375.2" y="312.0" fill="#41506d" font-weight="bold">║  </text>
 <rect x="383.6" y="298.0" width="16.8" height="18.0" fill="#000000"/>
-<text x="383.6" y="312.0" fill="#92b3f4" font-weight="bold" textLength="16.8" lengthAdjust="spacingAndGlyphs">██</text>
+<text x="383.6 392.0" y="312.0" fill="#92b3f4" font-weight="bold">██</text>
 <rect x="400.4" y="298.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="400.4" y="312.0" fill="#41506d" font-weight="bold" textLength="8.4" lengthAdjust="spacingAndGlyphs">║</text>
+<text x="400.4" y="312.0" fill="#41506d" font-weight="bold">║</text>
 <rect x="408.8" y="298.0" width="16.8" height="18.0" fill="#000000"/>
-<text x="408.8" y="312.0" fill="#92b3f4" font-weight="bold" textLength="16.8" lengthAdjust="spacingAndGlyphs">██</text>
+<text x="408.8 417.2" y="312.0" fill="#92b3f4" font-weight="bold">██</text>
 <rect x="425.6" y="298.0" width="50.4" height="18.0" fill="#000000"/>
-<text x="425.6" y="312.0" fill="#41506d" font-weight="bold" textLength="50.4" lengthAdjust="spacingAndGlyphs">╔════╝</text>
+<text x="425.6 434.0 442.4 450.8 459.2 467.6" y="312.0" fill="#41506d" font-weight="bold">╔════╝</text>
 <rect x="476.0" y="298.0" width="16.8" height="18.0" fill="#000000"/>
-<text x="476.0" y="312.0" fill="#92b3f4" font-weight="bold" textLength="16.8" lengthAdjust="spacingAndGlyphs">██</text>
+<text x="476.0 484.4" y="312.0" fill="#92b3f4" font-weight="bold">██</text>
 <rect x="492.8" y="298.0" width="50.4" height="18.0" fill="#000000"/>
-<text x="492.8" y="312.0" fill="#41506d" font-weight="bold" textLength="50.4" lengthAdjust="spacingAndGlyphs">║     </text>
+<text x="492.8 501.2 509.6 518.0 526.4 534.8" y="312.0" fill="#41506d" font-weight="bold">║     </text>
 <rect x="543.2" y="298.0" width="33.6" height="18.0" fill="#000000"/>
-<text x="543.2" y="312.0" fill="#92b3f4" font-weight="bold" textLength="33.6" lengthAdjust="spacingAndGlyphs">████</text>
+<text x="543.2 551.6 560.0 568.4" y="312.0" fill="#92b3f4" font-weight="bold">████</text>
 <rect x="576.8" y="298.0" width="16.8" height="18.0" fill="#000000"/>
-<text x="576.8" y="312.0" fill="#41506d" font-weight="bold" textLength="16.8" lengthAdjust="spacingAndGlyphs">╗ </text>
+<text x="576.8 585.2" y="312.0" fill="#41506d" font-weight="bold">╗ </text>
 <rect x="593.6" y="298.0" width="33.6" height="18.0" fill="#000000"/>
-<text x="593.6" y="312.0" fill="#92b3f4" font-weight="bold" textLength="33.6" lengthAdjust="spacingAndGlyphs">████</text>
+<text x="593.6 602.0 610.4 618.8" y="312.0" fill="#92b3f4" font-weight="bold">████</text>
 <rect x="627.2" y="298.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="627.2" y="312.0" fill="#41506d" font-weight="bold" textLength="8.4" lengthAdjust="spacingAndGlyphs">║</text>
+<text x="627.2" y="312.0" fill="#41506d" font-weight="bold">║</text>
 <rect x="635.6" y="298.0" width="16.8" height="18.0" fill="#000000"/>
-<text x="635.6" y="312.0" fill="#92b3f4" font-weight="bold" textLength="16.8" lengthAdjust="spacingAndGlyphs">██</text>
+<text x="635.6 644.0" y="312.0" fill="#92b3f4" font-weight="bold">██</text>
 <rect x="652.4" y="298.0" width="50.4" height="18.0" fill="#000000"/>
-<text x="652.4" y="312.0" fill="#41506d" font-weight="bold" textLength="50.4" lengthAdjust="spacingAndGlyphs">╔════╝</text>
+<text x="652.4 660.8 669.2 677.6 686.0 694.4" y="312.0" fill="#41506d" font-weight="bold">╔════╝</text>
 <rect x="702.8" y="298.0" width="33.6" height="18.0" fill="#000000"/>
-<text x="702.8" y="312.0" fill="#92b3f4" font-weight="bold" textLength="33.6" lengthAdjust="spacingAndGlyphs">████</text>
+<text x="702.8 711.2 719.6 728.0" y="312.0" fill="#92b3f4" font-weight="bold">████</text>
 <rect x="736.4" y="298.0" width="16.8" height="18.0" fill="#000000"/>
-<text x="736.4" y="312.0" fill="#41506d" font-weight="bold" textLength="16.8" lengthAdjust="spacingAndGlyphs">╗ </text>
+<text x="736.4 744.8" y="312.0" fill="#41506d" font-weight="bold">╗ </text>
 <rect x="753.2" y="298.0" width="33.6" height="18.0" fill="#000000"/>
-<text x="753.2" y="312.0" fill="#92b3f4" font-weight="bold" textLength="33.6" lengthAdjust="spacingAndGlyphs">████</text>
+<text x="753.2 761.6 770.0 778.4" y="312.0" fill="#92b3f4" font-weight="bold">████</text>
 <rect x="786.8" y="298.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="786.8" y="312.0" fill="#41506d" font-weight="bold" textLength="8.4" lengthAdjust="spacingAndGlyphs">║</text>
+<text x="786.8" y="312.0" fill="#41506d" font-weight="bold">║</text>
 <rect x="795.2" y="298.0" width="16.8" height="18.0" fill="#000000"/>
-<text x="795.2" y="312.0" fill="#92b3f4" font-weight="bold" textLength="16.8" lengthAdjust="spacingAndGlyphs">██</text>
+<text x="795.2 803.6" y="312.0" fill="#92b3f4" font-weight="bold">██</text>
 <rect x="812.0" y="298.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="812.0" y="312.0" fill="#41506d" font-weight="bold" textLength="8.4" lengthAdjust="spacingAndGlyphs">╔</text>
+<text x="812.0" y="312.0" fill="#44526e" font-weight="bold">╔</text>
 <rect x="820.4" y="298.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="820.4" y="312.0" fill="#45536e" font-weight="bold" textLength="8.4" lengthAdjust="spacingAndGlyphs">═</text>
+<text x="820.4" y="312.0" fill="#48556e" font-weight="bold">═</text>
 <rect x="828.8" y="298.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="828.8" y="312.0" fill="#49556e" font-weight="bold" textLength="8.4" lengthAdjust="spacingAndGlyphs">═</text>
+<text x="828.8" y="312.0" fill="#4c586f" font-weight="bold">═</text>
 <rect x="837.2" y="298.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="837.2" y="312.0" fill="#abc5f7" font-weight="bold" textLength="8.4" lengthAdjust="spacingAndGlyphs">█</text>
+<text x="837.2" y="312.0" fill="#b2c9f8" font-weight="bold">█</text>
 <rect x="845.6" y="298.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="845.6" y="312.0" fill="#b3caf8" font-weight="bold" textLength="8.4" lengthAdjust="spacingAndGlyphs">█</text>
+<text x="845.6" y="312.0" fill="#bacff8" font-weight="bold">█</text>
 <rect x="854.0" y="298.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="854.0" y="312.0" fill="#545d6f" font-weight="bold" textLength="8.4" lengthAdjust="spacingAndGlyphs">╗</text>
+<text x="854.0" y="312.0" fill="#575f70" font-weight="bold">╗</text>
 <rect x="862.4" y="298.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="862.4" y="312.0" fill="#c3d6f9" font-weight="bold" textLength="8.4" lengthAdjust="spacingAndGlyphs">█</text>
+<text x="862.4" y="312.0" fill="#cadbfa" font-weight="bold">█</text>
 <rect x="870.8" y="298.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="870.8" y="312.0" fill="#cbdbfa" font-weight="bold" textLength="8.4" lengthAdjust="spacingAndGlyphs">█</text>
+<text x="870.8" y="312.0" fill="#d2e0fb" font-weight="bold">█</text>
 <rect x="879.2" y="298.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="879.2" y="312.0" fill="#d3e1fb" font-weight="bold" textLength="8.4" lengthAdjust="spacingAndGlyphs">█</text>
-<rect x="887.6" y="298.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="887.6" y="312.0" fill="#dbe7fc" font-weight="bold" textLength="8.4" lengthAdjust="spacingAndGlyphs">█</text>
-<rect x="896.0" y="298.0" width="50.4" height="18.0" fill="#000000"/>
-<text x="896.0" y="312.0" fill="#666a71" font-weight="bold" textLength="50.4" lengthAdjust="spacingAndGlyphs">╗     </text>
+<text x="879.2" y="312.0" fill="#dae6fc" font-weight="bold">█</text>
+<rect x="887.6" y="298.0" width="58.8" height="18.0" fill="#000000"/>
+<text x="887.6 896.0 904.4 912.8 921.2 929.6 938.0" y="312.0" fill="#e2ecfc" font-weight="bold">█      </text>
 <rect x="946.4" y="298.0" width="327.6" height="18.0" fill="#000000"/>
 <rect x="14.0" y="316.0" width="327.6" height="18.0" fill="#000000"/>
 <rect x="341.6" y="316.0" width="58.8" height="18.0" fill="#000000"/>
-<text x="341.6" y="330.0" fill="#92b3f4" font-weight="bold" textLength="58.8" lengthAdjust="spacingAndGlyphs">███████</text>
+<text x="341.6 350.0 358.4 366.8 375.2 383.6 392.0" y="330.0" fill="#92b3f4" font-weight="bold">███████</text>
 <rect x="400.4" y="316.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="400.4" y="330.0" fill="#41506d" font-weight="bold" textLength="8.4" lengthAdjust="spacingAndGlyphs">║</text>
+<text x="400.4" y="330.0" fill="#41506d" font-weight="bold">║</text>
 <rect x="408.8" y="316.0" width="42.0" height="18.0" fill="#000000"/>
-<text x="408.8" y="330.0" fill="#92b3f4" font-weight="bold" textLength="42.0" lengthAdjust="spacingAndGlyphs">█████</text>
+<text x="408.8 417.2 425.6 434.0 442.4" y="330.0" fill="#92b3f4" font-weight="bold">█████</text>
 <rect x="450.8" y="316.0" width="25.2" height="18.0" fill="#000000"/>
-<text x="450.8" y="330.0" fill="#41506d" font-weight="bold" textLength="25.2" lengthAdjust="spacingAndGlyphs">╗  </text>
+<text x="450.8 459.2 467.6" y="330.0" fill="#41506d" font-weight="bold">╗  </text>
 <rect x="476.0" y="316.0" width="16.8" height="18.0" fill="#000000"/>
-<text x="476.0" y="330.0" fill="#92b3f4" font-weight="bold" textLength="16.8" lengthAdjust="spacingAndGlyphs">██</text>
+<text x="476.0 484.4" y="330.0" fill="#92b3f4" font-weight="bold">██</text>
 <rect x="492.8" y="316.0" width="50.4" height="18.0" fill="#000000"/>
-<text x="492.8" y="330.0" fill="#41506d" font-weight="bold" textLength="50.4" lengthAdjust="spacingAndGlyphs">║     </text>
+<text x="492.8 501.2 509.6 518.0 526.4 534.8" y="330.0" fill="#41506d" font-weight="bold">║     </text>
 <rect x="543.2" y="316.0" width="16.8" height="18.0" fill="#000000"/>
-<text x="543.2" y="330.0" fill="#92b3f4" font-weight="bold" textLength="16.8" lengthAdjust="spacingAndGlyphs">██</text>
+<text x="543.2 551.6" y="330.0" fill="#92b3f4" font-weight="bold">██</text>
 <rect x="560.0" y="316.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="560.0" y="330.0" fill="#41506d" font-weight="bold" textLength="8.4" lengthAdjust="spacingAndGlyphs">╔</text>
+<text x="560.0" y="330.0" fill="#41506d" font-weight="bold">╔</text>
 <rect x="568.4" y="316.0" width="33.6" height="18.0" fill="#000000"/>
-<text x="568.4" y="330.0" fill="#92b3f4" font-weight="bold" textLength="33.6" lengthAdjust="spacingAndGlyphs">████</text>
+<text x="568.4 576.8 585.2 593.6" y="330.0" fill="#92b3f4" font-weight="bold">████</text>
 <rect x="602.0" y="316.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="602.0" y="330.0" fill="#41506d" font-weight="bold" textLength="8.4" lengthAdjust="spacingAndGlyphs">╔</text>
+<text x="602.0" y="330.0" fill="#41506d" font-weight="bold">╔</text>
 <rect x="610.4" y="316.0" width="16.8" height="18.0" fill="#000000"/>
-<text x="610.4" y="330.0" fill="#92b3f4" font-weight="bold" textLength="16.8" lengthAdjust="spacingAndGlyphs">██</text>
+<text x="610.4 618.8" y="330.0" fill="#92b3f4" font-weight="bold">██</text>
 <rect x="627.2" y="316.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="627.2" y="330.0" fill="#41506d" font-weight="bold" textLength="8.4" lengthAdjust="spacingAndGlyphs">║</text>
+<text x="627.2" y="330.0" fill="#41506d" font-weight="bold">║</text>
 <rect x="635.6" y="316.0" width="58.8" height="18.0" fill="#000000"/>
-<text x="635.6" y="330.0" fill="#92b3f4" font-weight="bold" textLength="58.8" lengthAdjust="spacingAndGlyphs">███████</text>
+<text x="635.6 644.0 652.4 660.8 669.2 677.6 686.0" y="330.0" fill="#92b3f4" font-weight="bold">███████</text>
 <rect x="694.4" y="316.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="694.4" y="330.0" fill="#41506d" font-weight="bold" textLength="8.4" lengthAdjust="spacingAndGlyphs">╗</text>
+<text x="694.4" y="330.0" fill="#41506d" font-weight="bold">╗</text>
 <rect x="702.8" y="316.0" width="16.8" height="18.0" fill="#000000"/>
-<text x="702.8" y="330.0" fill="#92b3f4" font-weight="bold" textLength="16.8" lengthAdjust="spacingAndGlyphs">██</text>
+<text x="702.8 711.2" y="330.0" fill="#92b3f4" font-weight="bold">██</text>
 <rect x="719.6" y="316.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="719.6" y="330.0" fill="#41506d" font-weight="bold" textLength="8.4" lengthAdjust="spacingAndGlyphs">╔</text>
+<text x="719.6" y="330.0" fill="#41506d" font-weight="bold">╔</text>
 <rect x="728.0" y="316.0" width="33.6" height="18.0" fill="#000000"/>
-<text x="728.0" y="330.0" fill="#92b3f4" font-weight="bold" textLength="33.6" lengthAdjust="spacingAndGlyphs">████</text>
+<text x="728.0 736.4 744.8 753.2" y="330.0" fill="#92b3f4" font-weight="bold">████</text>
 <rect x="761.6" y="316.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="761.6" y="330.0" fill="#41506d" font-weight="bold" textLength="8.4" lengthAdjust="spacingAndGlyphs">╔</text>
+<text x="761.6" y="330.0" fill="#41506d" font-weight="bold">╔</text>
 <rect x="770.0" y="316.0" width="16.8" height="18.0" fill="#000000"/>
-<text x="770.0" y="330.0" fill="#92b3f4" font-weight="bold" textLength="16.8" lengthAdjust="spacingAndGlyphs">██</text>
+<text x="770.0 778.4" y="330.0" fill="#92b3f4" font-weight="bold">██</text>
 <rect x="786.8" y="316.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="786.8" y="330.0" fill="#41506d" font-weight="bold" textLength="8.4" lengthAdjust="spacingAndGlyphs">║</text>
-<rect x="795.2" y="316.0" width="25.2" height="18.0" fill="#000000"/>
-<text x="795.2" y="330.0" fill="#92b3f4" font-weight="bold" textLength="25.2" lengthAdjust="spacingAndGlyphs">███</text>
+<text x="786.8" y="330.0" fill="#41506d" font-weight="bold">║</text>
+<rect x="795.2" y="316.0" width="16.8" height="18.0" fill="#000000"/>
+<text x="795.2 803.6" y="330.0" fill="#92b3f4" font-weight="bold">██</text>
+<rect x="812.0" y="316.0" width="8.4" height="18.0" fill="#000000"/>
+<text x="812.0" y="330.0" fill="#99b8f5" font-weight="bold">█</text>
 <rect x="820.4" y="316.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="820.4" y="330.0" fill="#a3bff6" font-weight="bold" textLength="8.4" lengthAdjust="spacingAndGlyphs">█</text>
+<text x="820.4" y="330.0" fill="#abc4f7" font-weight="bold">█</text>
 <rect x="828.8" y="316.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="828.8" y="330.0" fill="#abc5f7" font-weight="bold" textLength="8.4" lengthAdjust="spacingAndGlyphs">█</text>
+<text x="828.8" y="330.0" fill="#b3caf8" font-weight="bold">█</text>
 <rect x="837.2" y="316.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="837.2" y="330.0" fill="#b4cbf8" font-weight="bold" textLength="8.4" lengthAdjust="spacingAndGlyphs">█</text>
+<text x="837.2" y="330.0" fill="#bbd0f8" font-weight="bold">█</text>
 <rect x="845.6" y="316.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="845.6" y="330.0" fill="#bcd0f9" font-weight="bold" textLength="8.4" lengthAdjust="spacingAndGlyphs">█</text>
+<text x="845.6" y="330.0" fill="#c3d6f9" font-weight="bold">█</text>
 <rect x="854.0" y="316.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="854.0" y="330.0" fill="#586070" font-weight="bold" textLength="8.4" lengthAdjust="spacingAndGlyphs">║</text>
+<text x="854.0" y="330.0" fill="#5b6270" font-weight="bold">║</text>
 <rect x="862.4" y="316.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="862.4" y="330.0" fill="#ccdcfa" font-weight="bold" textLength="8.4" lengthAdjust="spacingAndGlyphs">█</text>
+<text x="862.4" y="330.0" fill="#d3e1fb" font-weight="bold">█</text>
 <rect x="870.8" y="316.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="870.8" y="330.0" fill="#d4e2fb" font-weight="bold" textLength="8.4" lengthAdjust="spacingAndGlyphs">█</text>
+<text x="870.8" y="330.0" fill="#dbe7fc" font-weight="bold">█</text>
 <rect x="879.2" y="316.0" width="67.2" height="18.0" fill="#000000"/>
-<text x="879.2" y="330.0" fill="#636771" font-weight="bold" textLength="67.2" lengthAdjust="spacingAndGlyphs">╔       </text>
+<text x="879.2 887.6 896.0 904.4 912.8 921.2 929.6 938.0" y="330.0" fill="#666a71" font-weight="bold">╔       </text>
 <rect x="946.4" y="316.0" width="327.6" height="18.0" fill="#000000"/>
 <rect x="14.0" y="334.0" width="327.6" height="18.0" fill="#000000"/>
 <rect x="341.6" y="334.0" width="16.8" height="18.0" fill="#000000"/>
-<text x="341.6" y="348.0" fill="#92b3f4" font-weight="bold" textLength="16.8" lengthAdjust="spacingAndGlyphs">██</text>
+<text x="341.6 350.0" y="348.0" fill="#92b3f4" font-weight="bold">██</text>
 <rect x="358.4" y="334.0" width="25.2" height="18.0" fill="#000000"/>
-<text x="358.4" y="348.0" fill="#41506d" font-weight="bold" textLength="25.2" lengthAdjust="spacingAndGlyphs">╔══</text>
+<text x="358.4 366.8 375.2" y="348.0" fill="#41506d" font-weight="bold">╔══</text>
 <rect x="383.6" y="334.0" width="16.8" height="18.0" fill="#000000"/>
-<text x="383.6" y="348.0" fill="#92b3f4" font-weight="bold" textLength="16.8" lengthAdjust="spacingAndGlyphs">██</text>
+<text x="383.6 392.0" y="348.0" fill="#92b3f4" font-weight="bold">██</text>
 <rect x="400.4" y="334.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="400.4" y="348.0" fill="#41506d" font-weight="bold" textLength="8.4" lengthAdjust="spacingAndGlyphs">║</text>
+<text x="400.4" y="348.0" fill="#41506d" font-weight="bold">║</text>
 <rect x="408.8" y="334.0" width="16.8" height="18.0" fill="#000000"/>
-<text x="408.8" y="348.0" fill="#92b3f4" font-weight="bold" textLength="16.8" lengthAdjust="spacingAndGlyphs">██</text>
+<text x="408.8 417.2" y="348.0" fill="#92b3f4" font-weight="bold">██</text>
 <rect x="425.6" y="334.0" width="50.4" height="18.0" fill="#000000"/>
-<text x="425.6" y="348.0" fill="#41506d" font-weight="bold" textLength="50.4" lengthAdjust="spacingAndGlyphs">╔══╝  </text>
+<text x="425.6 434.0 442.4 450.8 459.2 467.6" y="348.0" fill="#41506d" font-weight="bold">╔══╝  </text>
 <rect x="476.0" y="334.0" width="16.8" height="18.0" fill="#000000"/>
-<text x="476.0" y="348.0" fill="#92b3f4" font-weight="bold" textLength="16.8" lengthAdjust="spacingAndGlyphs">██</text>
+<text x="476.0 484.4" y="348.0" fill="#92b3f4" font-weight="bold">██</text>
 <rect x="492.8" y="334.0" width="50.4" height="18.0" fill="#000000"/>
-<text x="492.8" y="348.0" fill="#41506d" font-weight="bold" textLength="50.4" lengthAdjust="spacingAndGlyphs">║     </text>
+<text x="492.8 501.2 509.6 518.0 526.4 534.8" y="348.0" fill="#41506d" font-weight="bold">║     </text>
 <rect x="543.2" y="334.0" width="16.8" height="18.0" fill="#000000"/>
-<text x="543.2" y="348.0" fill="#92b3f4" font-weight="bold" textLength="16.8" lengthAdjust="spacingAndGlyphs">██</text>
+<text x="543.2 551.6" y="348.0" fill="#92b3f4" font-weight="bold">██</text>
 <rect x="560.0" y="334.0" width="16.8" height="18.0" fill="#000000"/>
-<text x="560.0" y="348.0" fill="#41506d" font-weight="bold" textLength="16.8" lengthAdjust="spacingAndGlyphs">║╚</text>
+<text x="560.0 568.4" y="348.0" fill="#41506d" font-weight="bold">║╚</text>
 <rect x="576.8" y="334.0" width="16.8" height="18.0" fill="#000000"/>
-<text x="576.8" y="348.0" fill="#92b3f4" font-weight="bold" textLength="16.8" lengthAdjust="spacingAndGlyphs">██</text>
+<text x="576.8 585.2" y="348.0" fill="#92b3f4" font-weight="bold">██</text>
 <rect x="593.6" y="334.0" width="16.8" height="18.0" fill="#000000"/>
-<text x="593.6" y="348.0" fill="#41506d" font-weight="bold" textLength="16.8" lengthAdjust="spacingAndGlyphs">╔╝</text>
+<text x="593.6 602.0" y="348.0" fill="#41506d" font-weight="bold">╔╝</text>
 <rect x="610.4" y="334.0" width="16.8" height="18.0" fill="#000000"/>
-<text x="610.4" y="348.0" fill="#92b3f4" font-weight="bold" textLength="16.8" lengthAdjust="spacingAndGlyphs">██</text>
+<text x="610.4 618.8" y="348.0" fill="#92b3f4" font-weight="bold">██</text>
 <rect x="627.2" y="334.0" width="50.4" height="18.0" fill="#000000"/>
-<text x="627.2" y="348.0" fill="#41506d" font-weight="bold" textLength="50.4" lengthAdjust="spacingAndGlyphs">║╚════</text>
+<text x="627.2 635.6 644.0 652.4 660.8 669.2" y="348.0" fill="#41506d" font-weight="bold">║╚════</text>
 <rect x="677.6" y="334.0" width="16.8" height="18.0" fill="#000000"/>
-<text x="677.6" y="348.0" fill="#92b3f4" font-weight="bold" textLength="16.8" lengthAdjust="spacingAndGlyphs">██</text>
+<text x="677.6 686.0" y="348.0" fill="#92b3f4" font-weight="bold">██</text>
 <rect x="694.4" y="334.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="694.4" y="348.0" fill="#41506d" font-weight="bold" textLength="8.4" lengthAdjust="spacingAndGlyphs">║</text>
+<text x="694.4" y="348.0" fill="#41506d" font-weight="bold">║</text>
 <rect x="702.8" y="334.0" width="16.8" height="18.0" fill="#000000"/>
-<text x="702.8" y="348.0" fill="#92b3f4" font-weight="bold" textLength="16.8" lengthAdjust="spacingAndGlyphs">██</text>
+<text x="702.8 711.2" y="348.0" fill="#92b3f4" font-weight="bold">██</text>
 <rect x="719.6" y="334.0" width="16.8" height="18.0" fill="#000000"/>
-<text x="719.6" y="348.0" fill="#41506d" font-weight="bold" textLength="16.8" lengthAdjust="spacingAndGlyphs">║╚</text>
+<text x="719.6 728.0" y="348.0" fill="#41506d" font-weight="bold">║╚</text>
 <rect x="736.4" y="334.0" width="16.8" height="18.0" fill="#000000"/>
-<text x="736.4" y="348.0" fill="#92b3f4" font-weight="bold" textLength="16.8" lengthAdjust="spacingAndGlyphs">██</text>
+<text x="736.4 744.8" y="348.0" fill="#92b3f4" font-weight="bold">██</text>
 <rect x="753.2" y="334.0" width="16.8" height="18.0" fill="#000000"/>
-<text x="753.2" y="348.0" fill="#41506d" font-weight="bold" textLength="16.8" lengthAdjust="spacingAndGlyphs">╔╝</text>
+<text x="753.2 761.6" y="348.0" fill="#41506d" font-weight="bold">╔╝</text>
 <rect x="770.0" y="334.0" width="16.8" height="18.0" fill="#000000"/>
-<text x="770.0" y="348.0" fill="#92b3f4" font-weight="bold" textLength="16.8" lengthAdjust="spacingAndGlyphs">██</text>
+<text x="770.0 778.4" y="348.0" fill="#92b3f4" font-weight="bold">██</text>
 <rect x="786.8" y="334.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="786.8" y="348.0" fill="#41506d" font-weight="bold" textLength="8.4" lengthAdjust="spacingAndGlyphs">║</text>
+<text x="786.8" y="348.0" fill="#41506d" font-weight="bold">║</text>
 <rect x="795.2" y="334.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="795.2" y="348.0" fill="#92b3f4" font-weight="bold" textLength="8.4" lengthAdjust="spacingAndGlyphs">█</text>
+<text x="795.2" y="348.0" fill="#92b3f4" font-weight="bold">█</text>
 <rect x="803.6" y="334.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="803.6" y="348.0" fill="#93b4f5" font-weight="bold" textLength="8.4" lengthAdjust="spacingAndGlyphs">█</text>
+<text x="803.6" y="348.0" fill="#9ab9f5" font-weight="bold">█</text>
 <rect x="812.0" y="334.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="812.0" y="348.0" fill="#45536e" font-weight="bold" textLength="8.4" lengthAdjust="spacingAndGlyphs">╔</text>
+<text x="812.0" y="348.0" fill="#49556e" font-weight="bold">╔</text>
 <rect x="820.4" y="334.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="820.4" y="348.0" fill="#49556e" font-weight="bold" textLength="8.4" lengthAdjust="spacingAndGlyphs">═</text>
+<text x="820.4" y="348.0" fill="#4c586f" font-weight="bold">═</text>
 <rect x="828.8" y="334.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="828.8" y="348.0" fill="#4c586f" font-weight="bold" textLength="8.4" lengthAdjust="spacingAndGlyphs">═</text>
+<text x="828.8" y="348.0" fill="#505a6f" font-weight="bold">═</text>
 <rect x="837.2" y="334.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="837.2" y="348.0" fill="#b4cbf8" font-weight="bold" textLength="8.4" lengthAdjust="spacingAndGlyphs">█</text>
+<text x="837.2" y="348.0" fill="#bbd0f8" font-weight="bold">█</text>
 <rect x="845.6" y="334.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="845.6" y="348.0" fill="#bcd0f9" font-weight="bold" textLength="8.4" lengthAdjust="spacingAndGlyphs">█</text>
+<text x="845.6" y="348.0" fill="#c3d6f9" font-weight="bold">█</text>
 <rect x="854.0" y="334.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="854.0" y="348.0" fill="#586070" font-weight="bold" textLength="8.4" lengthAdjust="spacingAndGlyphs">║</text>
+<text x="854.0" y="348.0" fill="#5b6270" font-weight="bold">║</text>
 <rect x="862.4" y="334.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="862.4" y="348.0" fill="#ccdcfa" font-weight="bold" textLength="8.4" lengthAdjust="spacingAndGlyphs">█</text>
+<text x="862.4" y="348.0" fill="#d3e1fb" font-weight="bold">█</text>
 <rect x="870.8" y="334.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="870.8" y="348.0" fill="#d4e2fb" font-weight="bold" textLength="8.4" lengthAdjust="spacingAndGlyphs">█</text>
+<text x="870.8" y="348.0" fill="#dbe7fc" font-weight="bold">█</text>
 <rect x="879.2" y="334.0" width="67.2" height="18.0" fill="#000000"/>
-<text x="879.2" y="348.0" fill="#636771" font-weight="bold" textLength="67.2" lengthAdjust="spacingAndGlyphs">║       </text>
+<text x="879.2 887.6 896.0 904.4 912.8 921.2 929.6 938.0" y="348.0" fill="#666a71" font-weight="bold">║       </text>
 <rect x="946.4" y="334.0" width="327.6" height="18.0" fill="#000000"/>
 <rect x="14.0" y="352.0" width="327.6" height="18.0" fill="#000000"/>
 <rect x="341.6" y="352.0" width="16.8" height="18.0" fill="#000000"/>
-<text x="341.6" y="366.0" fill="#92b3f4" font-weight="bold" textLength="16.8" lengthAdjust="spacingAndGlyphs">██</text>
+<text x="341.6 350.0" y="366.0" fill="#92b3f4" font-weight="bold">██</text>
 <rect x="358.4" y="352.0" width="25.2" height="18.0" fill="#000000"/>
-<text x="358.4" y="366.0" fill="#41506d" font-weight="bold" textLength="25.2" lengthAdjust="spacingAndGlyphs">║  </text>
+<text x="358.4 366.8 375.2" y="366.0" fill="#41506d" font-weight="bold">║  </text>
 <rect x="383.6" y="352.0" width="16.8" height="18.0" fill="#000000"/>
-<text x="383.6" y="366.0" fill="#92b3f4" font-weight="bold" textLength="16.8" lengthAdjust="spacingAndGlyphs">██</text>
+<text x="383.6 392.0" y="366.0" fill="#92b3f4" font-weight="bold">██</text>
 <rect x="400.4" y="352.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="400.4" y="366.0" fill="#41506d" font-weight="bold" textLength="8.4" lengthAdjust="spacingAndGlyphs">║</text>
+<text x="400.4" y="366.0" fill="#41506d" font-weight="bold">║</text>
 <rect x="408.8" y="352.0" width="58.8" height="18.0" fill="#000000"/>
-<text x="408.8" y="366.0" fill="#92b3f4" font-weight="bold" textLength="58.8" lengthAdjust="spacingAndGlyphs">███████</text>
+<text x="408.8 417.2 425.6 434.0 442.4 450.8 459.2" y="366.0" fill="#92b3f4" font-weight="bold">███████</text>
 <rect x="467.6" y="352.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="467.6" y="366.0" fill="#41506d" font-weight="bold" textLength="8.4" lengthAdjust="spacingAndGlyphs">╗</text>
+<text x="467.6" y="366.0" fill="#41506d" font-weight="bold">╗</text>
 <rect x="476.0" y="352.0" width="58.8" height="18.0" fill="#000000"/>
-<text x="476.0" y="366.0" fill="#92b3f4" font-weight="bold" textLength="58.8" lengthAdjust="spacingAndGlyphs">███████</text>
+<text x="476.0 484.4 492.8 501.2 509.6 518.0 526.4" y="366.0" fill="#92b3f4" font-weight="bold">███████</text>
 <rect x="534.8" y="352.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="534.8" y="366.0" fill="#41506d" font-weight="bold" textLength="8.4" lengthAdjust="spacingAndGlyphs">╗</text>
+<text x="534.8" y="366.0" fill="#41506d" font-weight="bold">╗</text>
 <rect x="543.2" y="352.0" width="16.8" height="18.0" fill="#000000"/>
-<text x="543.2" y="366.0" fill="#92b3f4" font-weight="bold" textLength="16.8" lengthAdjust="spacingAndGlyphs">██</text>
+<text x="543.2 551.6" y="366.0" fill="#92b3f4" font-weight="bold">██</text>
 <rect x="560.0" y="352.0" width="50.4" height="18.0" fill="#000000"/>
-<text x="560.0" y="366.0" fill="#41506d" font-weight="bold" textLength="50.4" lengthAdjust="spacingAndGlyphs">║ ╚═╝ </text>
+<text x="560.0 568.4 576.8 585.2 593.6 602.0" y="366.0" fill="#41506d" font-weight="bold">║ ╚═╝ </text>
 <rect x="610.4" y="352.0" width="16.8" height="18.0" fill="#000000"/>
-<text x="610.4" y="366.0" fill="#92b3f4" font-weight="bold" textLength="16.8" lengthAdjust="spacingAndGlyphs">██</text>
+<text x="610.4 618.8" y="366.0" fill="#92b3f4" font-weight="bold">██</text>
 <rect x="627.2" y="352.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="627.2" y="366.0" fill="#41506d" font-weight="bold" textLength="8.4" lengthAdjust="spacingAndGlyphs">║</text>
+<text x="627.2" y="366.0" fill="#41506d" font-weight="bold">║</text>
 <rect x="635.6" y="352.0" width="58.8" height="18.0" fill="#000000"/>
-<text x="635.6" y="366.0" fill="#92b3f4" font-weight="bold" textLength="58.8" lengthAdjust="spacingAndGlyphs">███████</text>
+<text x="635.6 644.0 652.4 660.8 669.2 677.6 686.0" y="366.0" fill="#92b3f4" font-weight="bold">███████</text>
 <rect x="694.4" y="352.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="694.4" y="366.0" fill="#41506d" font-weight="bold" textLength="8.4" lengthAdjust="spacingAndGlyphs">║</text>
+<text x="694.4" y="366.0" fill="#41506d" font-weight="bold">║</text>
 <rect x="702.8" y="352.0" width="16.8" height="18.0" fill="#000000"/>
-<text x="702.8" y="366.0" fill="#92b3f4" font-weight="bold" textLength="16.8" lengthAdjust="spacingAndGlyphs">██</text>
+<text x="702.8 711.2" y="366.0" fill="#92b3f4" font-weight="bold">██</text>
 <rect x="719.6" y="352.0" width="50.4" height="18.0" fill="#000000"/>
-<text x="719.6" y="366.0" fill="#41506d" font-weight="bold" textLength="50.4" lengthAdjust="spacingAndGlyphs">║ ╚═╝ </text>
+<text x="719.6 728.0 736.4 744.8 753.2 761.6" y="366.0" fill="#41506d" font-weight="bold">║ ╚═╝ </text>
 <rect x="770.0" y="352.0" width="16.8" height="18.0" fill="#000000"/>
-<text x="770.0" y="366.0" fill="#92b3f4" font-weight="bold" textLength="16.8" lengthAdjust="spacingAndGlyphs">██</text>
+<text x="770.0 778.4" y="366.0" fill="#92b3f4" font-weight="bold">██</text>
 <rect x="786.8" y="352.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="786.8" y="366.0" fill="#41506d" font-weight="bold" textLength="8.4" lengthAdjust="spacingAndGlyphs">║</text>
+<text x="786.8" y="366.0" fill="#41506d" font-weight="bold">║</text>
 <rect x="795.2" y="352.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="795.2" y="366.0" fill="#92b3f4" font-weight="bold" textLength="8.4" lengthAdjust="spacingAndGlyphs">█</text>
+<text x="795.2" y="366.0" fill="#92b3f4" font-weight="bold">█</text>
 <rect x="803.6" y="352.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="803.6" y="366.0" fill="#93b4f5" font-weight="bold" textLength="8.4" lengthAdjust="spacingAndGlyphs">█</text>
+<text x="803.6" y="366.0" fill="#9ab9f5" font-weight="bold">█</text>
 <rect x="812.0" y="352.0" width="25.2" height="18.0" fill="#000000"/>
-<text x="812.0" y="366.0" fill="#45536e" font-weight="bold" textLength="25.2" lengthAdjust="spacingAndGlyphs">║  </text>
+<text x="812.0 820.4 828.8" y="366.0" fill="#49556e" font-weight="bold">║  </text>
 <rect x="837.2" y="352.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="837.2" y="366.0" fill="#b4cbf8" font-weight="bold" textLength="8.4" lengthAdjust="spacingAndGlyphs">█</text>
+<text x="837.2" y="366.0" fill="#bbd0f8" font-weight="bold">█</text>
 <rect x="845.6" y="352.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="845.6" y="366.0" fill="#bcd0f9" font-weight="bold" textLength="8.4" lengthAdjust="spacingAndGlyphs">█</text>
+<text x="845.6" y="366.0" fill="#c3d6f9" font-weight="bold">█</text>
 <rect x="854.0" y="352.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="854.0" y="366.0" fill="#586070" font-weight="bold" textLength="8.4" lengthAdjust="spacingAndGlyphs">║</text>
+<text x="854.0" y="366.0" fill="#5b6270" font-weight="bold">║</text>
 <rect x="862.4" y="352.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="862.4" y="366.0" fill="#ccdcfa" font-weight="bold" textLength="8.4" lengthAdjust="spacingAndGlyphs">█</text>
+<text x="862.4" y="366.0" fill="#d3e1fb" font-weight="bold">█</text>
 <rect x="870.8" y="352.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="870.8" y="366.0" fill="#d4e2fb" font-weight="bold" textLength="8.4" lengthAdjust="spacingAndGlyphs">█</text>
+<text x="870.8" y="366.0" fill="#dbe7fc" font-weight="bold">█</text>
 <rect x="879.2" y="352.0" width="67.2" height="18.0" fill="#000000"/>
-<text x="879.2" y="366.0" fill="#636771" font-weight="bold" textLength="67.2" lengthAdjust="spacingAndGlyphs">║       </text>
+<text x="879.2 887.6 896.0 904.4 912.8 921.2 929.6 938.0" y="366.0" fill="#666a71" font-weight="bold">║       </text>
 <rect x="946.4" y="352.0" width="327.6" height="18.0" fill="#000000"/>
 <rect x="14.0" y="370.0" width="327.6" height="18.0" fill="#000000"/>
 <rect x="341.6" y="370.0" width="462.0" height="18.0" fill="#000000"/>
-<text x="341.6" y="384.0" fill="#41506d" font-weight="bold" textLength="462.0" lengthAdjust="spacingAndGlyphs">╚═╝  ╚═╝╚══════╝╚══════╝╚═╝     ╚═╝╚══════╝╚═╝     ╚═╝╚</text>
+<text x="341.6 350.0 358.4 366.8 375.2 383.6 392.0 400.4 408.8 417.2 425.6 434.0 442.4 450.8 459.2 467.6 476.0 484.4 492.8 501.2 509.6 518.0 526.4 534.8 543.2 551.6 560.0 568.4 576.8 585.2 593.6 602.0 610.4 618.8 627.2 635.6 644.0 652.4 660.8 669.2 677.6 686.0 694.4 702.8 711.2 719.6 728.0 736.4 744.8 753.2 761.6 770.0 778.4 786.8 795.2" y="384.0" fill="#41506d" font-weight="bold">╚═╝  ╚═╝╚══════╝╚══════╝╚═╝     ╚═╝╚══════╝╚═╝     ╚═╝╚</text>
 <rect x="803.6" y="370.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="803.6" y="384.0" fill="#42516e" font-weight="bold" textLength="8.4" lengthAdjust="spacingAndGlyphs">═</text>
+<text x="803.6" y="384.0" fill="#45536e" font-weight="bold">═</text>
 <rect x="812.0" y="370.0" width="25.2" height="18.0" fill="#000000"/>
-<text x="812.0" y="384.0" fill="#45536e" font-weight="bold" textLength="25.2" lengthAdjust="spacingAndGlyphs">╝  </text>
+<text x="812.0 820.4 828.8" y="384.0" fill="#49556e" font-weight="bold">╝  </text>
 <rect x="837.2" y="370.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="837.2" y="384.0" fill="#515b6f" font-weight="bold" textLength="8.4" lengthAdjust="spacingAndGlyphs">╚</text>
+<text x="837.2" y="384.0" fill="#545d6f" font-weight="bold">╚</text>
 <rect x="845.6" y="370.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="845.6" y="384.0" fill="#545d70" font-weight="bold" textLength="8.4" lengthAdjust="spacingAndGlyphs">═</text>
+<text x="845.6" y="384.0" fill="#576070" font-weight="bold">═</text>
 <rect x="854.0" y="370.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="854.0" y="384.0" fill="#586070" font-weight="bold" textLength="8.4" lengthAdjust="spacingAndGlyphs">╝</text>
+<text x="854.0" y="384.0" fill="#5b6270" font-weight="bold">╝</text>
 <rect x="862.4" y="370.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="862.4" y="384.0" fill="#5b6370" font-weight="bold" textLength="8.4" lengthAdjust="spacingAndGlyphs">╚</text>
+<text x="862.4" y="384.0" fill="#5e6570" font-weight="bold">╚</text>
 <rect x="870.8" y="370.0" width="8.4" height="18.0" fill="#000000"/>
-<text x="870.8" y="384.0" fill="#5f6570" font-weight="bold" textLength="8.4" lengthAdjust="spacingAndGlyphs">═</text>
+<text x="870.8" y="384.0" fill="#626771" font-weight="bold">═</text>
 <rect x="879.2" y="370.0" width="67.2" height="18.0" fill="#000000"/>
-<text x="879.2" y="384.0" fill="#636771" font-weight="bold" textLength="67.2" lengthAdjust="spacingAndGlyphs">╝       </text>
+<text x="879.2 887.6 896.0 904.4 912.8 921.2 929.6 938.0" y="384.0" fill="#666a71" font-weight="bold">╝       </text>
 <rect x="946.4" y="370.0" width="327.6" height="18.0" fill="#000000"/>
 <rect x="14.0" y="388.0" width="1260.0" height="18.0" fill="#000000"/>
-<rect x="14.0" y="406.0" width="478.8" height="18.0" fill="#000000"/>
-<rect x="492.8" y="406.0" width="252.0" height="18.0" fill="#000000"/>
-<text x="492.8" y="420.0" fill="#606c80" textLength="252.0" lengthAdjust="spacingAndGlyphs">kubernetes cluster navigator  </text>
-<rect x="744.8" y="406.0" width="50.4" height="18.0" fill="#000000"/>
-<text x="744.8" y="420.0" fill="#92b3f4" font-weight="bold" textLength="50.4" lengthAdjust="spacingAndGlyphs">v0.1.0</text>
-<rect x="795.2" y="406.0" width="478.8" height="18.0" fill="#000000"/>
+<rect x="14.0" y="406.0" width="487.2" height="18.0" fill="#000000"/>
+<rect x="501.2" y="406.0" width="252.0" height="18.0" fill="#000000"/>
+<text x="501.2 509.6 518.0 526.4 534.8 543.2 551.6 560.0 568.4 576.8 585.2 593.6 602.0 610.4 618.8 627.2 635.6 644.0 652.4 660.8 669.2 677.6 686.0 694.4 702.8 711.2 719.6 728.0 736.4 744.8" y="420.0" fill="#606c80">kubernetes cluster navigator  </text>
+<rect x="753.2" y="406.0" width="33.6" height="18.0" fill="#000000"/>
+<text x="753.2 761.6 770.0 778.4" y="420.0" fill="#92b3f4" font-weight="bold">vdev</text>
+<rect x="786.8" y="406.0" width="487.2" height="18.0" fill="#000000"/>
 </g></svg>

@@ -43,8 +43,10 @@ const (
 
 // App represents an application view.
 type App struct {
-	version string
-	splash  *ui.Splash
+	version     string
+	headerFlex  *tview.Flex
+	screenWidth int
+	splash      *ui.Splash
 	*ui.App
 	Content       *PageStack
 	command       *Command
@@ -134,7 +136,17 @@ func (a *App) Init(version string, _ int) error {
 	a.CmdBuff().SetSuggestionFn(a.suggestCommand())
 
 	a.layout(ctx)
+	a.Menu().OnChange = func() { a.fitHeader(a.screenWidth) }
 	a.initSignals()
+	var lastWidth int
+	a.SetBeforeDrawFunc(func(screen tcell.Screen) bool {
+		if w, _ := screen.Size(); w != lastWidth {
+			lastWidth = w
+			a.fitHeader(w)
+		}
+
+		return false
+	})
 
 	if a.Config.K9s.ImageScans.Enable {
 		a.initImgScanner(version)
@@ -307,6 +319,21 @@ func (a *App) toggleCrumbs(flag bool) {
 	}
 }
 
+// fitHeader drops the logo when the terminal is too narrow to show every key
+// label next to it, and brings it back when there is room.
+func (a *App) fitHeader(width int) {
+	if a.headerFlex == nil || !a.showLogo {
+		return
+	}
+	a.screenWidth = width
+	need := clusterInfoWidth + a.Menu().Width() + ui.LogoWidth + 2
+	size := ui.LogoWidth
+	if width < need {
+		size = 0
+	}
+	a.headerFlex.ResizeItem(a.Logo(), size, 0)
+}
+
 func (a *App) buildHeader() tview.Primitive {
 	header := tview.NewFlex()
 	header.SetBackgroundColor(a.Styles.BgColor())
@@ -329,6 +356,7 @@ func (a *App) buildHeader() tview.Primitive {
 	header.AddItem(a.Menu(), 0, 1, false)
 	if a.showLogo {
 		header.AddItem(a.Logo(), ui.LogoWidth, 0, false)
+		a.headerFlex = header
 	}
 	return header
 }

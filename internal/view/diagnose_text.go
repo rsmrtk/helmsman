@@ -14,12 +14,13 @@ import (
 )
 
 const (
-	diagTail    = 30 // lines of previous logs per container
-	diagEvents  = 12
-	tagHeading  = "[::b]"
-	tagReset    = "[-::-]"
-	tagDim      = "[::d]"
-	diagUnknown = "-"
+	diagTail     = 30 // lines of previous logs per container
+	diagEvents   = 8
+	findingWidth = 150
+	tagHeading   = "[::b]"
+	tagReset     = "[-::-]"
+	tagDim       = "[::d]"
+	diagUnknown  = "-"
 )
 
 func statusTag(status string) string {
@@ -83,11 +84,16 @@ func advice(reason string) string {
 	return ""
 }
 
-type finding struct{ severity, text string }
+type finding struct{ severity, text, advice string }
 
 func findings(pod *v1.Pod, events []v1.Event) []finding {
 	var ff []finding
-	add := func(sev, format string, a ...any) { ff = append(ff, finding{sev, fmt.Sprintf(format, a...)}) }
+	add := func(sev, format string, a ...any) {
+		ff = append(ff, finding{severity: sev, text: fmt.Sprintf(format, a...)})
+	}
+	addAdvice := func(sev, advice, format string, a ...any) {
+		ff = append(ff, finding{severity: sev, text: fmt.Sprintf(format, a...), advice: advice})
+	}
 
 	for _, c := range pod.Status.Conditions {
 		if c.Type == v1.PodScheduled && c.Status == v1.ConditionFalse {
@@ -99,10 +105,10 @@ func findings(pod *v1.Pod, events []v1.Event) []finding {
 			switch {
 			case cs.State.Waiting != nil && cs.State.Waiting.Reason != "" && cs.State.Waiting.Reason != "PodInitializing":
 				w := cs.State.Waiting
-				add(w.Reason, "container %q is waiting: %s. %s", cs.Name, firstNonEmpty(w.Message, w.Reason), advice(w.Reason))
+				addAdvice(w.Reason, advice(w.Reason), "container %q is waiting: %s", cs.Name, firstNonEmpty(w.Reason))
 			case cs.State.Terminated != nil && cs.State.Terminated.ExitCode != 0:
 				t := cs.State.Terminated
-				add(firstNonEmpty(t.Reason, "Error"), "container %q exited with code %d (%s). %s", cs.Name, t.ExitCode, firstNonEmpty(t.Reason, "no reason"), advice(t.Reason))
+				addAdvice(firstNonEmpty(t.Reason, "Error"), advice(t.Reason), "container %q exited with code %d (%s)", cs.Name, t.ExitCode, firstNonEmpty(t.Reason, "no reason"))
 			}
 			if t := cs.LastTerminationState.Terminated; t != nil && t.ExitCode != 0 && cs.RestartCount > 0 {
 				add(firstNonEmpty(t.Reason, "Error"), "container %q was last terminated: %s, exit code %d, %d restart(s)", cs.Name, firstNonEmpty(t.Reason, "Error"), t.ExitCode, cs.RestartCount)
@@ -155,7 +161,10 @@ func diagnoseText(pod *v1.Pod, events []v1.Event, prevLogs map[string]string) st
 		fmt.Fprintf(&sb, "%s●%s nothing wrong found\n", statusTag("Running"), tagReset)
 	}
 	for _, f := range ff {
-		fmt.Fprintf(&sb, "%s●%s %s\n", statusTag(f.severity), tagReset, f.text)
+		fmt.Fprintf(&sb, "%s●%s %s\n", statusTag(f.severity), tagReset, tview.Escape(truncate(oneLine(f.text), findingWidth)))
+		if f.advice != "" {
+			fmt.Fprintf(&sb, "  %s→ %s%s\n", tagDim, tview.Escape(f.advice), tagReset)
+		}
 	}
 
 	fmt.Fprintf(&sb, "\n%sContainers%s\n", tagHeading, tagReset)
@@ -173,19 +182,27 @@ func diagnoseText(pod *v1.Pod, events []v1.Event, prevLogs map[string]string) st
 
 	fmt.Fprintf(&sb, "\n%sEvents%s\n", tagHeading, tagReset)
 	evs := append([]v1.Event{}, events...)
-	sort.SliceStable(evs, func(i, j int) bool { return evs[i].LastTimestamp.Before(&evs[j].LastTimestamp) })
+	sort.SliceStable(evs, func(i, j int) bool {
+		// warnings first, then the most recent
+		wi, wj := evs[i].Type == v1.EventTypeWarning, evs[j].Type == v1.EventTypeWarning
+		if wi != wj {
+			return wi
+		}
+		return evs[j].LastTimestamp.Before(&evs[i].LastTimestamp)
+	})
 	if len(evs) > diagEvents {
-		evs = evs[len(evs)-diagEvents:]
+		evs = evs[:diagEvents]
 	}
 	if len(evs) == 0 {
 		fmt.Fprintf(&sb, "%sno events%s\n", tagDim, tagReset)
 	}
 	for _, e := range evs {
-		tag := tagDim
+		tag, mark := tagDim, "○"
 		if e.Type == v1.EventTypeWarning {
-			tag = statusTag("CrashLoopBackOff")
+			tag, mark = statusTag("CrashLoopBackOff"), "●"
 		}
-		fmt.Fprintf(&sb, "%s%-8s %-22s%s %s\n", tag, e.Type, e.Reason, tagReset, tview.Escape(strings.TrimSpace(e.Message)))
+		fmt.Fprintf(&sb, "%s%s %s%s\n", tag, mark, e.Reason, tagReset)
+		fmt.Fprintf(&sb, "    %s%s%s\n", tagDim, tview.Escape(truncate(oneLine(e.Message), findingWidth)), tagReset)
 	}
 
 	names := make([]string, 0, len(prevLogs))

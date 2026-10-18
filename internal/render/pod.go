@@ -68,6 +68,7 @@ var defaultPodHeader = model1.Header{
 	model1.HeaderColumn{Name: "MEM/RL", Attrs: model1.Attrs{Align: tview.AlignRight, Wide: true}},
 	model1.HeaderColumn{Name: "%MEM/R", Attrs: model1.Attrs{Align: tview.AlignRight, MX: true}},
 	model1.HeaderColumn{Name: "%MEM/L", Attrs: model1.Attrs{Align: tview.AlignRight, MX: true}},
+	model1.HeaderColumn{Name: "CPU TREND", Attrs: model1.Attrs{MX: true}},
 	model1.HeaderColumn{Name: "GPU/RL", Attrs: model1.Attrs{Align: tview.AlignRight, Wide: true}},
 	model1.HeaderColumn{Name: "IP"},
 	model1.HeaderColumn{Name: "NODE"},
@@ -188,6 +189,7 @@ func (p *Pod) defaultRow(pwm *PodWithMetrics, row *model1.Row) error {
 		toMi(r.mem) + ":" + toMi(r.lmem),
 		unsetDash(client.ToPercentageStr(c.mem, r.mem)),
 		unsetDash(client.ToPercentageStr(c.mem, r.lmem)),
+		cpuTrend(pwm, client.FQN(ns, n), c.cpu),
 		toMc(r.gpu) + ":" + toMc(r.lgpu),
 		na(st.PodIP),
 		na(spec.NodeName),
@@ -675,4 +677,13 @@ func filterSidecarCO(cc []v1.Container) []v1.Container {
 func readyFull(ready string) bool {
 	have, want, ok := strings.Cut(strings.TrimSpace(ready), "/")
 	return !ok || have == want
+}
+
+// cpuTrend is the CPU sparkline of a pod; it stays empty until metrics arrive.
+func cpuTrend(pwm *PodWithMetrics, id string, cpu int64) string {
+	if pwm.MX == nil {
+		return ""
+	}
+
+	return podTrends.record(id, cpu)
 }

@@ -29,6 +29,25 @@ type Menu struct {
 	*tview.Table
 
 	styles *config.Styles
+
+	// OnChange is called after the menu was rebuilt, so the header can re-fit itself.
+	OnChange func()
+}
+
+// Width is how many columns the menu needs to show every label in full.
+func (m *Menu) Width() int {
+	w := 0
+	for c := range m.GetColumnCount() {
+		cw := 0
+		for r := range m.GetRowCount() {
+			if cell := m.GetCell(r, c); cell != nil {
+				cw = max(cw, tview.TaggedStringWidth(cell.Text))
+			}
+		}
+		w += cw + 1
+	}
+
+	return w
 }
 
 // NewMenu returns a new menu.
@@ -80,15 +99,18 @@ func (m *Menu) HydrateMenu(hh model.MenuHints) {
 	m.Clear()
 	sort.Sort(hh)
 
-	table := make([]model.MenuHints, maxRows+1)
-	colCount := (len(hh) / maxRows) + 1
-	if m.hasDigits(hh) {
-		colCount++
+	digits, groups := groupHints(hh)
+	table, maxKeys := groupedTable(digits, groups)
+	t := make([][]string, len(table))
+	for r := range t {
+		t[r] = make([]string, len(table[r]))
 	}
-	for row := range maxRows {
-		table[row] = make(model.MenuHints, colCount)
-	}
-	t := m.buildMenuTable(hh, table, colCount)
+	m.layout(table, maxKeys, t)
+	defer func() {
+		if m.OnChange != nil {
+			m.OnChange()
+		}
+	}()
 
 	for row := range t {
 		for col := range len(t[row]) {

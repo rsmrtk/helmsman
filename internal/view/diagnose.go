@@ -11,6 +11,9 @@ import (
 
 	"github.com/derailed/tcell/v2"
 	"github.com/rsmrtk/helmsman/internal/client"
+	"github.com/rsmrtk/helmsman/internal/model"
+	"github.com/rsmrtk/helmsman/internal/ui"
+	"github.com/rsmrtk/helmsman/internal/ui/dialog"
 	v1 "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 )
@@ -39,13 +42,74 @@ func (p *Pod) diagnoseCmd(*tcell.EventKey) *tcell.EventKey {
 	if c, ok := p.GetTable().RowColor(path); ok {
 		d.SetAccent(c)
 	}
+	if !p.App().Config.IsReadOnly() {
+		d.Actions().Add(ui.KeyR, ui.NewKeyAction("Restart Pod", p.restartPodCmd(path), true))
+	}
 	if err := p.App().inject(d, false); err != nil {
 		p.App().Flash().Err(err)
 		return nil
 	}
 	d.Update(diagnoseText(pod, events, prev))
+	p.refreshDiagnosis(d, path)
 
 	return nil
+}
+
+// diagnoseRefresh is how often an open diagnosis re-reads the pod.
+const diagnoseRefresh = 3 * time.Second
+
+// refreshDiagnosis keeps an open diagnosis current while the pod recovers or
+// keeps failing. It stops as soon as the user leaves the view.
+func (p *Pod) refreshDiagnosis(d *Details, path string) {
+	app := p.App()
+	ns, name := client.Namespaced(path)
+	go func() {
+		t := time.NewTicker(diagnoseRefresh)
+		defer t.Stop()
+		for range t.C {
+			open := make(chan bool, 1)
+			app.QueueUpdateDraw(func() { open <- app.Content.Top() == model.Component(d) })
+			if !<-open {
+				return
+			}
+			pod, err := fetchPod(app.factory, path)
+			if err != nil {
+				app.QueueUpdateDraw(func() { d.Update(tagDim + "pod is gone: " + err.Error() + tagReset) })
+				return
+			}
+			ctx, cancel := context.WithTimeout(context.Background(), diagTimeout)
+			events, prev := p.diagnosisData(ctx, pod, ns, name)
+			cancel()
+			text := diagnoseText(pod, events, prev)
+			app.QueueUpdateDraw(func() { d.Update(text) })
+		}
+	}()
+}
+
+// restartPodCmd deletes the pod after confirmation; its controller recreates it.
+func (p *Pod) restartPodCmd(path string) func(*tcell.EventKey) *tcell.EventKey {
+	return func(*tcell.EventKey) *tcell.EventKey {
+		app := p.App()
+		ns, name := client.Namespaced(path)
+		styles := app.Styles.Dialog()
+		dialog.ShowConfirm(&styles, app.Content.Pages, "Restart",
+			fmt.Sprintf("Delete pod %s/%s so its controller recreates it?", ns, name),
+			func() {
+				cs, err := app.factory.Client().Dial()
+				if err == nil {
+					err = cs.CoreV1().Pods(ns).Delete(context.Background(), name, metav1.DeleteOptions{})
+				}
+				if err != nil {
+					app.Flash().Err(err)
+					return
+				}
+				app.Flash().Infof("Deleted pod %s; waiting for its replacement", name)
+			},
+			func() {},
+		)
+
+		return nil
+	}
 }
 
 // diagnosisData fetches the pod's events and, for containers that have

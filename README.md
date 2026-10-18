@@ -3,7 +3,7 @@
 <p align="center"><b>A terminal UI for Kubernetes that tells you what is wrong before you read a single line.</b></p>
 
 <p align="center">
-  <img src="docs/img/splash.svg" alt="helmsman splash" width="760">
+  <img src="docs/img/tour.svg" alt="helmsman tour: cluster picker, pods, YAML, diagnose, themes, jump palette, overview" width="100%">
 </p>
 
 `helmsman` starts where you actually start: on a **cluster picker**. Pick a cluster, pick a namespace,
@@ -13,6 +13,9 @@ fade into the background, and anything broken is loud.
 > Status: early development (`v0.1.0`). Expect rough edges.
 
 ## See it
+
+The animation above is a real recording (`docs/demo.cast`, play it with `asciinema play`). The stills
+below are rendered from the real program too, see [Development](#development).
 
 **Pods in a status palette.** Healthy is green, finished is blue, waiting is amber, broken is red or
 pink, failing rows are bold. The table title counts pods per status.
@@ -77,6 +80,17 @@ make install                    # builds and copies helmsman to ~/.local/bin
 `~/.local/bin` must be on your `PATH` (it is on most Linux distributions; on macOS add
 `export PATH="$HOME/.local/bin:$PATH"` to `~/.zshrc`).
 
+### Homebrew
+
+A tap is not published yet. When it is, this will work:
+
+```sh
+brew install rsmrtk/tap/helmsman
+```
+
+The formula lives in [`docs/homebrew/helmsman.rb`](docs/homebrew/helmsman.rb) with instructions for filling it
+in from a release.
+
 ### Prebuilt binaries
 
 Download the archive for your system from the
@@ -113,7 +127,7 @@ helmsman --context prod -n web -c pods
 | `Ctrl-B` | bookmark / un-bookmark the current place |
 | `Ctrl-T` | next theme |
 | `Ctrl-Z` | problems only |
-| `x` | diagnose the selected pod |
+| `x` | diagnose the selected pod; the view refreshes itself, `r` restarts the pod (with confirmation, not in `--readonly`) |
 | `y` `d` `l` | YAML / describe / logs of the selected row |
 | `c` | copy the selected name |
 | `?` | every key for the current view |
@@ -126,11 +140,23 @@ Commands you can type after `:`
 | `:ctx`, `:ns`, `:pods`, `:deploy`, … | the usual resource and context commands |
 | `:overview` | every kubeconfig context with nodes, pods and problems |
 | `:diff <ctx-a> <ctx-b> [namespace]` | workloads and images side by side across two clusters |
-| `:gpu` | GPU capacity and who holds it |
+| `:gpu` | GPU capacity per node and the pods holding it |
+| `:warnings` (`:warn`) | Warning events merged by object and reason, most repeated first |
+| `:drift <argo-app> [namespace]` | which resources of an Argo CD application differ from git |
 | `:argo`, `:app`, `:isvc` | Argo CD applications, KServe inference services |
 | `:cloud` | AWS, GCP and Azure accounts (see below) |
 
 Everything else works as in the engine helmsman is built on, `?` shows it inside the app.
+
+### Trends and fleet screens
+
+- **CPU TREND** column on pods: `→` steady, `↑ +40m` rising, `↓ -25m` falling, compared with the pod's own
+  recent average. It fills in while helmsman is open and needs metrics-server (without it the column stays
+  empty).
+- The hint menu at the top groups keys by what they do (look at a row / change it / app-wide) and shows the
+  logo only when the terminal is wide enough for every label.
+- `:diff` compares workloads (images and replicas), ConfigMaps, Secrets, Services and Ingresses between two
+  clusters. Secret and ConfigMap contents are compared through a short hash and never shown.
 
 ### What the colours mean
 
@@ -180,6 +206,12 @@ Config, skins and bookmarks live in the helmsman config dir (`~/Library/Applicat
 macOS, `~/.config/helmsman` on Linux). Environment variables can be given as `HELMSMAN_<NAME>`
 (`CONFIG_DIR`, `LOGS_DIR`, `SKIN`, `EDITOR`, …).
 
+## Privacy
+
+helmsman has no telemetry and does not check for updates. It talks to the clusters in your kubeconfig and,
+when you ask for it, to the `aws`, `gcloud` and `az` programs on your machine. The only other network use is
+the optional image vulnerability scan, which is off unless you enable it in the config.
+
 ## Try it on a cluster full of problems
 
 ```sh
@@ -194,7 +226,8 @@ Needs [kind](https://kind.sigs.k8s.io/) and Docker. Remove it with `kind delete 
 ```sh
 go test ./...                                          # unit tests
 E2E_CONTEXT=kind-hm-demo go test -tags e2e ./e2e/...   # against the demo cluster (also run in CI)
-python3 demo/screenshots.py                            # regenerate the images above (needs pyte)
+python3 demo/screenshots.py                            # regenerate the stills above (needs pyte)
+python3 demo/record.py && python3 demo/tour_svg.py     # re-record the animated tour
 ```
 
 ## Acknowledgements and license
