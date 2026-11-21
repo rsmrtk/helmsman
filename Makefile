@@ -1,5 +1,7 @@
 NAME            := helmsman
-VERSION         ?= v0.1.0
+# The version comes from git: an exact tag gives v1.0.4, anything after it gives v1.0.4-3-gabc123 (and -dirty with
+# uncommitted changes), so a local build is never mistaken for a release. Falls back to "dev" outside a git checkout.
+VERSION         ?= $(shell git describe --tags --always --dirty 2>/dev/null || echo dev)
 PACKAGE         := github.com/rsmrtk/helmsman
 OUTPUT_BIN      ?= execs/${NAME}
 GO_FLAGS        ?=

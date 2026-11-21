@@ -44,14 +44,14 @@ def colour(c, default):
     return NAMED.get(c, default)
 
 
-def session(args, steps, config_dir):
+def session(args, steps, config_dir, extra_env=None, rows=ROWS):
     """Runs the binary, plays steps [(keys, seconds)] and returns the final screen."""
     pid, fd = pty.fork()
     if pid == 0:
-        env = dict(os.environ, TERM="xterm-256color", COLORTERM="truecolor", HELMSMAN_CONFIG_DIR=config_dir)
+        env = dict(os.environ, TERM="xterm-256color", COLORTERM="truecolor", HELMSMAN_CONFIG_DIR=config_dir, **(extra_env or {}))
         os.execve(BIN, [BIN] + args, env)
-    fcntl.ioctl(fd, termios.TIOCSWINSZ, struct.pack("HHHH", ROWS, COLS, 0, 0))
-    screen = pyte.Screen(COLS, ROWS)
+    fcntl.ioctl(fd, termios.TIOCSWINSZ, struct.pack("HHHH", rows, COLS, 0, 0))
+    screen = pyte.Screen(COLS, rows)
     stream = pyte.ByteStream(screen)
 
     def pump(t):
@@ -78,7 +78,7 @@ def session(args, steps, config_dir):
 
 
 def to_svg(screen, title):
-    rows = [y for y in range(ROWS) if any(screen.buffer[y][x].data.strip() for x in range(COLS))]
+    rows = [y for y in range(screen.lines) if any(screen.buffer[y][x].data.strip() for x in range(COLS))]
     last = (max(rows) if rows else 0) + 1
     pad = 14
     width = COLS * CELL_W + pad * 2
@@ -120,6 +120,11 @@ def to_svg(screen, title):
 
 SHOTS = [
     ("cluster-picker", "helmsman: start on the cluster picker", [], [("", 4.5)]),
+    # cluster -> nodes: the machines first, with an `all` row that selects every node at once
+    ("nodes", "cluster, then nodes: pick a machine, or all of them", [], [("", 4.5), ("/kind-hm-demo\\r", 1.5), ("\\r", 12)]),
+    # `helmsman init demo` plays the animation of every provider without touching a cloud; icons as text so the image
+    # does not depend on a Nerd Font in the viewer
+    ("init", "helmsman init: one animated logo per cloud", ["init", "demo"], [("", 19)], {"raw": True, "rows": 40, "env": {"HELMSMAN_ICONS": "plain"}}),
     ("splash", "helmsman: animated splash", [], [("", 1.0)]),
     ("pods", "pods in the status palette", ["-c", "pods", "-n", "demo"] + DEMO[:0], [("", 6)]),
     ("yaml", "YAML framed in the pod's status colour", ["-c", "pods", "-n", "demo"], [("", 6), ("/crash-loop\\r", 1.2), ("y", 2)]),
@@ -133,12 +138,13 @@ SHOTS = [
 if __name__ == "__main__":
     os.makedirs(OUT, exist_ok=True)
     only = set(os.environ.get("ONLY", "").split(",")) - {""}
-    for name, title, args, steps in SHOTS:
+    for name, title, args, steps, *opt in SHOTS:
         if only and name not in only:
             continue
+        opt = opt[0] if opt else {}
         cfg = tempfile.mkdtemp(prefix="hm-shot-")
         try:
-            scr = session(args + DEMO, steps, cfg)
+            scr = session(args + ([] if opt.get("raw") else DEMO), steps, cfg, opt.get("env"), opt.get("rows", ROWS))
         finally:
             shutil.rmtree(cfg, ignore_errors=True)
         path = os.path.join(OUT, name + ".svg")

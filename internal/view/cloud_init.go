@@ -19,6 +19,7 @@ type InitOptions struct {
 	Providers []string // aws | gcp | azure; empty means all three
 	Regions   []string // AWS regions to scan; empty means the CLI default (aws configure / AWS_REGION)
 	DryRun    bool     // list what would be imported, change nothing
+	NoAnim    bool     // plain output even on a terminal
 }
 
 // InitClusters finds the managed Kubernetes clusters (EKS, GKE, AKS) in the accounts the provider CLIs are already
@@ -30,95 +31,150 @@ type InitOptions struct {
 func InitClusters(ctx context.Context, w io.Writer, o InitOptions) error {
 	providers := o.Providers
 	if len(providers) == 0 {
-		providers = []string{"aws", "gcp", "azure"}
+		providers = []string{provAWS, provGCP, provAzure}
 	}
-	prev := currentContext()
-	imported, failed := 0, 0
-
 	for _, p := range providers {
-		prov, ok := providerOf(p)
-		if !ok {
+		if _, ok := providerOf(p); !ok {
 			return fmt.Errorf("unknown provider %q (use aws, gcp or azure)", p)
 		}
-		who, err := whoami(ctx, prov)
-		if err != nil {
-			fmt.Fprintf(w, "- %-5s skipped: %s\n", prov, err)
+	}
+	ui := newInitUI(w, o.NoAnim)
+	ui.begin()
+	defer ui.end()
+	ui.header(o.DryRun)
+	prev := currentContext()
+	imported, problems := 0, 0
 
-			continue
-		}
-		fmt.Fprintf(w, "- %-5s signed in as %s\n", prov, who)
-
-		regions := []string{""}
-		if prov == "aws" {
-			if regions = awsRegions(ctx, o.Regions); len(regions) == 0 {
-				fmt.Fprintln(w, "    no AWS region: pass --region <region> or run `aws configure set region <region>`")
-				failed++
-
-				continue
-			}
-		}
-		for _, region := range regions {
-			svc, _ := findService(prov, map[string]string{"aws": "eks", "gcp": "gke", "azure": "aks"}[prov])
-			args := append([]string{}, svc.Args...)
-			if prov == "aws" {
-				args = append(args, "--region", region)
-			}
-			out, err := runCLI(ctx, cliOf(prov), args...)
-			if err != nil {
-				// A region the account may not use, or a service that is switched off (GKE API disabled, SCP-blocked
-				// region): nothing to import there. That is a skip, not a failure, so discovery over several
-				// providers does not end with an error exit code.
-				fmt.Fprintf(w, "    %s: skipped, cannot list clusters: %s\n", firstNonEmpty(region, prov), err)
-
-				continue
-			}
-			rows, _ := parseCloud(svc, out)
-			if len(rows) == 0 {
-				fmt.Fprintf(w, "    %s: no clusters\n", firstNonEmpty(region, prov))
-			}
-			for _, row := range rows {
-				name := row[0]
-				cli, cargs, err := importArgs(ctx, prov, name, row, region)
-				if err != nil {
-					fmt.Fprintf(w, "    x %s: %s\n", name, err)
-					failed++
-
-					continue
-				}
-				if o.DryRun {
-					fmt.Fprintf(w, "    would import %s: %s %s\n", name, cli, strings.Join(cargs, " "))
-
-					continue
-				}
-				if _, err := runCLI(ctx, cli, cargs...); err != nil {
-					fmt.Fprintf(w, "    x %s: %s\n", name, err)
-					failed++
-
-					continue
-				}
-				fmt.Fprintf(w, "    + %s\n", name)
-				imported++
-			}
-		}
+	for _, p := range providers {
+		prov, _ := providerOf(p)
+		var imp, prob int
+		ui.stage(prov, func() { imp, prob = initProvider(ctx, ui, prov, o) })
+		imported += imp
+		problems += prob
 	}
 	if !o.DryRun {
 		if err := restoreContext(prev); err != nil {
-			fmt.Fprintf(w, "warning: could not restore your current context %q: %s\n", prev, err)
+			ui.fail("context", "could not restore your current context "+prev+": "+err.Error())
 		}
 	}
-	switch {
-	case o.DryRun:
-		fmt.Fprintln(w, "dry run: nothing was changed")
-	case imported > 0:
-		fmt.Fprintf(w, "\nImported %d cluster(s). Your current context is unchanged (%s). Start `helmsman`.\n", imported, firstNonEmpty(prev, "none"))
-	case failed == 0:
-		fmt.Fprintln(w, "\nNo clusters found. Sign in first (aws login / gcloud auth login / az login) and run init again.")
-	}
-	if failed > 0 {
-		return fmt.Errorf("%d cluster(s) could not be imported", failed)
-	}
+	ui.summary(imported, problems, o.DryRun, prev)
 
 	return nil
+}
+
+// initProvider does the work for one provider and reports what it found through ui. It returns how many clusters it
+// imported and how many problems it hit.
+func initProvider(ctx context.Context, ui *initUI, prov string, o InitOptions) (imported, problems int) {
+	defer ui.blank()
+	who, err := step(ui, "checking your sign-in…", func() (string, error) { return whoami(ctx, prov) })
+	if err != nil {
+		reason, hint := explain(prov, err.Error(), "")
+		ui.skip("account", reason)
+		ui.hint(hint)
+
+		return 0, 0
+	}
+	identity, scope := identityOf(prov, who)
+	ui.ok("account", identity+scopeSuffix(scope))
+	project := ""
+	if prov == provGCP {
+		if m := reProject.FindStringSubmatch(scope); m != nil {
+			project = m[1]
+		}
+	}
+
+	regions := []string{""}
+	if prov == provAWS {
+		if regions = awsRegions(ctx, o.Regions); len(regions) == 0 {
+			ui.fail("region", "no AWS region configured")
+			ui.hint("set a default region, or pass --region: run: aws configure set region <region>")
+
+			return 0, 1
+		}
+	}
+	svcName := clusterService[prov]
+	for _, region := range regions {
+		label := strings.ToUpper(svcName)
+		if region != "" {
+			label = region
+		}
+		svc, _ := findService(prov, svcName)
+		args := append([]string{}, svc.Args...)
+		if prov == provAWS {
+			args = append(args, "--region", region)
+		}
+		out, err := step(ui, "listing "+strings.ToUpper(svcName)+" clusters"+inRegion(region)+"…", func() ([]byte, error) {
+			return runCLI(ctx, cliOf(prov), args...)
+		})
+		if err != nil {
+			reason, hint := explain(prov, err.Error(), project)
+			ui.fail(label, reason)
+			ui.hint(hint)
+			problems++
+
+			continue
+		}
+		rows, _ := parseCloud(svc, out)
+		if len(rows) == 0 {
+			ui.skip(label, "no clusters")
+		}
+		for _, row := range rows {
+			name := row[0]
+			cli, cargs, err := importArgs(ctx, prov, name, row, region)
+			if err != nil {
+				reason, hint := explain(prov, err.Error(), project)
+				ui.fail(name, reason)
+				ui.hint(hint)
+				problems++
+
+				continue
+			}
+			if o.DryRun {
+				ui.would(name, cli+" "+strings.Join(cargs, " "))
+
+				continue
+			}
+			if _, err := step(ui, "importing "+name+"…", func() ([]byte, error) { return runCLI(ctx, cli, cargs...) }); err != nil {
+				reason, hint := explain(prov, err.Error(), project)
+				ui.fail(name, reason)
+				ui.hint(hint)
+				problems++
+
+				continue
+			}
+			ui.added(name)
+			imported++
+		}
+	}
+
+	return imported, problems
+}
+
+// clusterService is the managed Kubernetes service of each provider (the cloud service table in cloud_data.go keys on it).
+var clusterService = map[string]string{provAWS: svcEKS, provGCP: svcGKE, provAzure: svcAKS}
+
+const (
+	svcEKS = "eks"
+	svcGKE = "gke"
+	svcAKS = "aks"
+)
+
+var providerTitle = map[string]string{provAWS: "AWS", provGCP: "Google Cloud", provAzure: "Azure"}
+
+func inRegion(region string) string {
+	if region == "" {
+		return ""
+	}
+
+	return " in " + region
+}
+
+func scopeSuffix(scope string) string {
+	if scope == "" {
+		return ""
+	}
+
+	return "  ·  " + scope
 }
 
 // awsRegions is the list of regions to scan: the flags, else the CLI default, else AWS_REGION / AWS_DEFAULT_REGION.
@@ -144,13 +200,13 @@ func awsRegions(ctx context.Context, flags []string) []string {
 // equal to the cluster name for EKS (the default is the full ARN, which is unreadable in a context list).
 func importArgs(ctx context.Context, provider, name string, row []string, region string) (cli string, args []string, err error) {
 	project := ""
-	if provider == "gcp" {
-		if b, err := runCLI(ctx, "gcloud", "config", "get-value", "project"); err == nil {
+	if provider == provGCP {
+		if b, perr := runCLI(ctx, "gcloud", "config", "get-value", "project"); perr == nil {
 			project = strings.TrimSpace(string(b))
 		}
 	}
 	cli, args, err = importPlan(provider, name, row, region, project)
-	if err == nil && provider == "aws" {
+	if err == nil && provider == provAWS {
 		args = append(args, "--alias", name)
 	}
 

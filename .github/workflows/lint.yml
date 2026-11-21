@@ -22,3 +22,5 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           version: v2.13
+          # the code base carries older findings; judge only what a pull request changes
+          only-new-issues: true

@@ -345,6 +345,7 @@
 <rect x="854.0" y="298.0" width="151.2" height="18.0" fill="#000000"/>
 <rect x="1005.2" y="298.0" width="8.4" height="18.0" fill="#000000"/>
 <rect x="1013.6" y="298.0" width="75.6" height="18.0" fill="#000000"/>
+<text x="1013.6 1022.0 1030.4 1038.8 1047.2 1055.6 1064.0 1072.4 1080.8" y="312.0" fill="#b4cbf8">mlflow   </text>
 <rect x="1089.2" y="298.0" width="176.4" height="18.0" fill="#000000"/>
 <rect x="1265.6" y="298.0" width="8.4" height="18.0" fill="#000000"/>
 <text x="1265.6" y="312.0" fill="#b4cbf8" font-weight="bold">│</text>

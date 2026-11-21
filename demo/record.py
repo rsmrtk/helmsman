@@ -15,7 +15,9 @@ COLS, ROWS = 140, 36
 TOUR = [
     ("", 3.5),                    # splash, then the cluster picker
     ("/kind-hm\\r", 1.2),         # filter
-    ("\\r", 1.5),                 # enter the cluster -> namespaces
+    ("\\r", 1.5),                 # enter the cluster -> nodes
+    ("", 4.0),                    # the machines, with the `all` row first (the cluster takes a moment to answer)
+    ("\\r", 1.5),                 # Enter -> namespaces
     ("/demo\\r", 1.2),
     ("\\r", 3.0),                 # pods
     ("/crash-loop\\r", 1.2),

@@ -6,8 +6,8 @@
   <img src="docs/img/tour.svg" alt="helmsman tour: cluster picker, pods, YAML, diagnose, themes, jump palette, overview" width="100%">
 </p>
 
-`helmsman` starts where you actually start: on a **cluster picker**. Pick a cluster, pick a namespace,
-land in its pods. `Esc` walks back one level at a time. Every status has its own colour, healthy pods
+`helmsman` starts where you actually start: on a **cluster picker**. Pick a cluster, look at its nodes
+(or take them all), pick a namespace, land in the pods. `Esc` walks back one level at a time. Every status has its own colour, healthy pods
 fade into the background, and anything broken is loud.
 
 > Status: early development (`v1.0.3`). Expect rough edges. See [change_logs](change_logs/).
@@ -22,9 +22,15 @@ pink, failing rows are bold. The table title counts pods per status.
 
 <p align="center"><img src="docs/img/pods.svg" alt="pods table" width="100%"></p>
 
-**Start on a cluster, not on a guess.** Clusters, then namespaces, then pods.
+**Start on a cluster, not on a guess.** Clusters, then nodes, then namespaces, then pods.
 
 <p align="center"><img src="docs/img/cluster-picker.svg" alt="cluster picker" width="100%"></p>
+
+**The machines first.** After the cluster comes its nodes, with an `all` row on top that stands for every node. The
+node you pick narrows the pods you see after the namespace; `all` keeps them all. `Enter` goes on to the namespaces,
+`p` opens the pods of the highlighted node. (Cordon, uncordon and drain are refused on `all`.)
+
+<p align="center"><img src="docs/img/nodes.svg" alt="nodes with the all row" width="100%"></p>
 
 **Why is this pod broken?** Press `x`. Findings with advice, every container's state, the latest events
 and the tail of the previous logs, on one screen.
@@ -83,11 +89,31 @@ make install                    # builds and copies helmsman to ~/.local/bin
 ### Your cloud clusters
 
 ```sh
-helmsman init                          # import EKS / GKE / AKS clusters you are signed in to
-helmsman init --provider aws --region eu-north-1
+helmsman init                          # every provider you are signed in to
+helmsman init aws --region eu-north-1  # Amazon EKS
+helmsman init gcp                      # Google GKE
+helmsman init azure                    # Azure AKS
+helmsman init aws --dry-run            # show what would be imported
 ```
 
 After `init` the clusters are in your kubeconfig, so `helmsman` and `kubectl` see them from any terminal.
+
+<p align="center"><img src="docs/img/init.svg" alt="helmsman init demo" width="100%"></p> Your
+current context is not changed.
+
+On a terminal the provider's own logo is the loading animation: the lettering, drawn once and recolored in place: a beam of light
+sweeps across AWS, four flat Google colours scroll through Google Cloud as hard-edged diagonal bands (no gradients), a wave of blue rolls through Azure.
+`helmsman init demo` plays all three without contacting any cloud. `--no-animation` or `HELMSMAN_NO_ANIM=1` gives plain
+text, and `HELMSMAN_ICONS=plain` replaces the [Nerd Font](https://www.nerdfonts.com/) icons with text. In a terminal that supports the Kitty text sizing protocol (kitty; others are detected by asking the terminal) the provider glyph in the heading is drawn twice as big; `HELMSMAN_ICON_SCALE=1` turns that off, `3` or `4` makes it bigger. Below 45 columns the logo is plain text.
+
+### Something not working?
+
+```sh
+helmsman doctor              # kubeconfig, the cluster behind your context, terminal, Nerd Font, cloud CLIs
+helmsman doctor --no-cloud   # skip the cloud sign-in checks
+```
+
+It changes nothing, says what to fix with the command to run, and exits non-zero when something is broken.
 
 ### Homebrew
 

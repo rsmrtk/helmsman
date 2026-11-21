@@ -101,3 +101,14 @@ nfpms:
 
 sboms:
   - artifacts: archive
+
+# Keyless signing of the checksums file: one signature covers every artifact listed in it. Verify a download with
+#   cosign verify-blob --bundle checksums.sha256.sigstore.json \
+#     --certificate-identity-regexp 'https://github.com/rsmrtk/helmsman/.*' \
+#     --certificate-oidc-issuer https://token.actions.githubusercontent.com checksums.sha256
+signs:
+  - cmd: cosign
+    signature: "${artifact}.sigstore.json"
+    args: ["sign-blob", "--bundle=${signature}", "${artifact}", "--yes"]
+    artifacts: checksum
+

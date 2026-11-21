@@ -331,9 +331,9 @@
 <text x="47.6 56.0 64.4 72.8 81.2 89.6 98.0 106.4 114.8 123.2 131.6 140.0 148.4 156.8 165.2" y="366.0" fill="#ff5370" font-weight="bold">resourceVersion</text>
 <rect x="173.6" y="352.0" width="16.8" height="18.0" fill="#000000"/>
 <text x="173.6 182.0" y="366.0" fill="#ffffff">: </text>
-<rect x="190.4" y="352.0" width="67.2" height="18.0" fill="#000000"/>
-<text x="190.4 198.8 207.2 215.6 224.0 232.4 240.8 249.2" y="366.0" fill="#ffefd5">&quot;166114&quot;</text>
-<rect x="257.6" y="352.0" width="1008.0" height="18.0" fill="#000000"/>
+<rect x="190.4" y="352.0" width="75.6" height="18.0" fill="#000000"/>
+<text x="190.4 198.8 207.2 215.6 224.0 232.4 240.8 249.2 257.6" y="366.0" fill="#ffefd5">&quot;2214812&quot;</text>
+<rect x="266.0" y="352.0" width="999.6" height="18.0" fill="#000000"/>
 <rect x="1265.6" y="352.0" width="8.4" height="18.0" fill="#000000"/>
 <text x="1265.6" y="366.0" fill="#ff5370">│</text>
 <rect x="14.0" y="370.0" width="8.4" height="18.0" fill="#000000"/>

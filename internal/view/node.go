@@ -147,7 +147,7 @@ func (n *Node) bindKeys(aa *ui.KeyActions) {
 // nextStep continues the cluster -> nodes -> namespaces -> pods drill-down. Enter used to jump to the pods of the
 // selected node; that is still one key away (`p`), so nothing is lost, but the default descent is now the namespaces
 // list, which keeps the flow the same whichever node is highlighted.
-func (n *Node) nextStep(a *App, _ ui.Tabular, _ *client.GVR, _ string) {
+func (*Node) nextStep(a *App, _ ui.Tabular, _ *client.GVR, _ string) {
 	a.gotoResource(client.NsGVR.String(), "", false, true)
 }
 
