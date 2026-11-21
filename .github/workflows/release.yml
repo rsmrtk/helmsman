@@ -23,6 +23,10 @@ jobs:
           go-version-file: go.mod
           cache-dependency-path: go.sum
 
+      # GoReleaser makes an SBOM per archive (`sboms:` in .goreleaser.yml) and needs syft on PATH; the runner has none.
+      - name: Install syft
+        uses: anchore/sbom-action/download-syft@v0.20.0
+
       - name: Run GoReleaser
         uses: goreleaser/goreleaser-action@v6
         with:
