@@ -42,7 +42,29 @@ func (n *Namespace) bindKeys(aa *ui.KeyActions) {
 func (n *Namespace) switchNs(app *App, _ ui.Tabular, _ *client.GVR, path string) {
 	n.useNamespace(path)
 	_, ns := client.Namespaced(path)
+	// Reached through the nodes step (cluster -> nodes -> namespaces -> pods)? Then the pods are narrowed to the node
+	// that was highlighted there; `all` (or no nodes step) keeps every pod of the namespace.
+	if node := nodeChosenBefore(app); node != "" {
+		app.Flash().Infof("Pods of node %s in namespace %s", node, ns)
+		showPods(app, ns+"/", nil, "spec.nodeName="+node)
+		return
+	}
 	app.gotoResource(client.PodGVR.String()+" "+ns, "", false, true)
+}
+
+// nodeChosenBefore returns the node highlighted on the nodes screen directly below the namespaces screen, or "" when
+// the namespaces list was not opened from the nodes step or when the synthetic `all` row was chosen.
+func nodeChosenBefore(app *App) string {
+	prev, ok := app.Content.Previous().(*Node)
+	if !ok || prev == nil {
+		return ""
+	}
+	sel := prev.GetTable().GetSelectedItem()
+	if sel == nodeAll {
+		return ""
+	}
+
+	return sel
 }
 
 func (n *Namespace) useNsCmd(*tcell.EventKey) *tcell.EventKey {

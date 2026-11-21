@@ -7,17 +7,24 @@ import (
 	"context"
 	"fmt"
 	"log/slog"
+	"strconv"
 	"time"
 
 	"github.com/derailed/tcell/v2"
 	"github.com/rsmrtk/helmsman/internal"
 	"github.com/rsmrtk/helmsman/internal/client"
 	"github.com/rsmrtk/helmsman/internal/dao"
+	"github.com/rsmrtk/helmsman/internal/model1"
+	"github.com/rsmrtk/helmsman/internal/render"
 	"github.com/rsmrtk/helmsman/internal/slogs"
 	"github.com/rsmrtk/helmsman/internal/ui"
 	"github.com/rsmrtk/helmsman/internal/ui/dialog"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 )
+
+// nodeAll is the synthetic first row of the nodes list: it selects every node at once, so Enter (or `p`) opens the pods
+// of the whole cluster instead of those of one machine. It is not a real node and no node action applies to it.
+const nodeAll = render.AllRowID
 
 // Node represents a node view.
 type Node struct {
@@ -30,10 +37,59 @@ func NewNode(gvr *client.GVR) ResourceViewer {
 		ResourceViewer: NewBrowser(gvr),
 	}
 	n.AddBindKeysFn(n.bindKeys)
-	n.GetTable().SetEnterFn(n.showPods)
+	n.GetTable().SetDecorateFn(n.decorate)
+	n.GetTable().SetEnterFn(n.nextStep)
 	n.SetContextFn(n.nodeContext)
 
 	return &n
+}
+
+// decorate prepends the synthetic "all" row (see addAllNodesRow).
+func (n *Node) decorate(td *model1.TableData) {
+	if n.App().Conn() == nil {
+		return
+	}
+	addAllNodesRow(td)
+}
+
+// addAllNodesRow adds the synthetic "all" row. Its PODS cell carries the cluster-wide total so the row reads like the
+// others; every other cell stays blank because CPU/MEM etc. are per-node figures. Idempotent: refreshes re-run it.
+func addAllNodesRow(td *model1.TableData) {
+	if td.RowCount() == 0 {
+		return
+	}
+	if _, ok := td.FindRow(nodeAll); ok {
+		return
+	}
+	fields := make(model1.Fields, td.HeaderCount())
+	fields[0] = nodeAll
+	if idx, ok := td.IndexOfHeader("PODS"); ok {
+		total := 0
+		td.RowsRange(func(_ int, re model1.RowEvent) bool {
+			if c, err := strconv.Atoi(re.Row.Fields[idx]); err == nil {
+				total += c
+			}
+			return true
+		})
+		fields[idx] = strconv.Itoa(total)
+	}
+	td.AddRow(model1.RowEvent{
+		Kind: model1.EventUnchanged,
+		Row:  model1.Row{ID: nodeAll, Fields: fields},
+	})
+}
+
+// rejectAll flashes a hint and returns true when the synthetic "all" row is among the selection: cordon, uncordon and
+// drain make sense for a real machine only.
+func (n *Node) rejectAll(sels []string) bool {
+	for _, s := range sels {
+		if s == nodeAll {
+			n.App().Flash().Warn("`all` is not a node: pick a real node for this action")
+			return true
+		}
+	}
+
+	return false
 }
 
 func (n *Node) nodeContext(ctx context.Context) context.Context {
@@ -84,10 +140,34 @@ func (n *Node) bindKeys(aa *ui.KeyActions) {
 
 	aa.Bulk(ui.KeyMap{
 		ui.KeyY: ui.NewKeyAction(yamlAction, n.yamlCmd, true),
+		ui.KeyP: ui.NewKeyAction("Pods", n.podsCmd, true),
 	})
 }
 
+// nextStep continues the cluster -> nodes -> namespaces -> pods drill-down. Enter used to jump to the pods of the
+// selected node; that is still one key away (`p`), so nothing is lost, but the default descent is now the namespaces
+// list, which keeps the flow the same whichever node is highlighted.
+func (n *Node) nextStep(a *App, _ ui.Tabular, _ *client.GVR, _ string) {
+	a.gotoResource(client.NsGVR.String(), "", false, true)
+}
+
+// podsCmd shows the pods scheduled on the highlighted node (what Enter did before the nodes step was added).
+func (n *Node) podsCmd(evt *tcell.EventKey) *tcell.EventKey {
+	path := n.GetTable().GetSelectedItem()
+	if path == "" {
+		return evt
+	}
+	n.showPods(n.App(), nil, nil, path)
+
+	return nil
+}
+
 func (n *Node) showPods(a *App, _ ui.Tabular, _ *client.GVR, path string) {
+	if path == nodeAll {
+		// every node: no field selector, so the pods of all nodes (and all namespaces) are listed.
+		showPods(a, client.NamespaceAll, nil, "")
+		return
+	}
 	showPods(a, n.GetTable().GetSelectedItem(), nil, "spec.nodeName="+path)
 }
 
@@ -95,6 +175,9 @@ func (n *Node) drainCmd(evt *tcell.EventKey) *tcell.EventKey {
 	sels := n.GetTable().GetSelectedItems()
 	if len(sels) == 0 {
 		return evt
+	}
+	if n.rejectAll(sels) {
+		return nil
 	}
 
 	opts := dao.DrainOptions{
@@ -139,6 +222,9 @@ func (n *Node) toggleCordonCmd(cordon bool) func(evt *tcell.EventKey) *tcell.Eve
 		sels := n.GetTable().GetSelectedItems()
 		if len(sels) == 0 {
 			return evt
+		}
+		if n.rejectAll(sels) {
+			return nil
 		}
 
 		title, msg := "Confirm ", ""

@@ -35,6 +35,10 @@ type Namespace struct {
 // ColorerFunc colors a resource row.
 func (Namespace) ColorerFunc() model1.ColorerFunc {
 	return func(ns string, h model1.Header, re *model1.RowEvent) tcell.Color {
+		// The synthetic "all" row is drawn in the theme blue, the same as the `all` row of the nodes list.
+		if re.Row.ID == AllRowID {
+			return model1.HighlightColor
+		}
 		c := model1.DefaultColorer(ns, h, re)
 		if c == model1.ErrColor {
 			return c

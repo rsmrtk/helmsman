@@ -547,10 +547,10 @@ func (a *App) switchContext(ci *cmd.Interpreter, force bool) error {
 		)
 		a.Flash().Infof("Switching context to %q::%q", contextName, ns)
 		a.ReloadStyles()
-		// Drill down instead of jumping straight into pods: cluster -> namespaces -> pods.
+		// Drill down instead of jumping straight into pods: cluster -> nodes -> namespaces -> pods.
 		// Esc walks back one level at a time, as the stack keeps every step.
 		a.gotoResource(ctxCmd, "", true, true)
-		a.gotoResource(client.NsGVR.String(), "", false, true)
+		a.gotoResource(a.firstStepAfterCluster(), "", false, true)
 		if a.clusterModel != nil {
 			go a.clusterModel.Reset(a.factory)
 		}
@@ -825,6 +825,18 @@ func (a *App) aliasCmd(*tcell.EventKey) *tcell.EventKey {
 	}
 
 	return nil
+}
+
+// firstStepAfterCluster returns the view shown right after a cluster is picked: the nodes list, so the operator sees
+// the machines first (Enter then continues to namespaces). Without permission to list nodes — common on locked-down
+// or namespaced RBAC — the step is skipped and the flow falls back to namespaces instead of showing an error.
+func (a *App) firstStepAfterCluster() string {
+	if conn := a.Conn(); conn != nil {
+		if ok, err := conn.CanI(client.ClusterScope, client.NodeGVR, "", client.ListAccess); ok && err == nil {
+			return client.NodeGVR.String()
+		}
+	}
+	return client.NsGVR.String()
 }
 
 func (a *App) gotoResource(c, path string, clearStack, pushCmd bool) {

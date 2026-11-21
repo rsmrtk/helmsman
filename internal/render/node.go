@@ -71,6 +71,10 @@ type Node struct {
 // ColorerFunc colors a resource row.
 func (*Node) ColorerFunc() model1.ColorerFunc {
 	return func(ns string, h model1.Header, re *model1.RowEvent) tcell.Color {
+		// The synthetic "all" row (every node at once) is drawn in the theme blue, like the `all` row of namespaces.
+		if re.Row.ID == AllRowID {
+			return model1.HighlightColor
+		}
 		c := model1.DefaultColorer(ns, h, re)
 		if st, ok := fieldAt(h, re, "STATUS"); ok && c != model1.ErrColor {
 			c = nodeColor(st, c)
