@@ -1,7 +1,6 @@
 # helmsman v1.0.2
 
-First tagged release of helmsman, a fork of [k9s](https://github.com/derailed/k9s) (Apache-2.0).
-This file lists only what helmsman changed or added; it does not repeat k9s release notes.
+First tagged release of helmsman, a terminal UI for Kubernetes. Licensed under Apache-2.0 (see `LICENSE`).
 
 ## Navigation
 
@@ -34,7 +33,7 @@ This file lists only what helmsman changed or added; it does not repeat k9s rele
 
 ## Project
 
-- Go module renamed to `github.com/rsmrtk/helmsman`; the binary is `helmsman`.
+- Go module `github.com/rsmrtk/helmsman`; the binary is `helmsman`.
 - `demo/` brings up a local kind cluster with pods in every status; `e2e/` holds an end-to-end test (`-tags e2e`).
 - Releases are built by GoReleaser on `v*` tags and published to GitHub Releases.
 
