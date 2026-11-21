@@ -10,7 +10,7 @@
 land in its pods. `Esc` walks back one level at a time. Every status has its own colour, healthy pods
 fade into the background, and anything broken is loud.
 
-> Status: early development (`v1.0.2`). Expect rough edges. See [change_logs](change_logs/).
+> Status: early development (`v1.0.3`). Expect rough edges. See [change_logs](change_logs/).
 
 ## See it
 
@@ -79,6 +79,15 @@ make install                    # builds and copies helmsman to ~/.local/bin
 
 `~/.local/bin` must be on your `PATH` (it is on most Linux distributions; on macOS add
 `export PATH="$HOME/.local/bin:$PATH"` to `~/.zshrc`).
+
+### Your cloud clusters
+
+```sh
+helmsman init                          # import EKS / GKE / AKS clusters you are signed in to
+helmsman init --provider aws --region eu-north-1
+```
+
+After `init` the clusters are in your kubeconfig, so `helmsman` and `kubectl` see them from any terminal.
 
 ### Homebrew
 

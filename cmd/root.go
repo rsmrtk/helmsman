@@ -62,7 +62,7 @@ func init() {
 		return flagError{err: err}
 	})
 
-	rootCmd.AddCommand(versionCmd(), infoCmd())
+	rootCmd.AddCommand(versionCmd(), infoCmd(), initCmd())
 	initK9sFlags()
 	initK8sFlags()
 }
