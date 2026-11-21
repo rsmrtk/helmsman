@@ -10,7 +10,7 @@
 land in its pods. `Esc` walks back one level at a time. Every status has its own colour, healthy pods
 fade into the background, and anything broken is loud.
 
-> Status: early development (`v0.1.0`). Expect rough edges.
+> Status: early development (`v1.0.2`). Expect rough edges. See [change_logs](change_logs/).
 
 ## See it
 
@@ -82,14 +82,14 @@ make install                    # builds and copies helmsman to ~/.local/bin
 
 ### Homebrew
 
-A tap is not published yet. When it is, this will work:
-
 ```sh
 brew install rsmrtk/tap/helmsman
+brew upgrade helmsman        # later, to move to a newer release
 ```
 
-The formula lives in [`docs/homebrew/helmsman.rb`](docs/homebrew/helmsman.rb) with instructions for filling it
-in from a release.
+The tap is [`rsmrtk/homebrew-tap`](https://github.com/rsmrtk/homebrew-tap). A workflow there checks for a new
+release of this repository every few hours and updates the formula, so `brew upgrade` picks up a new tag without
+any manual step. [`docs/homebrew/helmsman.rb`](docs/homebrew/helmsman.rb) is kept as a reference copy of the formula.
 
 ### Prebuilt binaries
 
