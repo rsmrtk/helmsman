@@ -74,5 +74,5 @@ func TestImportArgsGiveEKSAReadableContextName(t *testing.T) {
 func TestInitRejectsUnknownProvider(t *testing.T) {
 	err := InitClusters(context.Background(), os.Stderr, InitOptions{Providers: []string{"oracle"}})
 	require.Error(t, err)
-	assert.Contains(t, err.Error(), "unknown provider")
+	assert.Contains(t, err.Error(), "unknown target")
 }

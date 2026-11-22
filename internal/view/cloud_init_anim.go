@@ -22,6 +22,7 @@ import (
 //	AWS          a beam of light sweeps across the letters, the block faces glow, the shadows stay dark
 //	Google Cloud four flat Google colors as hard-edged diagonal bands scrolling through the logo, no gradients
 //	Azure        a wave of blue rolls through the letters, deep blue to cyan
+//	Kubernetes   the lettering stands still while a gradient of Kubernetes blue flows across it in a slow diagonal wave
 //
 // Everything the work prints while the logo animates is held back and written under the finished logo, so results never
 // tear the animation. Animation runs only on a terminal wide enough for the logo (and not with HELMSMAN_NO_ANIM=1 or
@@ -44,6 +45,12 @@ const (
 	provAWS   = "aws"
 	provGCP   = "gcp"
 	provAzure = "azure"
+)
+
+var (
+	k8sBlue  = rgb{50, 108, 229} // the Kubernetes logo blue
+	k8sDeep  = rgb{28, 70, 190}  // the deep end of the shimmer
+	k8sLight = rgb{150, 205, 255}
 )
 
 type rgb struct{ r, g, b int }
@@ -95,6 +102,10 @@ var animThemes = map[string]*animTheme{
 		Key: provGCP, Title: "Google Cloud", Subtitle: "Google Cloud · GKE", Icon: "\U000F11F6", Plain: provGCP, Accent: gBlue,
 		Logo: logoGCP, Shade: shadeGCP,
 	},
+	provLocal: {
+		Key: provLocal, Title: "Kubernetes", Subtitle: "this project · kind · k3d · minikube", Icon: "\U000F10FE", Plain: "local",
+		Accent: k8sBlue, Logo: logoLocal, Shade: shadeLocal,
+	},
 	provAzure: {
 		Key: provAzure, Title: "Azure", Subtitle: "Microsoft Azure · AKS", Icon: "\U000F0805", Plain: provAzure, Accent: azureBlue,
 		Logo: logoAzure, Shade: shadeAzure,
@@ -137,6 +148,19 @@ func shadeGCP(col, row, _, t int, solid bool) rgb {
 	return c
 }
 
+// shadeLocal: the lettering stands still; a gradient of Kubernetes blue to light blue flows across it in a slow diagonal
+// wave, so the logo shimmers. The shadow strokes follow the same gradient, darker.
+func shadeLocal(col, row, _, t int, solid bool) rgb {
+	phase := float64(col)*0.085 + float64(row)*0.30 - float64(t)*0.11
+	h := 0.5 + 0.5*math.Sin(phase)
+	c := mix(k8sDeep, k8sLight, h)
+	if !solid {
+		return mix(rgb{0, 0, 0}, c, 0.6) // the shadow strokes follow the same gradient, darker
+	}
+
+	return c
+}
+
 // shadeAzure: a wave of light rolls through the letters.
 func shadeAzure(col, row, _, t int, solid bool) rgb {
 	h := 0.5 + 0.5*math.Sin(float64(col)*0.30-float64(t)*0.34+float64(row)*0.45)
@@ -168,7 +192,11 @@ func (th *animTheme) icon() string {
 	return th.Icon
 }
 
+// width is the full width of the logo.
 func (th *animTheme) width() int { return logoWidth(th.Logo) }
+
+// height is the number of rows the logo takes.
+func (th *animTheme) height() int { return len(th.Logo) }
 
 func logoWidth(logo []string) int {
 	w := 0
@@ -193,12 +221,12 @@ func (u *initUI) termWidth() int {
 }
 
 // fits: the logo must fit with its indent and a margin, else the animation is skipped (a wrapped row cannot be redrawn).
-func (u *initUI) fits(logo []string) bool { return u.termWidth() >= logoWidth(logo)+len(indent)+2 }
+func (u *initUI) fits(th *animTheme) bool { return u.termWidth() >= th.width()+len(indent)+2 }
 
 // render returns the logo as colored lines for frame t. final draws it fully lit in the provider's accent color.
-func (u *initUI) render(th *animTheme, logo []string, t int, final bool) []string {
-	lines := make([]string, len(logo))
-	for r, row := range logo {
+func (u *initUI) render(th *animTheme, t int, final bool) []string {
+	lines := make([]string, len(th.Logo))
+	for r, row := range th.Logo {
 		var b strings.Builder
 		b.WriteString(indent)
 		runes := []rune(row)
@@ -299,8 +327,7 @@ func (u *initUI) stage(prov string, work func()) {
 
 		return
 	}
-	logo := th.Logo
-	if !u.fits(logo) {
+	if !u.fits(th) {
 		u.provider(providerTitle[prov])
 		work()
 
@@ -308,7 +335,7 @@ func (u *initUI) stage(prov string, work func()) {
 	}
 
 	u.heading(th)
-	n := len(logo) + 1 // logo rows + the status line
+	n := th.height() + 1 // logo rows + the status line
 	u.mu.Lock()
 	u.capture = true
 	u.buf.Reset()
@@ -318,7 +345,7 @@ func (u *initUI) stage(prov string, work func()) {
 	draw := func(t int, final bool) {
 		var b bytes.Buffer
 		b.WriteString(wrapOff)
-		for _, l := range u.render(th, logo, t, final) {
+		for _, l := range u.render(th, t, final) {
 			b.WriteString(eraseLine + "\r" + l + "\n")
 		}
 		// Every frame must end with the cursor on the SAME row (one below the block), or the next "jump up" lands one

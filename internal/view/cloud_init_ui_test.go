@@ -89,3 +89,18 @@ func TestSummaryVariants(t *testing.T) {
 		assert.Contains(t, b.String(), want)
 	}
 }
+
+func TestSummaryWhenEverythingIsAlreadyThere(t *testing.T) {
+	var b bytes.Buffer
+	ui := newInitUI(&b, true)
+	ui.present = 3
+	ui.summary(0, 0, false, "orbstack")
+	assert.Contains(t, b.String(), "Everything is already in your kubeconfig")
+	assert.Contains(t, b.String(), "3 cluster(s) found, nothing to add")
+	assert.NotContains(t, b.String(), "No clusters found", "that would be wrong: they were found")
+
+	b.Reset()
+	ui = newInitUI(&b, true)
+	ui.summary(0, 0, false, "orbstack")
+	assert.Contains(t, b.String(), "No clusters found")
+}

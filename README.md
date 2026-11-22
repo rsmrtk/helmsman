@@ -86,25 +86,36 @@ make install                    # builds and copies helmsman to ~/.local/bin
 `~/.local/bin` must be on your `PATH` (it is on most Linux distributions; on macOS add
 `export PATH="$HOME/.local/bin:$PATH"` to `~/.zshrc`).
 
-### Your cloud clusters
+### Your clusters
 
 ```sh
-helmsman init                          # every provider you are signed in to
-helmsman init aws --region eu-north-1  # Amazon EKS
+helmsman init                          # same as `init all`
+helmsman init all                      # local clusters and every cloud you are signed in to
+helmsman init local                    # only this machine and this project
+helmsman init local aws                # local clusters and Amazon EKS
+helmsman init aws --region eu-north-1  # only EKS, in that region
 helmsman init gcp                      # Google GKE
 helmsman init azure                    # Azure AKS
-helmsman init aws --dry-run            # show what would be imported
+helmsman init all --dry-run            # show what would be imported
 ```
 
-After `init` the clusters are in your kubeconfig, so `helmsman` and `kubectl` see them from any terminal.
+After `init` the clusters are in your kubeconfig, so `helmsman` and `kubectl` see them from any terminal. Your
+current context is not changed, and running it again changes nothing.
 
-<p align="center"><img src="docs/img/init.svg" alt="helmsman init demo" width="100%"></p> Your
-current context is not changed.
+`local` finds the Kubernetes that lives on your machine: **kubeconfig files in the git repository you are standing in**
+(`build/kubeconfig-eks`, `kubeconfig.yaml`, `.kube/config`, up to three levels deep; outside a repository only the
+current directory) and **kind, k3d and minikube clusters**. The first are tied to the project; the second are clusters of
+the whole machine. A context whose name is already taken by another cluster is added as `<repo>-<name>`.
 
-On a terminal the provider's own logo is the loading animation: the lettering, drawn once and recolored in place: a beam of light
-sweeps across AWS, four flat Google colours scroll through Google Cloud as hard-edged diagonal bands (no gradients), a wave of blue rolls through Azure.
-`helmsman init demo` plays all three without contacting any cloud. `--no-animation` or `HELMSMAN_NO_ANIM=1` gives plain
-text, and `HELMSMAN_ICONS=plain` replaces the [Nerd Font](https://www.nerdfonts.com/) icons with text. In a terminal that supports the Kitty text sizing protocol (kitty; others are detected by asking the terminal) the provider glyph in the heading is drawn twice as big; `HELMSMAN_ICON_SCALE=1` turns that off, `3` or `4` makes it bigger. Below 45 columns the logo is plain text.
+<p align="center"><img src="docs/img/init.svg" alt="helmsman init demo" width="100%"></p>
+
+On a terminal the target's own logo is the loading animation, drawn once and recolored in place: the K8S lettering stands still
+while a blue gradient flows across it, a beam of light crosses AWS, four flat Google colors scroll through Google Cloud
+as hard-edged diagonal bands (no gradients), a wave of blue rolls through Azure. `helmsman init demo` plays all four
+without contacting anything. `--no-animation` or `HELMSMAN_NO_ANIM=1` gives plain text, and `HELMSMAN_ICONS=plain`
+replaces the [Nerd Font](https://www.nerdfonts.com/) icons with text. In a terminal that supports the Kitty text sizing
+protocol (kitty; others are detected by asking the terminal) the glyph in the heading is drawn twice as big;
+`HELMSMAN_ICON_SCALE=1` turns that off, `3` or `4` makes it bigger. Below 45 columns the logo is plain text.
 
 ### Something not working?
 

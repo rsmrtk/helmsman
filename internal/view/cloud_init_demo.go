@@ -16,7 +16,7 @@ func InitDemo(ctx context.Context, w io.Writer, per time.Duration) error {
 	ui.begin()
 	defer ui.end()
 	ui.header(false)
-	for _, prov := range []string{provAWS, provGCP, provAzure} {
+	for _, prov := range []string{provLocal, provAWS, provGCP, provAzure} {
 		th := themeOf(prov)
 		ui.stage(prov, func() {
 			ui.setStatus("demo of the " + th.Title + " animation, no cloud is contacted…")
@@ -31,7 +31,7 @@ func InitDemo(ctx context.Context, w io.Writer, per time.Duration) error {
 			return ctx.Err()
 		}
 	}
-	ui.printf("  %s\n\n", ui.paint(cDim, "That was `helmsman init demo`. The real commands: helmsman init aws | gcp | azure"))
+	ui.printf("  %s\n\n", ui.paint(cDim, "That was `helmsman init demo`. The real commands: helmsman init all | local | aws | gcp | azure"))
 
 	return nil
 }

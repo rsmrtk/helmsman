@@ -16,7 +16,7 @@ import (
 
 // InitOptions controls `helmsman init`.
 type InitOptions struct {
-	Providers []string // aws | gcp | azure; empty means all three
+	Providers []string // local | aws | gcp | azure; empty means all four
 	Regions   []string // AWS regions to scan; empty means the CLI default (aws configure / AWS_REGION)
 	DryRun    bool     // list what would be imported, change nothing
 	NoAnim    bool     // plain output even on a terminal
@@ -31,11 +31,11 @@ type InitOptions struct {
 func InitClusters(ctx context.Context, w io.Writer, o InitOptions) error {
 	providers := o.Providers
 	if len(providers) == 0 {
-		providers = []string{provAWS, provGCP, provAzure}
+		providers = allTargets
 	}
 	for _, p := range providers {
-		if _, ok := providerOf(p); !ok {
-			return fmt.Errorf("unknown provider %q (use aws, gcp or azure)", p)
+		if _, ok := providerOf(p); !ok && p != provLocal {
+			return fmt.Errorf("unknown target %q (use all, local, aws, gcp or azure)", p)
 		}
 	}
 	ui := newInitUI(w, o.NoAnim)
@@ -46,9 +46,19 @@ func InitClusters(ctx context.Context, w io.Writer, o InitOptions) error {
 	imported, problems := 0, 0
 
 	for _, p := range providers {
-		prov, _ := providerOf(p)
+		prov := p
+		if p != provLocal {
+			prov, _ = providerOf(p)
+		}
 		var imp, prob int
-		ui.stage(prov, func() { imp, prob = initProvider(ctx, ui, prov, o) })
+		ui.stage(prov, func() {
+			if prov == provLocal {
+				imp, prob = initLocal(ctx, ui, o)
+
+				return
+			}
+			imp, prob = initProvider(ctx, ui, prov, o)
+		})
 		imported += imp
 		problems += prob
 	}
@@ -159,7 +169,10 @@ const (
 	svcAKS = "aks"
 )
 
-var providerTitle = map[string]string{provAWS: "AWS", provGCP: "Google Cloud", provAzure: "Azure"}
+// allTargets is what `helmsman init all` (and a plain `helmsman init`) covers, in this order.
+var allTargets = []string{provLocal, provAWS, provGCP, provAzure}
+
+var providerTitle = map[string]string{provLocal: "Kubernetes", provAWS: "AWS", provGCP: "Google Cloud", provAzure: "Azure"}
 
 func inRegion(region string) string {
 	if region == "" {

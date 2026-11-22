@@ -40,6 +40,7 @@ type initUI struct {
 	buf     bytes.Buffer // ... and written under the finished logo
 	status  string       // the line under the animated logo
 	scale   int          // size of the heading glyph: 1 is normal, 2 and more use the text sizing protocol
+	present int          // clusters found that were already in the kubeconfig
 }
 
 func newInitUI(w io.Writer, noAnim bool) *initUI {
@@ -79,7 +80,7 @@ func (u *initUI) printf(format string, a ...any) {
 
 func (u *initUI) header(dry bool) {
 	title := "helmsman init"
-	sub := "import your cloud clusters into the kubeconfig"
+	sub := "import your clusters into the kubeconfig"
 	if dry {
 		sub += " (dry run: nothing will be changed)"
 	}
@@ -112,6 +113,11 @@ func (u *initUI) would(name, command string) {
 }
 
 // hint is what to do about a problem. A command (after "run: ") goes on its own line, highlighted, so it can be copied.
+// wouldAdd is the dry-run line for something that is added without running a command.
+func (u *initUI) wouldAdd(name, what string) {
+	u.printf("    %s %s  %s\n", u.paint(cBlue, "·"), u.paint(cBold, padLabel(name)), u.paint(cDim, "would "+what))
+}
+
 func (u *initUI) hint(text string) {
 	if text == "" {
 		return
@@ -127,6 +133,9 @@ func (u *initUI) blank() { u.printf("\n") }
 
 func (u *initUI) summary(imported, problems int, dry bool, current string) {
 	switch {
+	case imported == 0 && problems == 0 && u.present > 0 && !dry:
+		u.printf("  %s %s\n    %s\n\n", u.paint(cGreen, "✓"), u.paint(cBold, "Everything is already in your kubeconfig."),
+			u.paint(cDim, fmt.Sprintf("%d cluster(s) found, nothing to add.", u.present)))
 	case dry:
 		u.printf("  %s\n\n", u.paint(cDim, "Dry run finished. Nothing was changed."))
 	case imported > 0:
@@ -137,7 +146,8 @@ func (u *initUI) summary(imported, problems int, dry bool, current string) {
 			problems, noun(problems, "problem", "problems"), noun(problems, "it", "them"))
 		u.printf("  %s %s\n\n", u.paint(cAmber, "–"), u.paint(cBold, msg))
 	default:
-		u.printf("  %s %s\n\n", u.paint(cAmber, "–"), u.paint(cBold, "No clusters found in the accounts you are signed in to."))
+		msg := "No clusters found. Sign in to a cloud (aws login, gcloud auth login, az login) or start a local one, then run init again."
+		u.printf("  %s %s\n\n", u.paint(cAmber, "–"), u.paint(cBold, msg))
 	}
 }
 

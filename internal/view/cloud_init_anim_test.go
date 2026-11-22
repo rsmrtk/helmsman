@@ -16,9 +16,9 @@ import (
 )
 
 func TestEveryProviderHasItsOwnTheme(t *testing.T) {
-	require.Len(t, animThemes, 3)
+	require.Len(t, animThemes, 4, "local, aws, gcp, azure")
 	icons := map[string]bool{}
-	for _, prov := range []string{"aws", "gcp", "azure"} {
+	for _, prov := range []string{provLocal, "aws", "gcp", "azure"} {
 		th := themeOf(prov)
 		assert.Equal(t, prov, th.Key)
 		assert.NotEmpty(t, th.Title, prov)
@@ -38,7 +38,9 @@ func TestLogosAreRectangularAndMadeOfBlocks(t *testing.T) {
 		for i, row := range th.Logo {
 			assert.Equal(t, w, utf8.RuneCountInString(row), "%s row %d has a different width", prov, i)
 		}
-		assert.Equal(t, w, th.width())
+		assert.Equal(t, w, logoWidth(th.Logo), prov)
+		assert.Equal(t, w, th.width(), prov)
+		assert.Equal(t, len(th.Logo), th.height(), prov)
 		assert.Contains(t, strings.Join(th.Logo, ""), "█", prov)
 		assert.NotContains(t, strings.Join(th.Logo, ""), "\t", prov)
 	}
@@ -83,8 +85,8 @@ func TestRenderKeepsTheLogoShapeAndOnlyColorsIt(t *testing.T) {
 	plain := &initUI{w: &bytes.Buffer{}, color: false}
 	for prov, th := range animThemes {
 		for _, final := range []bool{false, true} {
-			colored := ui.render(th, th.Logo, 5, final)
-			bare := plain.render(th, th.Logo, 5, final)
+			colored := ui.render(th, 5, final)
+			bare := plain.render(th, 5, final)
 			require.Len(t, colored, len(th.Logo), prov)
 			for i := range th.Logo {
 				assert.Equal(t, indent+th.Logo[i], bare[i], "%s row %d: the shape must not change between frames", prov, i)
@@ -317,10 +319,10 @@ func TestGCPBandEdgesLeanDiagonally(t *testing.T) {
 	assert.True(t, differs, "band edges must lean, not stand vertical")
 }
 
-func TestTheLetteringFitsInEightyColumns(t *testing.T) {
+func TestEveryLogoFitsInEightyColumns(t *testing.T) {
 	ui := &initUI{w: &bytes.Buffer{}, anim: true}
 	for prov, th := range animThemes {
-		assert.True(t, ui.fits(th.Logo), "%s lettering fits in 80 columns", prov)
+		assert.True(t, ui.fits(th), "%s logo fits in 80 columns", prov)
 	}
 }
 
@@ -403,4 +405,41 @@ func TestPlainIconsNeverScale(t *testing.T) {
 	t.Setenv("TERM", "xterm-kitty")
 	ui := newInitUI(&bytes.Buffer{}, false)
 	assert.Equal(t, 1, ui.scale)
+}
+
+func TestKubernetesBlockIsNamedKubernetesNotLocal(t *testing.T) {
+	assert.Equal(t, "Kubernetes", themeOf(provLocal).Title)
+	assert.Equal(t, "Kubernetes", providerTitle[provLocal])
+	assert.NotContains(t, themeOf(provLocal).Subtitle+themeOf(provLocal).Title, "Local")
+}
+
+func TestTheKubernetesGradientFlowsButTheShapeStaysStill(t *testing.T) {
+	th := themeOf(provLocal)
+	w := th.width()
+	changed := false
+	for tt := range 40 {
+		if th.Shade(10, 4, w, tt, true) != th.Shade(10, 4, w, 0, true) {
+			changed = true
+		}
+	}
+	assert.True(t, changed, "the colors shimmer over time")
+	// neighboring cells differ a little, not a lot: it is a smooth gradient, not noise and not flat bands
+	for c := range w - 1 {
+		a, b := th.Shade(c, 3, w, 7, true), th.Shade(c+1, 3, w, 7, true)
+		assert.InDelta(t, a.r, b.r, 40, "col %d", c)
+		assert.InDelta(t, a.g, b.g, 40, "col %d", c)
+		assert.InDelta(t, a.b, b.b, 40, "col %d", c)
+	}
+	// the shadow strokes are the same gradient, darker
+	solid, shadow := th.Shade(20, 4, w, 3, true), th.Shade(20, 4, w, 3, false)
+	assert.Less(t, shadow.b, solid.b)
+	// every color is valid
+	for tt := range 120 {
+		for r := range th.Logo {
+			for c := range w {
+				col := th.Shade(c, r, w, tt, true)
+				assert.True(t, col.r >= 0 && col.r <= 255 && col.g >= 0 && col.g <= 255 && col.b >= 0 && col.b <= 255)
+			}
+		}
+	}
 }
