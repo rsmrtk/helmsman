@@ -54,4 +54,5 @@ help:
 install:                 ## Build helmsman and put it in $(INSTALL_DIR) (default ~/.local/bin)
 	@mkdir -p $(INSTALL_DIR)
 	@CGO_ENABLED=${CGO_ENABLED} go build -ldflags "-w -s -X ${PACKAGE}/cmd.version=${VERSION} -X ${PACKAGE}/cmd.commit=${GIT_REV} -X ${PACKAGE}/cmd.date=${DATE}" -o $(INSTALL_DIR)/helmsman .
-	@echo "installed $(INSTALL_DIR)/helmsman"
+	@ln -sf helmsman $(INSTALL_DIR)/hm
+	@echo "installed $(INSTALL_DIR)/helmsman (+ hm alias)"

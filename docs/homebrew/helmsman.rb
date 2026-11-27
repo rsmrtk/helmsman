@@ -35,6 +35,7 @@ class Helmsman < Formula
 
   def install
     bin.install "helmsman"
+    bin.install_symlink "helmsman" => "hm"
   end
 
   test do
