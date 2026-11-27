@@ -12,11 +12,11 @@ fade into the background, and anything broken is loud.
 
 > Status: early development (`v1.0.3`). Expect rough edges. See [change_logs](change_logs/).
 
-## Watch it (24 s)
+## Watch it (28 s, 60 fps)
 
 <p align="center">
-  <a href="docs/media/helmsman-promo.mp4" title="Play the 24-second promo">
-    <img src="docs/media/helmsman-promo.jpg" alt="helmsman promo video: still scrolling through 35 pods? Broken is loud, press x and know why" width="100%">
+  <a href="docs/media/helmsman-promo.mp4" title="Play the 28-second promo">
+    <img src="docs/media/helmsman-promo.jpg" alt="helmsman promo video: 35 pods, which one is broken? Broken is loud, press x and know why, hm init imports every cluster" width="100%">
   </a>
 </p>
 
@@ -53,6 +53,11 @@ highlighted node. (Cordon, uncordon and drain are refused on `all`.)
   <img src="docs/screens/nodes.png" alt="nodes with the all row" width="49%">
   <img src="docs/screens/namespaces.png" alt="namespaces" width="49%">
 </p>
+
+**One command to import every cluster.** `hm init aws gcp azure local` finds your EKS, GKE and AKS clusters and the
+local ones (kind, k3d, minikube) and writes them into the kubeconfig.
+
+<p align="center"><img src="docs/screens/init.png" alt="hm init for local, AWS, GCP and Azure" width="70%"></p>
 
 Also on board: `:overview` lists every kubeconfig context with version, nodes, pods and what is wrong; `Ctrl-F` is a
 fuzzy jump palette over bookmarks, clusters, namespaces and resources; `Ctrl-T` cycles eight themes (the two screens
