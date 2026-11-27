@@ -29,3 +29,7 @@ fg.yaml
 # local build
 /hm
 /helmsman
+
+# local promo-video workspace (finished assets live in docs/media and docs/screens)
+brag-output/
+.DS_Store

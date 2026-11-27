@@ -12,6 +12,16 @@ fade into the background, and anything broken is loud.
 
 > Status: early development (`v1.0.3`). Expect rough edges. See [change_logs](change_logs/).
 
+## Watch it (24 s)
+
+<p align="center">
+  <a href="docs/media/helmsman-promo.mp4" title="Play the 24-second promo">
+    <img src="docs/media/helmsman-promo.jpg" alt="helmsman promo video: still scrolling through 35 pods? Broken is loud, press x and know why" width="100%">
+  </a>
+</p>
+
+<p align="center"><sub>Click the picture to play the video (<a href="docs/media/helmsman-promo.mp4">docs/media/helmsman-promo.mp4</a>).</sub></p>
+
 ## See it
 
 The animation above is a real recording (`docs/demo.cast`, play it with `asciinema play`). The stills
@@ -55,6 +65,32 @@ what is wrong.
 <p align="center">
   <img src="docs/img/theme-ember.svg" alt="ember theme" width="49%">
   <img src="docs/img/theme-ocean.svg" alt="ocean theme" width="49%">
+</p>
+
+### Real screenshots
+
+Taken from a live run against the demo cluster (`demo/up.sh`), at full size.
+
+**Pods, every namespace.** Broken rows are loud, healthy ones recede.
+
+<p align="center"><img src="docs/screens/pods.png" alt="pods in all namespaces" width="100%"></p>
+
+**Diagnose (`x`).** Findings with advice, containers, events and the previous logs on one screen.
+
+<p align="center"><img src="docs/screens/diagnose.png" alt="diagnose a crash-looping pod" width="100%"></p>
+
+**Describe (`d`) and YAML (`y`)** wear the pod's status colour.
+
+<p align="center">
+  <img src="docs/screens/describe.png" alt="describe view" width="49%">
+  <img src="docs/screens/yaml.png" alt="yaml view" width="49%">
+</p>
+
+**Nodes and namespaces** on the way to the pods, in another theme.
+
+<p align="center">
+  <img src="docs/screens/nodes.png" alt="nodes with the all row" width="49%">
+  <img src="docs/screens/namespaces.png" alt="namespaces" width="49%">
 </p>
 
 ## Install
