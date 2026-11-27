@@ -24,74 +24,39 @@ fade into the background, and anything broken is loud.
 
 ## See it
 
-The animation above is a real recording (`docs/demo.cast`, play it with `asciinema play`). The stills
-below are rendered from the real program too, see [Development](#development).
+The animation at the top is a real recording (`docs/demo.cast`, play it with `asciinema play`). The screenshots
+below were taken from a live run against the demo cluster (`demo/up.sh`).
 
 **Pods in a status palette.** Healthy is green, finished is blue, waiting is amber, broken is red or
 pink, failing rows are bold. The table title counts pods per status.
 
-<p align="center"><img src="docs/img/pods.svg" alt="pods table" width="100%"></p>
-
-**Start on a cluster, not on a guess.** Clusters, then nodes, then namespaces, then pods.
-
-<p align="center"><img src="docs/img/cluster-picker.svg" alt="cluster picker" width="100%"></p>
-
-**The machines first.** After the cluster comes its nodes, with an `all` row on top that stands for every node. The
-node you pick narrows the pods you see after the namespace; `all` keeps them all. `Enter` goes on to the namespaces,
-`p` opens the pods of the highlighted node. (Cordon, uncordon and drain are refused on `all`.)
-
-<p align="center"><img src="docs/img/nodes.svg" alt="nodes with the all row" width="100%"></p>
+<p align="center"><img src="docs/screens/pods.png" alt="pods in all namespaces" width="100%"></p>
 
 **Why is this pod broken?** Press `x`. Findings with advice, every container's state, the latest events
 and the tail of the previous logs, on one screen.
 
-<p align="center"><img src="docs/img/diagnose.svg" alt="diagnose" width="100%"></p>
-
-**YAML, describe and logs wear the pod's colour.** The frame, title and keys follow the pod's status.
-
-<p align="center"><img src="docs/img/yaml.svg" alt="yaml view" width="100%"></p>
-
-**Every cluster at a glance.** `:overview` lists every kubeconfig context with version, nodes, pods and
-what is wrong.
-
-<p align="center"><img src="docs/img/overview.svg" alt="overview" width="100%"></p>
-
-**Jump anywhere.** `Ctrl-F` is a fuzzy palette over bookmarks, clusters, namespaces and resources.
-
-<p align="center"><img src="docs/img/jump.svg" alt="jump palette" width="100%"></p>
-
-**Themes.** `Ctrl-T` cycles eight of them.
-
-<p align="center">
-  <img src="docs/img/theme-ember.svg" alt="ember theme" width="49%">
-  <img src="docs/img/theme-ocean.svg" alt="ocean theme" width="49%">
-</p>
-
-### Real screenshots
-
-Taken from a live run against the demo cluster (`demo/up.sh`), at full size.
-
-**Pods, every namespace.** Broken rows are loud, healthy ones recede.
-
-<p align="center"><img src="docs/screens/pods.png" alt="pods in all namespaces" width="100%"></p>
-
-**Diagnose (`x`).** Findings with advice, containers, events and the previous logs on one screen.
-
 <p align="center"><img src="docs/screens/diagnose.png" alt="diagnose a crash-looping pod" width="100%"></p>
 
-**Describe (`d`) and YAML (`y`)** wear the pod's status colour.
+**YAML, describe and logs wear the pod's colour.** The frame, title and keys follow the pod's status.
 
 <p align="center">
   <img src="docs/screens/describe.png" alt="describe view" width="49%">
   <img src="docs/screens/yaml.png" alt="yaml view" width="49%">
 </p>
 
-**Nodes and namespaces** on the way to the pods, in another theme.
+**Start on a cluster, not on a guess, and the machines first.** Clusters, then nodes, then namespaces, then pods.
+After the cluster comes its nodes, with an `all` row on top that stands for every node. The node you pick narrows the
+pods you see after the namespace; `all` keeps them all. `Enter` goes on to the namespaces, `p` opens the pods of the
+highlighted node. (Cordon, uncordon and drain are refused on `all`.)
 
 <p align="center">
   <img src="docs/screens/nodes.png" alt="nodes with the all row" width="49%">
   <img src="docs/screens/namespaces.png" alt="namespaces" width="49%">
 </p>
+
+Also on board: `:overview` lists every kubeconfig context with version, nodes, pods and what is wrong; `Ctrl-F` is a
+fuzzy jump palette over bookmarks, clusters, namespaces and resources; `Ctrl-T` cycles eight themes (the two screens
+above are in one of them).
 
 ## Install
 
@@ -308,7 +273,7 @@ Needs [kind](https://kind.sigs.k8s.io/) and Docker. Remove it with `kind delete 
 ```sh
 go test ./...                                          # unit tests
 E2E_CONTEXT=kind-hm-demo go test -tags e2e ./e2e/...   # against the demo cluster (also run in CI)
-python3 demo/screenshots.py                            # regenerate the stills above (needs pyte)
+python3 demo/screenshots.py                            # regenerate the SVG stills in docs/img (needs pyte)
 python3 demo/record.py && python3 demo/tour_svg.py     # re-record the animated tour
 ```
 
