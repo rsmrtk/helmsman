@@ -26,7 +26,7 @@ jobs:
 
       # GoReleaser makes an SBOM per archive (`sboms:` in .goreleaser.yml) and needs syft on PATH; the runner has none.
       - name: Install cosign
-        uses: sigstore/cosign-installer@v4.1.3
+        uses: sigstore/cosign-installer@v4.1.4
 
       - name: Install syft
         uses: anchore/sbom-action/download-syft@v0.20.0
